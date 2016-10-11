@@ -1,0 +1,11 @@
+{% if hotels %}
+
+	{% for hotel in hotels %}
+		{{hotel.name}}
+		{{hotel.phone}}
+		{{hotel.description}}
+		{{hotel.address}}
+		{{hotel.slug}}
+	{% endfor %}
+	
+{% endif %}

@@ -1,0 +1,58 @@
+@import settings
+
+.hotel
+	&-list
+		list-style: none
+		padding: 0
+		// margin-top: 50px
+		margin-bottom: 50px
+		.hotel-box
+			box-shadow: rgba(0,0,0, .1) 1px 1px 1px
+			// max-width: 280px
+			// width: 100%
+			background-image: url(http://placehold.it/300x300)
+			background-position: center
+			background-size: cover
+			margin: 0 20px
+			position: relative
+			.hotel-image
+				// max-width: 280px
+				max-height: 200px
+				height: 100vh
+				width: 100%
+			.hotel-img-desc
+				width: 100%
+				max-height: 200px
+				height: 100vh
+				position: relative
+				&:hover
+					.hotel-description
+						height: 100%
+						bottom: 0
+						transition: all .3s ease-in
+			.hotel-description
+				position: absolute
+				bottom: -20px
+				background: rgba(0,0,0, .4)
+				height: 0
+				overflow: hidden
+				transition: all 0.5s ease-out
+				padding: 10px
+				text-align: center
+			.hotel-link
+				transition: all .5s
+				background: $white
+				color: $white
+				width: 100%
+				position: relative
+				height: 100%
+				a
+					color: $grey
+					text-decoration: none
+					text-transform: uppercase
+					letter-spacing: 1.2px
+					padding: 5px 10px
+					font-size: 14px
+			.stars
+				padding-left: 10px
+				padding-bottom: 5px

@@ -1,0 +1,158 @@
+@import settings
+@import hotels
+@import pages
+
+body
+	margin: 0
+	color: $white
+	font-family: 'Lato', sans-serif
+	font-size: 16px
+	background: $bg
+	a
+		&:hover
+			cursor: pointer
+
+section
+	max-width: 1180px
+	width: 100%
+	margin: 0 auto
+
+.header-container
+	background: white url(" http://placehold.it/1440x300") no-repeat center top
+	background-size: cover
+	height: 500px
+	width: 100%
+
+	.header-title
+		text-align: center
+		h1
+			font-size: 50px
+			text-transform: uppercase
+			margin: 0
+		p
+			margin-top: 0
+			text-transform: uppercase
+			font-weight: 700
+
+	.navigation
+		list-style: none
+		padding-right: 40px
+		li
+			a
+				margin: 0 20px
+				text-decoration: none
+				color: $white
+				display: block
+				position: relative
+				transition: all .5s
+				&:after, &:before
+					transition: all .5s
+					position: absolute
+					bottom: -4px
+					left: 0
+					right: 0
+					margin: auto
+					width: 0%
+					content: '.'
+					color: transparent
+					background: $white
+					height: 1px
+					&:hover
+						width: 100%
+				&:hover
+					color: $blue
+					&:after, &:before
+						width: 100%
+						background-color: $blue
+	.search
+		width: initial
+		position: relative
+		&:after
+			content: ""
+			position: absolute
+			top: 6px
+			right: -11px
+			height: 22px
+			width: 1px
+			background: $white
+		.search-input 
+			outline: none
+			border: none
+			border-radius: 20px
+			padding: 5px 10px
+			visibility: hidden
+			opacity: 0
+			width: 0
+			transition: all 1s ease-out
+		&:hover
+			transition: all 1s ease-out
+			.search-input
+				visibility: visible
+				width: 100%
+				opacity: 1
+			.icon-search
+				fill: $blue
+
+	.login 
+		border-bottom: 1px solid $white
+		h6
+			margin: 10px 50px 10px 10px
+			a
+				color: $white
+				text-decoration: none
+				padding: 10px
+				transition: all .5s
+				&:hover
+					color: $blue
+.icon
+	&-search
+		width: 16px
+		height: 16px
+		margin-left: 5px
+		fill: $white
+		&:hover
+			cursor: pointer
+	&-star
+		width: 20px
+		height: 20px
+		fill: $yellow
+.button
+	text-decoration: none
+	color: $white
+	background: $lightblue
+	// padding: 7px 25px
+	border-radius: 3px
+	transition: all .5s
+	position: relative
+	overflow: hidden
+	margin-bottom: 50px
+	max-width: 150px
+	.content
+		position: relative
+		transition: all .4s 
+		overflow: hidden
+	.btn
+		&-top
+			top: 8px
+			left: 0
+		&-bottom
+			top: 40px
+			left: 0
+	&:hover
+		cursor: pointer
+		background: $blue
+		.btn
+			&-top
+				top: -40px
+			&-bottom
+				top: -11px
+.title
+	&-hotels
+		h3
+			color: $grey
+			text-transform: uppercase
+			margin-top: 50px
+			letter-spacing: 1.3px
+			font-weight: 800
+			span
+				color: $blue

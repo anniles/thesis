@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.template import loader
 
 from .models import Hotel
+from django import template
+
 
 # Create your views here.
 def index(request):
@@ -13,3 +15,5 @@ def index(request):
 		'hotels': hotels
 	}
 	return HttpResponse(template.render(data, request))
+
+

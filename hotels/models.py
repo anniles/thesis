@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib import admin
 
+
 # Create your models here.
 class Hotel(models.Model):
 	slug = models.SlugField(max_length=40)
@@ -28,6 +29,6 @@ class Room(models.Model):
 	title = models.CharField(max_length=200)
 	image = models.ImageField(upload_to = 'ulpoads', default = 'static/tourguide/images/pic_folder/None/no-img.jpg' , null=True)
 	description = models.TextField(default='' , null=True)
-	
+
 	def __str__(self):
 		return self.title

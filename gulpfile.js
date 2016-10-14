@@ -7,7 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
  
 gulp.task('sass', function () {
-  return gulp.src('./hotel/static/hotel/sass/**/*.sass')
+  return gulp.src('./kavala/static/sass/**/*.sass')
   	.pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
@@ -15,11 +15,11 @@ gulp.task('sass', function () {
             cascade: false
         }))
   	.pipe(sourcemaps.write())
-    .pipe(gulp.dest('./hotel/static/hotel/css'));
+    .pipe(gulp.dest('./kavala/static/css'));
 });
  
 gulp.task('sass:watch', function () {
-  gulp.watch('./hotel/static/hotel/sass/**/*.sass', ['sass']);
+  gulp.watch('./kavala/static/sass/**/*.sass', ['sass']);
 });
 
 gulp.task('default', ['sass','sass:watch'])

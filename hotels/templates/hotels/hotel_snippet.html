@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="title-hotels">
+	<h3>kavalas <span>hotels</span></h3>
+</div>
+
+{% if hotels %}
+
+<ul class="hotel-list" layout="row top-spread">
+	{% for hotel in hotels %}
+	<li class="hotel-box" layout="column center-center">
+		<div class="hotel-img-desc">
+			<!-- <img class="hotel-image" src="http://placehold.it/300x300" alt="hotel-img"> -->
+			<div class="hotel-description" layout="row center-center">
+				<p>{{ hotel.description | truncatechars:150 }}</p>
+			</div>
+		</div>
+		<div class="hotel-link" layout="column center-left">
+			<a href="#">hotel {{ hotel.id }}</a>
+			<div class="stars">
+				<svg class="icon-star">
+					<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+				</svg>
+				<svg class="icon-star">
+					<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+				</svg>
+			</div>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+<a href="{% url 'hotels:index' %}" class="button" layout='column center-center'>
+	<span class="btn-top content"> View all Hotels </span>
+	<span class="btn-bottom content"> View all Hotels </span>
+</a>
+{% else %}
+
+<p>No hotels are available.</p>
+
+{% endif %}

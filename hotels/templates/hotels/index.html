@@ -1,11 +1,60 @@
-{% if hotels %}
+{% extends 'layouts/base.html' %}
+{% load static %}
 
-	{% for hotel in hotels %}
-		{{hotel.name}}
-		{{hotel.phone}}
-		{{hotel.description}}
-		{{hotel.address}}
-		{{hotel.slug}}
-	{% endfor %}
-	
-{% endif %}
+
+{% block title %}KavalaHotels{% endblock %}
+
+{% block header %}
+{% include 'partials/pages-header.html'  with page_title='kavala\'s hotels' page_subtitle='find the best choice for you' %}
+{% endblock %}
+
+{% block main %}
+<section layout="column center-center">
+	<div class="title-hotels">
+		<h3>kavalas <span>hotels</span></h3>
+	</div>
+	<div class="hotel-list-container" layout="column center-center">
+		{% if hotels %}
+		{% for hotel in hotels %}
+		<div class="hotel-list-info" layout="row center-center">
+			<div class="hotel-image">
+				{# <img src="http://placehold.it/300x300" alt=""> #}
+			</div>
+			<div class="hotel-general">
+				<div class="stars">
+					<svg class="icon-star">
+						<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+					</svg>
+					<svg class="icon-star">
+						<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+					</svg>
+				</div>
+				<h3>{{hotel.name}}</h3>
+				<p class="hotel-description">
+					{{hotel.description | truncatechars:150}}
+				</p>
+				<div class="hotel-info" layout="row center-left">
+					<p>Address: <span>{{hotel.address}}</span></p>
+					<a href="tel:{{hotel.phone}}">Phone: <span>{{hotel.phone}}</span></a>
+
+				</div>
+			</div>
+			<div class="hotel-price" layout="column center-center">
+				<p>From<span> 40</span> &euro;</p>
+				<a href="#" class="button" layout='column center-center'>
+					<span class="btn-top content"> Details </span>
+					<span class="btn-bottom content"> Details </span>
+				</a>
+			</div>
+		</div>
+		{% endfor %}
+		{% else %}
+		<p>
+			No hotel's available. <br> 
+			Sorry for the inconvenience.
+		</p>
+		{% endif %}
+	</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+{% load hotels %}
+
+{% block title %}KavalaTour{% endblock %}
+
+
+{% block header %}
+	{% include 'partials/header.html' %}
+{% endblock %}
+
+{% block main %}
+
+<section layout="column center-center">
+	{% render_three_random_hotels %}
+</section>
+
+{% endblock %}

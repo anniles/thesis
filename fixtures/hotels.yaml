@@ -1,0 +1,21 @@
+- model: tourguide.hotel
+  pk: 3
+  fields:
+    name: hotel_1
+    phone: 123456
+    address: address_1
+    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam odio et illum dignissimos iure expedita.
+- model: tourguide.hotel
+  pk: 4
+  fields:
+    name: hotel_2
+    phone: 098765
+    address: address_2
+    description: consectetur adipisicing elit. Quam odio et illum dignissimos iure expedita.
+- model: tourguide.hotel
+  pk: 5
+  fields:
+    name: hotel_3
+    phone: 098765
+    address: address_3
+    description: Quam odio et illum dignissimos iure expedita.

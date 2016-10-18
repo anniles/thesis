@@ -1,19 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.views import generic
 
 from .models import Hotel
 from django import template
 
 
 # Create your views here.
-def index(request):
-	#take all hotels from db order by name
-	hotels = Hotel.objects.order_by('name').all()
-	template = loader.get_template('hotels/index.html')
-	data = {
-		'hotels': hotels
-	}
-	return HttpResponse(template.render(data, request))
+class IndexView(generic.ListView):
+    template_name = 'hotels/index.html'
+    context_object_name = 'hotels'
+
+    def get_queryset(self):
+        return Hotel.objects.order_by('name').all()
+
+
+class DetailView(generic.DetailView):
+    model = Hotel
+    template_name = 'hotels/hotel.html'
 
 

@@ -2,58 +2,162 @@
 {% load static %}
 
 
-{% block title %}KavalaHotels{% endblock %}
+{% block title %}Kavala'sHotels{% endblock %}
 
 {% block header %}
-{% include 'partials/pages-header.html'  with page_title='kavala\'s hotels' page_subtitle='find the best choice for you' %}
+{% include 'partials/pages-header.html'  with page_title="kavala's hotels" page_subtitle="find the best choice for you" %}
 {% endblock %}
 
 {% block main %}
+
 <section layout="column center-center">
 	<div class="title-hotels">
 		<h3>kavalas <span>hotels</span></h3>
 	</div>
-	<div class="hotel-list-container" layout="column center-center">
-		{% if hotels %}
-		{% for hotel in hotels %}
-		<div class="hotel-list-info" layout="row center-center">
-			<div class="hotel-image">
-				{# <img src="http://placehold.it/300x300" alt=""> #}
-			</div>
-			<div class="hotel-general">
-				<div class="stars">
-					<svg class="icon-star">
-						<use xlink:href="{% static 'svg/icons.svg' %}#star" />
-					</svg>
-					<svg class="icon-star">
-						<use xlink:href="{% static 'svg/icons.svg' %}#star" />
-					</svg>
-				</div>
-				<h3>{{hotel.name}}</h3>
-				<p class="hotel-description">
-					{{hotel.description | truncatechars:150}}
-				</p>
-				<div class="hotel-info" layout="row center-left">
-					<p>Address: <span>{{hotel.address}}</span></p>
-					<a href="tel:{{hotel.phone}}">Phone: <span>{{hotel.phone}}</span></a>
+	
+	<div class="main-wrapper" layout="row top-justify">
+		
+		<aside class="search-container" self="size-x1" layout="column center-center">
+			<a href="#" class="button map-btn" layout='column center-center'>
+				<span class="btn-top content"> view on map </span>
+				<span class="btn-bottom content"> view on map </span>
+			</a>
 
+			<div class="filters">
+				
+				<div class="filters-btn" layout="row center-left">
+					<svg class="icon-gear">
+						<use xlink:href="{% static 'svg/icons.svg' %}#gear" />
+					</svg>
+					<h4>Filters</h4>
+					<svg class="icon-plus" self="right">
+						<use xlink:href="{% static 'svg/icons.svg' %}#plus" />
+					</svg>
 				</div>
+
+				<hr class="filters-line">
+				
+				<div class="filters-options">
+					<div class="price-range">
+						<h5>Price</h5>
+						<input type="range" id="myRange" value="90">
+					</div>
+					
+					<hr class="filters-line">
+					
+					<div class="stars">
+						<h5>Stars Category</h5>
+						<div class="stars-item">
+							<input type="checkbox" name="five_stars" value="none" id="five_stars">
+							<label for="five_stars"></label>
+							{% for i in "xxxxx" %}
+							<svg class="icon-star" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+						</div>
+						
+						<div class="stars-item">
+							<input type="checkbox" name="four_stars" value="none" id="four_stars">
+							<label for="four_stars"></label>
+							{% for i in "xxxx" %}
+							<svg class="icon-star" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+							{% for i in "x" %}
+							<svg class="icon-star-nofill" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+						</div>
+
+						<div class="stars-item">
+							<input type="checkbox" name="three_stars" value="none" id="three_stars">
+							<label for="three_stars"></label>
+							{% for i in "xxx" %}
+							<svg class="icon-star" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+							{% for i in "xx" %}
+							<svg class="icon-star-nofill" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+						</div>
+
+						<div class="stars-item">
+							<input type="checkbox" name="tow_stars" value="none" id="tow_stars">
+							<label for="tow_stars"></label>
+							{% for i in "xx" %}
+							<svg class="icon-star" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+							{% for i in "xxx" %}
+							<svg class="icon-star-nofill" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+						</div>
+
+						<div class="stars-item">
+							<input type="checkbox" name="one_stars" value="none" id="one_stars">
+							<label for="one_stars"></label>
+							{% for i in "x" %}
+							<svg class="icon-star" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+							{% for i in "xxxx" %}
+							<svg class="icon-star-nofill" self="right">
+								<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+							</svg>
+							{% endfor %}
+						</div>
+					</div>
+
+					<hr class="filters-line">
+					
+					<div class="hotel-type">
+						<h5>Hotel Type</h5>
+						<div class="hotel-type-item" layout="row center-left">
+							<input type="checkbox" name="ro" id="ro">
+							<label for="ro"></label>
+							 <p><strong>RO</strong>: Room only</p>
+						</div>
+						<div class="hotel-type-item" layout="row center-left">
+							<input type="checkbox" name="bb" id="bb">
+							<label for="bb"></label>
+							 <p><strong>BB</strong>: Bed & Breakfast</p>
+						</div>
+						<div class="hotel-type-item" layout="row center-left">
+							<input type="checkbox" name="hb" id="hb">
+							<label for="hb"></label>
+							 <p><strong>HB</strong>: Half Board</p>
+						</div>
+						<div class="hotel-type-item" layout="row center-left">
+							<input type="checkbox" name="fb" id="fb">
+							<label for="fb"></label>
+							 <p><strong>FB</strong>: Full Board</p>
+						</div>
+						<div class="hotel-type-item" layout="row center-left">
+							<input type="checkbox" name="ai" id="ai">
+							<label for="ai"></label>
+							 <p><strong>AI</strong>: All Inclusive</p>
+						</div>
+
+					</div>
+				</div>
+
 			</div>
-			<div class="hotel-price" layout="column center-center">
-				<p>From<span> 40</span> &euro;</p>
-				<a href="#" class="button" layout='column center-center'>
-					<span class="btn-top content"> Details </span>
-					<span class="btn-bottom content"> Details </span>
-				</a>
-			</div>
+		</aside>
+
+		<div class="hotel-list-container" self="size-x3" layout="column center-center">
+		{% include 'hotels/partials/hotel_list.html' %}
 		</div>
-		{% endfor %}
-		{% else %}
-		<p>
-			No hotel's available. <br> 
-			Sorry for the inconvenience.
-		</p>
-		{% endif %}
+		
 	</div>
 </section>
 

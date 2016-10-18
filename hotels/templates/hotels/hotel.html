@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}{{hotel.name}}{% endblock %}
+
+{% block header %}
+{% include 'partials/hotel-header.html'  with hotel=hotel %}
+{% endblock %}
+
+{% block main %}
+
+<section class="main-wrapper hotel-main" layout="row top-justify">
+
+    <section class="" self="size-x2" layout="column center-center">
+        <img src="http://placehold.it/500x500" alt="">
+    </section>
+
+    <aside class="search-container hotel-availability" self="size-x1" layout="column center-center">
+        <a href="#" class="button map-btn" layout='column center-center'>
+            <span class="btn-top content"> view on map </span>
+            <span class="btn-bottom content"> view on map </span>
+        </a>
+
+        <div class="check-availability" layout='column center-center'>
+            <h4 class="check-title">Check Availability</h4>
+
+            <form action="">
+                <div class="checkdate" layout="row center-justify">
+                    <div class="checkin" layout="column center-left">
+                        <label for="checkin">
+                            <svg class="icon-calendar" self="right">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
+                            </svg>
+                            Check in 
+                        </label>
+                     
+                        <input type="date" name="checkin" id="checkin">
+                    </div>
+                    <div class="checkout" layout="column center-left">
+                        <label for="checkout">
+                            <svg class="icon-calendar" self="right">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
+                            </svg>
+                            Check out 
+                        </label>
+                      
+                        <input type="date" name="checkout" id="checkout">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </aside>
+
+</section>
+
+{% endblock %}

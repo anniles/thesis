@@ -1,0 +1,49 @@
+    {% load static %}
+
+    {% if hotels %}
+    {% for hotel in hotels %}
+    <div class="hotel-list-info" layout="row center-center">
+        <figure class="hotel-image" self="stretch size-x3">
+            <a href="#">
+                <img src="http://placehold.it/500x500" alt="">
+            </a>
+        </figure>
+        <div class="hotel-general" self="size-x4">
+            <div class="hotel-name-stars" layout="row center-left">
+                <h3>{{hotel.name}}</h3>
+                <div class="stars" >
+                    <svg class="icon-star">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#star" />
+                    </svg>
+                    <svg class="icon-star">
+                        <use xlink:href="{% static 'svg/icons.svg' %}#star" />
+                    </svg>
+                </div>
+            </div>
+            <p class="hotel-description">
+                {{hotel.description | truncatechars:150}}
+            </p>
+            <div class="hotel-info" layout="row center-left">
+                <address>
+                    Address: <span>{{hotel.address}}</span>
+                </address>
+                <a href="tel:{{hotel.phone}}">Phone: <span>{{hotel.phone}}</span></a>
+
+            </div>
+        </div>
+        <div class="hotel-price" self="size-x1 stretch" layout="column center-center">
+            <p><span> 40</span> <span class="currency">&euro;</span></p>
+            <p>From/Per night</p>
+            <a href="{% url 'hotels:detail' hotel.slug %}" class="button" layout='column center-center'>
+                <span class="btn-top content"> Details </span>
+                <span class="btn-bottom content"> Details </span>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>
+        No hotel's available. <br> 
+        Sorry for the inconvenience.
+    </p>
+    {% endif %}

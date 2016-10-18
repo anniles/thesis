@@ -1,0 +1,104 @@
+@import settings
+
+.bottom-shadow
+    position: absolute
+    left: 0
+    bottom: 0
+    height: 100%
+    width: 100%
+    background: -moz-linear-gradient(top,  rgba(255,254,252,0) 0%, rgba(188,187,186,0.11) 34%, rgba(151,150,149,0.18) 53%, rgba(115,115,114,0.34) 71%, rgba(58,58,58,0.87) 100%)
+    background: -webkit-linear-gradient(top,  rgba(255,254,252,0) 0%,rgba(188,187,186,0.11) 34%,rgba(151,150,149,0.18) 53%,rgba(115,115,114,0.34) 71%,rgba(58,58,58,0.87) 100%)
+    background: linear-gradient(to bottom,  rgba(255,254,252,0) 0%,rgba(188,187,186,0.11) 34%,rgba(151,150,149,0.18) 53%,rgba(115,115,114,0.34) 71%,rgba(58,58,58,0.87) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fffefc', endColorstr='#de3a3a3a',GradientType=0 )
+
+
+.hotel
+    position: relative
+    z-index: 1
+    padding: 0 50px
+    @media #{$max700}
+        flex-direction: column!important
+        justify-content: flex-end!important
+        align-items: flex-start!important
+        padding: 0 20px
+    .stars
+        .icon-star
+            stroke: $yellow
+            stroke-width: 4
+        .icon-star-nofill
+            stroke: $white
+            stroke-width: 4
+    .page-hotel
+        &-price
+            font-size: 14px
+            @media #{$max700}
+                justify-content: flex-start!important
+                align-self: flex-start!important
+            p
+                position: relative
+                text-transform: lowercase!important
+            span
+                color: $lightblue
+                &:first-of-type
+                    font-size: 74px
+                    position: relative
+                    font-weight: bold
+                    padding-left: 10px
+                    top: 13px
+                    @media #{$max700}
+                        font-size: 24px
+                        top: 2px
+                        padding-left: 5px
+            .currency
+                position: absolute
+                top: 25px
+                right: -17px
+                font-size: 30px
+                @media #{$max700}
+                    font-size: 24px
+                    top: 2px
+        &-info
+            text-align: start
+            @media #{$max700}
+                p
+                    margin-bottom: 0
+    
+.main-wrapper
+    &.hotel-main
+        margin-top: 50px
+    .search-container
+        &.hotel-availability
+            @media #{$max940}
+                order: -1 
+            padding-right: 0
+            padding-left: 20px
+    .check-availability
+        background: $white
+        box-shadow: rgba(0,0,0, .1) 1px 1px 1px
+        border: 1px solid rgba(0,0,0, .1)
+        .check-title    
+            background: $pink
+            width: 100%
+            text-align: center
+            font-size: 20px
+            padding: 7px
+            border-radius: 3px
+            margin: 0
+        form
+            width: 100%           
+            .checkdate
+                width: 100%
+                label
+                    color: $grey
+                input
+                    max-width: 133px
+                    width: 100%
+                    padding: 7px 0px
+                    border-radius: 3px
+                    border-style: none
+                    border: 1px solid rgba(0,0,0, .3)
+                    margin-top: 5px
+                .checkin
+                    margin: 20px 10px 20px 30px
+                .checkout
+                    margin: 20px 30px 20px 10px

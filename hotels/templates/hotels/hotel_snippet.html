@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<div class="hotel-link" layout="column center-left">
-			<a href="#">{{ hotel.name }}</a>
+			<a href="{% url 'hotels:detail' hotel.slug %}">{{ hotel.name }}</a>
 			<div class="stars">
 				<svg class="icon-star">
 					<use xlink:href="{% static 'svg/icons.svg' %}#star" />

@@ -66,62 +66,89 @@
 				padding-bottom: 5px
 
 //hotels list page
-.hotel-list-container
-	color: $grey
-	background: transparent
-	max-width: 900px
-	width: 100%
+.main-wrapper
+	padding: 0 20px
+	.hotel-list-container
+		color: $grey
+		background: transparent
+		// max-width: 900px
+		// width: 100%
 
-.hotel-list-info
-	box-shadow: rgba(0,0,0, .1) 1px 1px 1px
-	margin: 15px 0
-	background: $white
-	@media #{$max700}
-		flex-direction: column
-	h3
-		margin: 5px 0 0 0
-		text-transform: uppercase
-	.hotel
-		&-image
-			flex: 2
-			width: 100%
-			max-height: 265px
-			height: 100vh
-			background-size: cover
-			background-position: center
-			background-image: url("http://placehold.it/300x300")
-			@media #{$max700}
-				display: none
-		&-general
-			flex: 3
-			padding: 30px
-		&-info
-			@media #{$max700}
-				flex-direction: column
-				align-items: flex-start
-			p
+	.hotel-list-info
+		box-shadow: rgba(0,0,0, .1) 1px 1px 1px
+		border: 1px solid rgba(0,0,0, .1)
+		margin: 10px 0
+		background: $white
+		&:first-child
+			margin-top: 0
+		@media #{$max700}
+			flex-direction: column
+		h3
+			margin: 0 10px 0 0
+			text-transform: uppercase
+		.hotel
+			&-image
+				overflow: hidden
+				min-height: 220px
+				text-align: center
+				position: relative
 				margin: 0
-			a
-				text-decoration: none
-				color: $grey
-				margin-left: 10px
+				width: 100%
+				// max-height: 240px
+				// height: 100vh
+				background-size: cover
+				background-position: center
+				// background-image: url("http://placehold.it/300x300")
+				img
+					height: 250px
+					width: 100%
+					backface-visibility: hidden
+					position: absolute
+					left: 0
+					transition: all .5s
+					transform: scale(1.2)
+					&:hover
+						transform: scale(1.1)
+			&-general
+				padding: 30px
+			&-info
 				@media #{$max700}
-					margin-left: 0
-			span
-				color: $pink
-				font-weight: bold
-		&-price
-			flex: 1
-			padding: 0 20px
-			text-align: center
-			align-self: stretch
-			border-left: 1px solid rgba(0,0,0, .1)
-			@media #{$max700}
-				border-top: 1px solid rgba(0,0,0, .1)
-				border-left: none
-			p
-				color: $pink
+					flex-direction: column
+					align-items: flex-start
+				address
+					font-style: normal
+				a
+					text-decoration: none
+					color: $grey
+					margin-left: 10px
+					@media #{$max700}
+						margin-left: 0
 				span
-					font-size: 40px
+					color: $pink
 					font-weight: bold
-	
+			&-price
+				padding: 0 20px
+				text-align: center
+				white-space: nowrap
+				border-left: 1px solid rgba(0,0,0, .1)
+				@media #{$max700}
+					border-top: 1px solid rgba(0,0,0, .1)
+					border-left: none
+				p
+					color: $pink
+					margin: 0
+					font-size: 14px
+					&:first-of-type
+						position: relative
+						margin-top: 10px
+					.currency
+						position: absolute
+						top: 8px
+						right: -12px
+						font-size: 18px
+					&:last-of-type
+						margin-bottom: 10px
+					span
+						font-size: 40px
+						font-weight: bold
+		

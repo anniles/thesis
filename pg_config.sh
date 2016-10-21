@@ -2,7 +2,7 @@ echo "Apt Update.."
 apt-get -qqy update
 echo "Apt Install.."
 apt-get -qqy update
-apt-get -qqy install postgresql libpq-dev 
+apt-get -qqy install postgresql libpq-dev
 apt-get -qqy install python3 python3-dev python3-pip python3-setuptools
 apt-get -qqy install libtiff5-dev libjpeg libjpeg-dev libjpeg8-dev zliblg-dev \
     libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk

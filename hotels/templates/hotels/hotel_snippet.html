@@ -18,11 +18,7 @@
 		<div class="hotel-link" layout="column center-left">
 			<a href="{% url 'hotels:detail' hotel.slug %}">{{ hotel.name }}</a>
 			<div class="stars">
-				<svg class="icon-star">
-					<use xlink:href="{% static 'svg/icons.svg' %}#star" />
-				</svg>
-				<svg class="icon-star">
-					<use xlink:href="{% static 'svg/icons.svg' %}#star" />
+				{% include 'hotels/partials/stars_snippet.html' with with_nofill=False hotel=hotel %}
 				</svg>
 			</div>
 		</div>

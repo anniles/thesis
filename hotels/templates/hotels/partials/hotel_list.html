@@ -1,6 +1,6 @@
     {% load static %}
+    {% load hotels %}
 
-    {% if hotels %}
     {% for hotel in hotels %}
     <div class="hotel-list-info" layout="row center-center">
         <figure class="hotel-image" self="stretch size-x3">
@@ -12,12 +12,7 @@
             <div class="hotel-name-stars" layout="row center-left">
                 <h3>{{hotel.name}}</h3>
                 <div class="stars" >
-                    <svg class="icon-star">
-                        <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-                    </svg>
-                    <svg class="icon-star">
-                        <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-                    </svg>
+                    {% include 'hotels/partials/stars_snippet.html' with with_nofill=False hotel=hotel %}
                 </div>
             </div>
             <p class="hotel-description">
@@ -40,10 +35,9 @@
             </a>
         </div>
     </div>
-    {% endfor %}
-    {% else %}
+    {% empty %}
     <p>
         No hotel's available. <br> 
         Sorry for the inconvenience.
     </p>
-    {% endif %}
+    {% endfor %}

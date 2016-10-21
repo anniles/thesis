@@ -11,7 +11,7 @@
 
 <section class="main-wrapper hotel-main" layout="row top-justify">
 
-    <section class="hotel-info" self="size-x2" layout="column center-center">
+    <div class="hotel-info" self="size-x2" layout="column center-center">
         <div class="hotel-slider">
             <img src="http://placehold.it/500x500" alt="">
         </div>
@@ -19,16 +19,29 @@
         <hr class="page-line">
 
         <div class="hotel-desc-container" layout="row top-justify">
-            <aside>
+            <aside self="size-x1">
                 <h3>Description</h3>
             </aside>
-            <div class="hotel-desc">
+            <div class="hotel-desc" self="size-x3">
                 <p>
                     {{ hotel.description }}
                 </p>
             </div>
         </div>
-    </section>
+        
+        <hr class="page-line">
+
+        <div class="hotel-desc-container" layout="row top-justify">
+            <aside self="size-x1">
+                <h3>Rooms Type</h3>
+            </aside>
+            <div class="hotel-desc" self="size-x3">
+                <p>
+                    {{ hotel.description }}
+                </p>
+            </div>
+        </div>
+    </div>
 
     <aside class="search-container hotel-availability" self="size-x1" layout="column center-center">
         <a href="#" class="button map-btn" layout='column center-center'>

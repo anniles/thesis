@@ -1,0 +1,35 @@
+{% load static %}
+
+<footer>
+    <section layout="row top-spread">
+        <div class="footer-column need-help" layout="column top-left">
+            <h3>Need help?</h3>
+            <div class="help-info" layout="column top-left">
+                <a href="tel:2510111111">
+                    <span>
+                        <svg class="icon-phone" self="right">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#phone" />
+                        </svg>
+                    </span>2510111111
+                </a>
+                <a href="#">
+                    <span>
+                        <svg class="icon-mail" self="right">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#mail" />
+                        </svg>
+                    </span>anniles_@hotmail.com
+                </a>
+            </div>
+        </div>
+        <div class="footer-column" layout="column top-left">
+            <h3>Pages</h3>
+            <div class="footer-pages" layout="column top-left">
+                <a href="{% url 'homepage' %}">Home</a>
+                <a href="{% url 'hotels:index' %}">Hotel</a>
+                <a href="#">Transportation</a>
+                <a href="#">Sights</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </section>
+</footer>

@@ -19,7 +19,6 @@
 			<a href="{% url 'hotels:detail' hotel.slug %}">{{ hotel.name }}</a>
 			<div class="stars">
 				{% include 'hotels/partials/stars_snippet.html' with with_nofill=False hotel=hotel %}
-				</svg>
 			</div>
 		</div>
 	</li>

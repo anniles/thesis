@@ -21,14 +21,14 @@
         </ul>
     </nav>
     <section class="header-title hotel" self="size-x1" layout="row bottom-left">
-        <div class="page-hotel-info">
+        <div class="page-hotel-info" self="size-x1">
             <div class="stars">
                 {% include 'hotels/partials/stars_snippet.html' with with_nofill=True hotel=hotel %}
             </div>
             <h2>{{hotel.name}}</h2>
             <p>{{hotel.address}}</p>
         </div>
-        <div class="page-hotel-price" self="right" layout="row bottom-right">
+        <div class="page-hotel-price" self="right size-x1" layout="row bottom-right">
             <p>from/per night</p>
              <p>
                 <span> 40</span> <span class="currency">&euro;</span>

@@ -1,0 +1,15 @@
+{% load static %}
+{% load hotels %}
+
+{% for i in hotel.category|rangestar %}
+<svg class="icon-star" self="right">
+    <use xlink:href="{% static 'svg/icons.svg' %}#star" />
+</svg>
+{% endfor %}
+{% if with_nofill %}
+{% for i in hotel.category|add:-5|rangestar %}
+<svg class="icon-star-nofill" self="right">
+    <use xlink:href="{% static 'svg/icons.svg' %}#star" />
+</svg>
+{% endfor %}
+{% endif %}

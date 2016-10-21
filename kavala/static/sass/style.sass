@@ -1,6 +1,8 @@
 @import settings
 @import hotels
 @import pages
+@import search
+@import hotelpage
 
 ::selection 
 	background: $lightblue /* WebKit/Blink Browsers */
@@ -12,7 +14,7 @@
 body
 	margin: 0
 	color: $white
-	font-family: 'Lato', sans-serif
+	font-family: 'Montserrat', sans-serif
 	font-size: 16px
 	background: $bg
 	a
@@ -25,12 +27,15 @@ section
 	margin: 0 auto
 
 .header-container
-	background: white url(" http://placehold.it/1440x300") no-repeat center top
+	background: white url(" http://placehold.it/1440x300") no-repeat
+	background-position: center
 	background-size: cover
+	background-attachment: fixed
 	height: 500px
 	width: 100%
 	&.pages
-		height: 300px
+		height: 400px
+		position: relative
 
 	.header-title
 		text-align: center
@@ -50,6 +55,8 @@ section
 	.navigation
 		list-style: none
 		padding-right: 40px
+		position: relative
+		z-index: 1
 		li
 			a
 				margin: 0 20px
@@ -107,6 +114,7 @@ section
 				fill: $blue
 
 	.login 
+		z-index: 1
 		border-bottom: 1px solid $white
 		h6
 			margin: 10px 50px 10px 10px
@@ -123,30 +131,62 @@ section
 		height: 16px
 		margin-left: 5px
 		fill: $white
+		flex-shrink: 0
 		&:hover
 			cursor: pointer
 	&-star
+		width: 15px
+		height: 15px
+		fill: $yellow
+		&-nofill
+			width: 15px
+			height: 15px
+			fill: none
+			stroke: $grey
+	&-gear
+		width: 18px
+		height: 18px
+		fill: $grey
+	&-plus
+		width: 10px
+		height: 10px
+		fill: $grey
+	&-calendar
+		width: 13px
+		height: 13px
+		fill: $grey
+		margin-right: 5px
+	&-phone
+		width: 50px
+		height: 50px
+		fill: $grey
+	&-arrow
 		width: 20px
 		height: 20px
-		fill: $yellow
+		fill: none
+		stroke: $grey
+
+
+
 .button
 	text-decoration: none
 	color: $white
 	background: $lightblue
 	// padding: 7px 25px
+	white-space: nowrap
 	border-radius: 3px
 	transition: all .5s
 	position: relative
 	overflow: hidden
-	margin-bottom: 50px
-	max-width: 150px
+	margin-bottom: 10px
+	max-width: 170px
 	.content
 		position: relative
 		transition: all .4s 
 		overflow: hidden
 	.btn
 		&-top
-			top: 8px
+			top: 10px
 			left: 0
 		&-bottom
 			top: 40px
@@ -158,7 +198,8 @@ section
 			&-top
 				top: -40px
 			&-bottom
-				top: -11px
+				top: -8px
+				font-weight: bold
 .title
 	&-hotels
 		h3

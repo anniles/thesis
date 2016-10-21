@@ -1,0 +1,142 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}{{hotel.name}}{% endblock %}
+
+{% block header %}
+{% include 'partials/hotel-header.html'  with hotel=hotel %}
+{% endblock %}
+
+{% block main %}
+
+<section class="main-wrapper hotel-main" layout="row top-justify">
+
+    <div class="hotel-info" self="size-x2" layout="column center-center">
+        <div class="hotel-slider">
+            <img src="http://placehold.it/500x500" alt="">
+        </div>
+
+        <hr class="page-line">
+
+        <div class="hotel-desc-container" layout="row top-justify">
+            <aside self="size-x1">
+                <h3>Description</h3>
+            </aside>
+            <div class="hotel-desc" self="size-x3">
+                <p>
+                    {{ hotel.description }}
+                </p>
+            </div>
+        </div>
+        
+        <hr class="page-line">
+
+        <div class="hotel-desc-container" layout="row top-justify">
+            <aside self="size-x1">
+                <h3>Rooms Type</h3>
+            </aside>
+            <div class="hotel-desc" self="size-x3">
+                <p>
+                    {{ hotel.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <aside class="search-container hotel-availability" self="size-x1" layout="column center-center">
+        <a href="#" class="button map-btn" layout='column center-center'>
+            <span class="btn-top content"> view on map </span>
+            <span class="btn-bottom content"> view on map </span>
+        </a>
+
+        <div class="check-availability" layout='column center-center'>
+            <h4 class="check-title">Check Availability</h4>
+
+            <form action="">
+                <div class="checkdate" layout="row center-justify">
+                    <div class="checkin" layout="column center-left">
+                        <label for="checkin">
+                            <svg class="icon-calendar" self="right">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
+                            </svg>
+                            Check in 
+                        </label>
+
+                        <input type="date" name="checkin" id="checkin" required>
+                    </div>
+                    <div class="checkout" layout="column center-left">
+                        <label for="checkout">
+                            <svg class="icon-calendar" self="right">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
+                            </svg>
+                            Check out 
+                        </label>
+
+                        <input type="date" name="checkout" id="checkout" required>
+                    </div>
+                </div>
+
+                <div class="check-people" layout="row center-center">
+                    <div class="adults" self="left" layout="column center-left">
+                        <p>Adults</p>
+                        <div class="adults-count" self="left size-x1" layout="row center-center">
+                            <div class="minus" self="size-x1"> - </div>
+                            <div class="number-adults" self="size-x1"> 1 </div>
+                            <div class="plus" self="size-x1"> + </div>
+                        </div>
+                    </div>
+
+                    <div class="children" layout="column center-left">
+                        <p>Children</p>
+                        <div class="children-count" self="left size-x1" layout="row center-center">
+                            <div class="minus" self="size-x1"> - </div>
+                            <div class="number-children" self="size-x1"> 1 </div>
+                            <div class="plus" self="size-x1"> + </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="filters-line">
+
+                <div class="name-wrapper" layout="row center-justify">
+                    <div class="container-fname" layout="column center-left">
+                        <label for="fname">Name</label>
+                        <input type="text" id="fname" name="fname" required>
+                    </div>
+                    <div class="container-lname" layout="column center-left">
+                        <label for="lname">Last name</label>
+                        <input type="text" id="lname" name="lname" required>
+                    </div>
+                </div>
+
+                <div class="email-wrapper" layout="column center-justify">
+                    <div class="container-email" layout="column center-left">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="container-phone" layout="column center-left">
+                        <label for="tel">Telephone</label>
+                        <input type="tel" name="tel" id="tel" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="button submit-btn" layout='column center-center'>
+                    <span class="btn-top content"> check now </span>
+                    <span class="btn-bottom content"> check now </span>
+                </button>
+            </form>
+        </div>
+        <div class="book-by-phone" layout="column center-center">
+            <div class="arrow-up">&nbsp;</div>
+            <svg class="icon-phone">
+                <use xlink:href="{% static 'svg/icons.svg' %}#phone" />
+            </svg>
+            <h5><span>Book</span> by phone</h5>
+            <a href="tel:{{hotel.phone}}">{{ hotel.phone }}</a>
+            <small>Monday to Friday 9.00am - 8.00pm</small>
+        </div>
+    </aside>
+
+</section>
+
+{% endblock %}

@@ -4,10 +4,23 @@ from django.contrib import admin
 
 # Create your models here.
 class Hotel(models.Model):
+	CATEGORY_CHOICES = (
+        (1, '1 star'),
+        (2, '2 star'),
+        (3, '3 star'),
+        (4, '4 star'),
+        (5, '5 star'),
+    )
+
 	slug = models.SlugField(max_length=40)
 	name = models.CharField(max_length=200)
 	address = models.CharField(max_length=200)
 	phone = models.CharField(max_length=20)
+	category = models.SmallIntegerField(
+        max_length=2,
+        choices=CATEGORY_CHOICES,
+        default=1,
+    )
 	description = models.TextField(default='' , null=True)
 
 	def __str__(self):

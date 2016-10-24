@@ -4,7 +4,7 @@
     {% for hotel in hotels %}
     <div class="hotel-list-info" layout="row center-center">
         <figure class="hotel-image" self="stretch size-x3">
-            <a href="#">
+            <a href="{% url 'hotels:detail' hotel.slug %}">
                 <img src="http://placehold.it/500x500" alt="">
             </a>
         </figure>
@@ -18,7 +18,7 @@
             <p class="hotel-description">
                 {{hotel.description | truncatechars:150}}
             </p>
-            <div class="hotel-info" layout="row center-left">
+            <div class="hotel-info" layout="column center-left">
                 <address>
                     Address: <span>{{hotel.address}}</span>
                 </address>

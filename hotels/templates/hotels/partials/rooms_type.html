@@ -1,0 +1,105 @@
+{% load static %}
+
+<div class="hotel-desc-container" layout="row top-justify">
+    <aside self="size-x1">
+        <h3>Rooms Type</h3>
+    </aside>
+    <div class="room-type" self="size-x3">
+        <div class="room-single">
+            <h4>Single room</h4>
+            <p>
+                {{ hotel.description }}
+            </p>
+            
+            <div class="room-extras" layout="row top-spread">
+                <div class="tech-facilities" self="size-x1" layout="column center-center">
+                    <p>
+                        <svg class="icon-wifi">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
+                        </svg>
+                        Free wifi
+                    </p>
+                    <p>
+                        <svg class="icon-tv">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
+                        </svg>
+                        Tv
+                    </p>
+                    <p>
+                        <svg class="icon-safe">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
+                        </svg>
+                        Safety box
+                    </p>
+                </div>
+
+                <div class="" self="size-x1">
+                    {% for i in "xxx" %}
+                    <p>
+                        <svg class="icon-check">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                        </svg>
+                        Lorem ipsum dolor sit amet,
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="room-img" layout="row center-center">
+                {% for i in "xxxx" %}
+                <img src="http://placehold.it/200x200" alt="">
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <hr class="page-line">
+        
+        <div class="room-double">
+            <h4>Double room</h4>
+            <p>
+                {{ hotel.description }}
+            </p>
+
+            <div class="room-extras" layout="row top-spread">
+                <div class="tech-facilities" self="size-x1" layout="column center-center">
+                    <p>
+                        <svg class="icon-wifi">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
+                        </svg>
+                        Free wifi
+                    </p>
+                    <p>
+                        <svg class="icon-tv">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
+                        </svg>
+                        Tv
+                    </p>
+                    <p>
+                        <svg class="icon-safe">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
+                        </svg>
+                        Safety box
+                    </p>
+                </div>
+
+                <div class="" self="size-x1">
+                    {% for i in "xxx" %}
+                    <p>
+                        <svg class="icon-check">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                        </svg>
+                        Lorem ipsum dolor sit amet,
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="room-img" layout="row center-center">
+                {% for i in "xxxx" %}
+                <img src="http://placehold.it/200x200" alt="">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

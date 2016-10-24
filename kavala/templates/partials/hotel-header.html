@@ -2,7 +2,7 @@
 {% load hotels %}
 
 <header class="pages header-container" layout="column top-stretch">
-    <div class="login" layout="row-right">
+    <section class="login" layout="row-right">
         <div class="search" layout="row center-right">
             <input type="text" class="search-input">
             <svg class="icon-search">
@@ -10,7 +10,8 @@
             </svg>
         </div>
         <h6 self="right"><a href="#">Sign In</a></h6>
-    </div>
+    </section>
+    <hr class="header-line">
     <nav>
         <ul class="navigation" layout="rows center-center">
             <li><a href="{% url 'homepage' %}">Home</a></li>

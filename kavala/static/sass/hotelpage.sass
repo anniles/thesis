@@ -89,7 +89,7 @@
             margin: 0
         form
             width: 100%  
-            padding: 0 30px         
+            padding: 0 20px         
             .checkdate
                 width: 100%
                 @media #{$max500}
@@ -233,16 +233,30 @@
                 width: 100%
                 max-height: 500px
                 height: 100vh
+        &-desc
+            h4
+                line-height: 20px
+                margin: 0
+                font-size: 18px
+                margin-bottom: 10px
+            .hotels-check
+                columns: 2
+                margin-bottom: 20px
+                text-align: center
+                p
+                    margin-bottom: 5px
+                @media #{$max500}
+                    columns: 1
         &-desc-container
             color: $grey
-            margin-bottom: 20px
+            // margin-bottom: 20px
             @media #{$max940}
                 flex-direction: column!important
             p
                 max-width: 560px
                 width: 100%
-                padding-left: 10px
-                margin: 0
+                // padding-left: 10px
+                margin: 0 0 20px
                 font-size: 14px
                 @media #{$max940}
                     padding-left: 0
@@ -252,9 +266,39 @@
                 font-size: 22px
                 font-weight: bold
                 padding-right: 10px
+                line-height: 20px
                 @media #{$max940}
                     margin-bottom: 10px
-
+            //rooms type
+            .room
+                &-type
+                    hr
+                        margin: 20px 0
+                    h4
+                        line-height: 20px
+                        margin: 0
+                        font-size: 18px
+                        margin-bottom: 10px
+                    p
+                        margin-bottom: 20px
+                &-img
+                    padding: 20px 0
+                    img
+                        max-width: 135px
+                        width: 100%
+                        max-height: 90px
+                        height: 100vh
+                        margin: 2.5px
+                        &:hover
+                            cursor: pointer
+                &-extras
+                    @media #{$max500}
+                        flex-direction: column
+                    p
+                        margin-bottom: 5px
+                    .tech-facilities
+                        @media #{$max500}
+                            margin-bottom: 20px
 .page-line
     margin: 20px
     background: rgba(0,0,0, .2)

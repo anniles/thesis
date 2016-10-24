@@ -17,7 +17,6 @@ class Hotel(models.Model):
 	address = models.CharField(max_length=200)
 	phone = models.CharField(max_length=20)
 	category = models.SmallIntegerField(
-        max_length=2,
         choices=CATEGORY_CHOICES,
         default=1,
     )

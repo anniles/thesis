@@ -4,7 +4,12 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
+var mainBowerFiles = require('main-bower-files');
 
+gulp.task('bower-cp', function() {
+    return gulp.src(mainBowerFiles())
+        .pipe(gulp.dest('./kavala/static/vendor/js'));
+});
  
 gulp.task('sass', function () {
   return gulp.src('./kavala/static/sass/**/*.sass')

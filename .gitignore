@@ -1,6 +1,9 @@
 node_modules
 .vagrant
 
+bower_components
+kavala/static/vendor
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

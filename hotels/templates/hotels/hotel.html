@@ -8,10 +8,18 @@
 {% endblock %}
 
 {% block main %}
-<div id="map"></div>
+<div class="collapse">
+    <div id="map"></div>
+</div>
 <section class="main-wrapper hotel-main" layout="row top-justify">
 
     <div class="hotel-info" self="size-x2" layout="column center-center">
+
+        <a href="#" class="button map-btn-mobile show-from-940" layout='column center-center'>
+            <span class="btn-top content"> view on map </span>
+            <span class="btn-bottom content"> view on map </span>
+        </a>
+
         <div class="hotel-slider">
             <img src="http://placehold.it/500x500" alt="">
         </div>
@@ -51,7 +59,7 @@
     </div>
 
     <aside class="search-container hotel-availability" self="size-x1" layout="column center-center">
-        <a href="#" class="button map-btn" layout='column center-center'>
+        <a href="#" class="button hide-from-940 map-btn " layout='column center-center'>
             <span class="btn-top content"> view on map </span>
             <span class="btn-bottom content"> view on map </span>
         </a>

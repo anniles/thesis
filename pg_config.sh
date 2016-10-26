@@ -11,9 +11,6 @@ echo "Setup Postgres"
 su postgres -c 'createuser -d kavala'
 su postgres -c 'createdb -O  kavala kavala'
 
-# seems useless
-echo "export PYTHONPATH=/usr/lib/python3" >> /home/vagrant/.bashrc
-
 echo "Pip install requirements"
 cd /home/vagrant/kavala
 pip3 install -r requirements.txt

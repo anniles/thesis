@@ -22,9 +22,9 @@ Tour guide for Kavala City
 - inside the vm run `python3 manage.py migrate`.
 
  - to run the server inside the vm run:  
-    `python3 manage.py runserver 0.0.0.0:8000`
+    `python3 manage.py runserver 0.0.0.0:5000`
 
-    afterwards you can open your browser and point at `localhost:8000`.
+    afterwards you can open your browser and point at `localhost:5000`.
 
 - `vagrant halt` shuts down the vm
 

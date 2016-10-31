@@ -18,7 +18,7 @@ $(document).ready(function() {
 
             $('.collapse').removeClass('in');
             $('html,body').animate({
-                scrollTop: $('.map-btn').offset().top-(offset.top/2)},
+                scrollTop: $('.map-btn').offset().top-((offset.top/2)-30)},
             500);
         }
     });
@@ -58,11 +58,74 @@ $(document).ready(function() {
 
                 $('.collapse').removeClass('in');
                 $('html,body').animate({
-                    scrollTop: $('.map-btn-mobile').offset().top-(offset.top/2)},
+                    scrollTop: $('.map-btn-mobile').offset().top-((offset.top/2)+60)},
                 500);
             }
         });
+
+
     }
+
+    if ($(window).width() <= 700){  
+        mobileNavOn();
+    }
+
+    $(window).on('resize',function(){
+        if ($(window).width() <= 700){  
+            mobileNavOn();
+        }  else {
+            mobileNavOff();
+        }
+    });
 });
 
+function mobileNavOn() {
 
+    $('nav').css('display', 'none');
+    
+    //open navigation menu
+    $('.navigation-open').on('click', function() {
+        $('nav').css({
+            'display': '-webkit-box',
+            'display': '-ms-flexbox',
+            'display': 'flex'
+        });
+    });
+    
+    //close navigation menu
+    $('.nav-close').on('click', function() {
+        $('nav').fadeOut();
+    });
+
+    var menu = $('.navigation-open').offset().top;
+
+    //sticky menu
+    $(window).on('scroll', function() {
+        if(($(window).scrollTop() - menu) >= 50) {
+            $('.navigation-open').fadeIn().css({
+                'background': 'rgba(0, 0, 0, .5)',
+                'position': 'fixed',
+                'width': '100%'
+            })
+        } else {
+            $('.navigation-open').css({
+                'background': 'none',
+                'position': 'absolute',
+                'width': 'initial'
+            });
+
+        }
+    });
+}
+
+function mobileNavOff() {
+ //open navigation menu
+    $('.navigation-open').off('click');
+    
+    //close navigation menu
+    $('.nav-close').off('click');
+
+    $('nav').fadeIn();
+
+    $(window).off('scroll');
+}

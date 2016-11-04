@@ -77,8 +77,55 @@ $(document).ready(function() {
             mobileNavOff();
         }
     });
+
+    //slick carousel for hotel images page
+    $('.hotel-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        cssEase: 'linear',
+        asNavFor: '.hotel-nav'
+    });
+    $('.hotel-nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.hotel-slider',
+        dots: false,
+        arrows: false,
+        infinite: true,
+        centerMode: false,
+        focusOnSelect: true,
+        responsive: [
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 3,
+            }
+        }]
+    });
+
+    //slick carousel for hotel room images
+    $('.room-img-slider').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        // dots: true,
+        responsive: [
+        {
+          breakpoint: 550,
+          settings: {
+            slidesToShow: 2,
+            arrows: true,
+            }
+        }]
+    });
+    
+    
 });
 
+
+// functions
 function mobileNavOn() {
 
     $('nav').css('display', 'none');

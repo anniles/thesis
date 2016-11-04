@@ -19,9 +19,21 @@
             <span class="btn-top content"> view on map </span>
             <span class="btn-bottom content"> view on map </span>
         </a>
-
-        <div class="hotel-slider">
-            <img src="http://placehold.it/500x500" alt="">
+        <div class="hotel-slider-container" layout="column center-center">
+            <div class="hotel-slider">
+                {% for i in "xxxxx" %}
+                <div class="hotel-slider-item">
+                    <img src="http://placehold.it/500x500" alt="">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="hotel-nav">
+                {% for i in "xxxxx" %}
+                <div class="hotel-nav-item">
+                    <img src="http://placehold.it/500x500" alt="">
+                </div>
+                {% endfor %}
+            </div>
         </div>
 
         <hr class="page-line">
@@ -83,6 +95,6 @@
 
 </section>
 
-   
+
 
 {% endblock %}

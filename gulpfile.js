@@ -6,8 +6,15 @@ const autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var mainBowerFiles = require('main-bower-files');
 
-gulp.task('bower-cp', function() {
+gulp.task('bower-copy', function() {
     return gulp.src(mainBowerFiles())
+        .pipe(gulp.dest('./kavala/static/vendor/js'));
+});
+
+gulp.task('copy', function() {
+    return gulp.src([
+        'bower_components/slick-carousel/slick/slick-theme.css',
+      ])
         .pipe(gulp.dest('./kavala/static/vendor/js'));
 });
  
@@ -27,4 +34,4 @@ gulp.task('sass:watch', function () {
   gulp.watch('./kavala/static/sass/**/*.sass', ['sass']);
 });
 
-gulp.task('default', ['sass','sass:watch'])
+gulp.task('default', ['sass', 'bower-copy', 'copy','sass:watch'])

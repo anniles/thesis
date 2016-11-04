@@ -1,6 +1,7 @@
 {
-  "name" : "kavala-tour",
+  "name": "kavala-tour",
   "dependencies": {
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "slick-carousel": "^1.6.0"
   }
 }

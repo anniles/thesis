@@ -1,0 +1,6 @@
+
+{% for car in cars %}
+    {{ car.model }}
+{% empty %}
+    <p>No Car's available.</p>
+{% endfor %}

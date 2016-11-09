@@ -301,10 +301,15 @@
                         margin-bottom: 10px
                     p
                         margin-bottom: 20px
+                &-slider-container
+                    // overflow: hidden
                 &-img-slider
                     padding: 20px 0
                     max-width: 520px
                     width: 100%
+                    @media #{$max500}
+                        max-width: 280px
+                        margin-left: -8px
                 &-img-item
                     width: 100%
                     margin: 0 5px
@@ -334,3 +339,9 @@
     color: $lightblue
 .room-img-item.slick-slide.slick-active
     outline: none
+.slick-prev
+    left: 11px
+.slick-next
+    right: 5px
+.slick-prev, .slick-next
+    z-index: 1

@@ -71,7 +71,7 @@ class Room(models.Model):
     # image = models.ImageField(upload_to = 'ulpoads', default = 'static/tourguide/images/pic_folder/None/no-img.jpg' , null=True)
     description = models.TextField(default='' , null=True)
     amenities = models.ManyToManyField(Amenity)
-    # price to do
+    # todo price, images
 
     def __str__(self):
         return self.category

@@ -110,13 +110,12 @@ $(document).ready(function() {
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
-        // dots: true,
         responsive: [
         {
-          breakpoint: 550,
-          settings: {
-            slidesToShow: 2,
-            arrows: true,
+            breakpoint: 550,
+            settings: {
+                slidesToShow: 2,
+                arrows: true,
             }
         }]
     });

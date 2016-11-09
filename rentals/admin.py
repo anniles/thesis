@@ -2,10 +2,12 @@ from django.contrib import admin
 from .models import Rental, Car, Bike
 
 
+# not working
 class CarAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("model","cc") }
 
 
+# not working
 class BikeAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("model","cc") }
 

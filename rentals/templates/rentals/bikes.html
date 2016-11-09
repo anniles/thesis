@@ -1,5 +1,45 @@
-{% for bike in bikes %}
-    bike.model
-{% empty %}
-    <p>No Bike's available.</p>
-{% endfor %}
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Rent a bike{% endblock %}
+
+{% block header %}
+{% include 'partials/pages-header.html'  with page_title="Rent a bike" page_subtitle="make your explorations in extreme" %}
+{% endblock %}
+
+{% block main %}
+
+<div class="collapse">
+    <div id="map"></div>
+</div>
+
+<section layout="column center-center">
+
+    <div class="main-wrapper" layout="row top-justify">
+        
+        <aside class="search-container" self="size-x1" layout="column center-center">
+            <a href="#" class="button map-btn" layout='column center-center'>
+                <span class="btn-top content"> view on map </span>
+                <span class="btn-bottom content"> view on map </span>
+            </a>
+
+            <div class="filters">
+                {% include 'hotels/partials/filter_bar.html' %}
+            </div>
+        </aside>
+
+        <main class="hotel-list-container" self="size-x3" layout="column center-center">
+            {# {% include 'hotels/partials/hotel_list.html' %} #}
+            {% for bike in bikes %}
+            {{ bike.model }}
+            {% empty %}
+            <p>No Bike's available.</p>
+            {% endfor %}
+        </main>
+        
+    </div>
+</section>
+
+{% endblock %}
+

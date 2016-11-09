@@ -1,6 +1,41 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
 
-{% for car in cars %}
-    {{ car.model }}
-{% empty %}
-    <p>No Car's available.</p>
-{% endfor %}
+
+{% block title %}Rent a car{% endblock %}
+
+{% block header %}
+{% include 'partials/pages-header.html'  with page_title="Rent a car" page_subtitle="make your trips with comfort" %}
+{% endblock %}
+
+{% block main %}
+
+<div class="collapse">
+    <div id="map"></div>
+</div>
+
+<section layout="column center-center">
+
+    <div class="main-wrapper" layout="row top-justify">
+
+        <aside class="search-container" self="size-x1" layout="column center-center">
+            <a href="#" class="button map-btn" layout='column center-center'>
+                <span class="btn-top content"> view on map </span>
+                <span class="btn-bottom content"> view on map </span>
+            </a>
+
+            <div class="filters">
+            {% include 'rentals/partials/car_filter.html' %}
+            </div>
+        </aside>
+
+        <main class="car-list-container" self="size-x3" layout="column center-center">
+            {% include 'rentals/partials/car_list.html' %}
+        </main>
+        
+    </div>
+</section>
+
+{% endblock %}
+
+

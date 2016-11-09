@@ -1,0 +1,126 @@
+{% load static %}
+
+<div class="filters-btn" layout="row center-left">
+    <svg class="icon-gear">
+        <use xlink:href="{% static 'svg/icons.svg' %}#gear" />
+    </svg>
+    <h4>Filters</h4>
+    <svg class="icon-plus" self="right">
+        <use xlink:href="{% static 'svg/icons.svg' %}#plus" />
+    </svg>
+</div>
+
+
+<div class="filters-options">
+    
+    <hr class="filters-line">
+    
+    <div class="price-range">
+        <h5>Price</h5>
+        <input type="range" id="myRange" value="90">
+    </div>
+    
+    <hr class="filters-line">
+    
+    <div class="hotel-type">
+        <h5>Car Category</h5>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="suv" id="suv">
+            <label for="suv"></label>
+            <p>SUV</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="truck" id="truck">
+            <label for="truck"></label>
+            <p>Truck</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="sedan" id="sedan">
+            <label for="sedan"></label>
+            <p>Sedan</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="van" id="van">
+            <label for="van"></label>
+            <p>Van</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="coupe-compact" id="coupe-compact">
+            <label for="coupe-compact"></label>
+            <p>Coupe/Compact</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="wagon" id="wagon">
+            <label for="wagon"></label>
+            <p>Wagont</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="convertible" id="convertible">
+            <label for="convertible"></label>
+            <p>Convertible</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="sports-car" id="sports-car">
+            <label for="sports-car"></label>
+            <p>Sports Car</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="diesel" id="diesel">
+            <label for="diesel"></label>
+            <p>Diesel</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="crossover" id="crossover">
+            <label for="crossover"></label>
+            <p>Crossover</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="luxury-car" id="luxury-car">
+            <label for="luxury-car"></label>
+            <p>Luxury Car</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="hybrid-electric" id="hybrid-electric">
+            <label for="hybrid-electric"></label>
+            <p>Hybrid/Electric</p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="hatchback" id="hatchback">
+            <label for="hatchback"></label>
+            <p>Hatchback</p>
+        </div>
+
+    </div>
+
+    <hr class="filters-line">
+    
+    <div class="hotel-type">
+        <h5>Cars cc</h5>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="cc-1000" id="cc-1000">
+            <label for="cc-1000"></label>
+            <p><strong>1000</strong></p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="cc-1100" id="cc-1100">
+            <label for="cc-1100"></label>
+            <p><strong>1100</strong></p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="cc-1300" id="cc-1300">
+            <label for="cc-1300"></label>
+            <p><strong>1300</strong></p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="cc-1600" id="cc-1600">
+            <label for="cc-1600"></label>
+            <p><strong>1600</strong></p>
+        </div>
+        <div class="hotel-type-item" layout="row center-left">
+            <input type="checkbox" name="cc-2000" id="cc-2000">
+            <label for="cc-2000"></label>
+            <p><strong>2000 or bigger</strong></p>
+        </div>
+
+    </div>
+</div>

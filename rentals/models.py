@@ -9,7 +9,7 @@ class Rental(models.Model):
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=20)
     description = models.TextField(default="", null=True)
-
+    
     def __str__(self):
         return self.name
 
@@ -29,7 +29,6 @@ class Car(models.Model):
         ('Luxury Car', 'Luxury Car'),
         ('Hybrid/Electric', 'Hybrid/Electric'),
         ('Hatchback', 'Hatchback'),
-        ('Certified Pre-Owned', 'Certified Pre-Owned'),
     )
 
     model = models.CharField(max_length=200)

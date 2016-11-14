@@ -1,0 +1,38 @@
+    {% load static %}
+
+
+    {% for bike in bikes %}
+    <div class="bike-list-info" layout="row center-center">
+        <figure class="bike-image" self="stretch size-x3">
+            <a href="#">
+                <img src="http://placehold.it/500x500" alt="">
+            </a>
+        </figure>
+        <div class="bike-general" self="size-x4">
+            <div class="bike-name-stars" layout="row center-left">
+                <h3>{{bike.model}}</h3>
+            </div>
+            <p class="bike-description">
+                {{bike.description | truncatechars:150}}
+            </p>
+            <div class="bike-info" layout="row center-left">
+                <p>Plates: <span>{{bike.plate}}</span></p>
+                <p>CC: <span>{{bike.cc}}</span></p>
+
+            </div>
+        </div>
+        <div class="bike-price" self="size-x1 stretch" layout="column center-center">
+            <p><span> 40</span> <span class="currency">&euro;</span></p>
+            <p>From/Per day</p>
+            <a href="#" class="button" layout='column center-center'>
+                <span class="btn-top content"> Details </span>
+                <span class="btn-bottom content"> Details </span>
+            </a>
+        </div>
+    </div>
+    {% empty %}
+    <p>
+        No Bike's available. <br> 
+        Sorry for the inconvenience.
+    </p>
+    {% endfor %}

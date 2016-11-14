@@ -4,7 +4,7 @@
     {% for car in cars %}
     <div class="car-list-info" layout="row center-center">
         <figure class="car-image" self="stretch size-x3">
-            <a href="#">
+            <a href="{% url 'rentals:car' car.slug %}">
                 <img src="http://placehold.it/500x500" alt="">
             </a>
         </figure>
@@ -16,7 +16,7 @@
                 {{car.description | truncatechars:150}}
             </p>
             <div class="car-info" layout="row center-left">
-                <p>Plates: <span>{{car.plate}}</span>                </p>
+                <p>Plates: <span>{{car.plate}}</span></p>
                 <p>CC: <span>{{car.cc}}</span></p>
 
             </div>
@@ -24,7 +24,7 @@
         <div class="car-price" self="size-x1 stretch" layout="column center-center">
             <p><span> 40</span> <span class="currency">&euro;</span></p>
             <p>From/Per day</p>
-            <a href="#" class="button" layout='column center-center'>
+            <a href="{% url 'rentals:car' car.slug %}" class="button" layout='column center-center'>
                 <span class="btn-top content"> Details </span>
                 <span class="btn-bottom content"> Details </span>
             </a>

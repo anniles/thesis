@@ -1,0 +1,356 @@
+@import settings
+
+.bottom-shadow
+    position: absolute
+    left: 0
+    bottom: 0
+    height: 100%
+    width: 100%
+    background: -moz-linear-gradient(top,  rgba(255,254,252,0) 0%, rgba(188,187,186,0.11) 34%, rgba(151,150,149,0.18) 53%, rgba(115,115,114,0.34) 71%, rgba(58,58,58,0.87) 100%)
+    background: -webkit-linear-gradient(top,  rgba(255,254,252,0) 0%,rgba(188,187,186,0.11) 34%,rgba(151,150,149,0.18) 53%,rgba(115,115,114,0.34) 71%,rgba(58,58,58,0.87) 100%)
+    background: linear-gradient(to bottom,  rgba(255,254,252,0) 0%,rgba(188,187,186,0.11) 34%,rgba(151,150,149,0.18) 53%,rgba(115,115,114,0.34) 71%,rgba(58,58,58,0.87) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fffefc', endColorstr='#de3a3a3a',GradientType=0 )
+
+
+.rental
+    position: relative
+    z-index: 1
+    padding: 0 50px
+    @media #{$max700}
+        flex-direction: column!important
+        justify-content: flex-end!important
+        align-items: flex-start!important
+        padding: 0 20px
+    .stars
+        .icon-star
+            stroke: $yellow
+            stroke-width: 4
+        .icon-star-nofill
+            stroke: $white
+            stroke-width: 4
+    .page-rental
+        &-price
+            font-size: 14px
+            @media #{$max700}
+                justify-content: flex-start!important
+                align-self: flex-start!important
+            p
+                position: relative
+                text-transform: lowercase!important
+            span
+                color: $lightblue
+                &:first-of-type
+                    font-size: 74px
+                    position: relative
+                    font-weight: bold
+                    padding-left: 10px
+                    top: 13px
+                    @media #{$max700}
+                        font-size: 24px
+                        top: 2px
+                        padding-left: 5px
+            .currency
+                position: absolute
+                top: 25px
+                right: -17px
+                font-size: 30px
+                @media #{$max700}
+                    font-size: 24px
+                    top: 2px
+        &-info
+            text-align: start
+            @media #{$max700}
+                p
+                    margin-bottom: 0
+
+.main-wrapper
+    &.rental-main
+        margin-top: 50px
+    // aside container with search form
+    .search-container
+        &.rental-availability
+            padding-right: 0
+            padding-left: 20px
+            @media #{$max940}
+                order: -1 
+                padding-left: 0
+                margin-top: 20px
+    .check-availability
+        border-top-right-radius: 3px
+        border-top-left-radius: 3px
+        background: $white
+        // box-shadow: rgba(0,0,0, .1) 1px 1px 1px
+        border: 1px solid rgba(0,0,0, .2)
+        .check-title    
+            background: $pink
+            width: 100%
+            text-align: center
+            font-size: 20px
+            padding: 7px
+            border-radius: 3px
+            margin: 0
+        form
+            width: 100%  
+            padding: 0 20px         
+            .checkdate
+                width: 100%
+                @media #{$max500}
+                    flex-direction: column!important
+                label
+                    color: $grey
+                    font-size: 14px
+                    font-weight: bold
+                input
+                    // max-width: 133px
+                    width: 100%
+                    padding: 7px 0px
+                    border-radius: 3px
+                    border-style: none
+                    border: 1px solid rgba(0,0,0, .3)
+                    margin-top: 5px
+                .checkin
+                    margin: 20px 10px 10px 0
+                    @media #{$max500}
+                        margin-right: 0
+                .checkout
+                    margin: 20px 0 10px 10px
+                    @media #{$max500}
+                        margin-left: 0
+            .check-people
+                color: $grey
+                p
+                    font-size: 14px
+                    font-weight: bold
+                    margin: 0
+                .adults-count, .children-count
+                    border: 1px solid rgba(0,0,0, .3)
+                    color: $grey
+                    max-width: 90px
+                    width: 100%
+                    text-align: center
+                    border-radius: 3px
+                    margin-top: 5px
+                    justify-content: space-around
+                .adults
+                    margin: 10px auto 10px 0
+                .children
+                    margin: 10px auto 10px 20px
+                .number-adults, .number-children
+                    padding: 7px 0
+                    border-left: 1px solid rgba(0,0,0, .3)
+                    border-right: 1px solid rgba(0,0,0, .3)
+                .minus, .plus
+                    padding: 7px 0
+                    &:hover
+                        cursor: pointer
+            .name-wrapper
+                @media #{$max500}
+                    flex-direction: column!important
+                label
+                    color: $grey
+                    font-size: 14px
+                    font-weight: bold
+                input
+                    width: 100%
+                    padding: 10px 0px
+                    border-radius: 3px
+                    border-style: none
+                    border: 1px solid rgba(0,0,0, .3)
+                    margin-top: 5px
+                .container
+                    &-fname
+                        margin: 20px 10px 10px 0
+                        @media #{$max500}
+                            margin-right: 0
+                    &-lname
+                        margin: 20px 0 10px 10px
+                        @media #{$max500}
+                            margin-left: 0
+
+            .email-wrapper
+                label
+                    color: $grey
+                    font-size: 14px
+                    font-weight: bold
+                input
+                    width: 100%
+                    padding: 10px 0px
+                    border-radius: 3px
+                    border-style: none
+                    border: 1px solid rgba(0,0,0, .3)
+                    margin-top: 5px
+                .container
+                    &-email
+                        padding: 20px 0 10px 0
+                    &-phone
+                        padding: 20px 0 10px 0
+            .submit-btn
+                text-transform: uppercase
+                max-width: 100%
+                border: none
+                margin: 20px 0 
+                font-size: 16px
+                font-family: 'Montserrat', sans-serif
+    .book-by-phone
+        background: $white
+        // box-shadow: rgba(0,0,0, .1) 1px 1px 1px
+        border: 1px solid rgba(0,0,0, .2)
+        margin: 20px auto
+        padding: 30px
+        color: $grey
+        position: relative
+        h5
+            letter-spacing: 0.6px
+            font-size: 18px
+            margin: 5px 0
+            span
+                color: $pink
+        a
+            font-size: 26px
+            margin: 5px 0 20px
+            text-decoration: none
+            color: $lightblue
+            transition: all .5s
+            &:hover
+                color: $deepblue
+        .arrow-up 
+            position: absolute
+            top: -11px
+            width: 20px
+            height: 20px
+            border-top: 1px solid rgba(0,0,0, .2)
+            border-left: 1px solid rgba(0,0,0, .2)
+            background: $white
+            transform: rotate(45deg)
+    
+    // right part with rental info and slider
+    //slider
+    .rental-slider-container
+        width: 100%
+    .rental-slider
+        width: 100%
+        padding: 0 5px
+        img
+            width: 100%
+            max-height: 400px
+            height: 100vh
+            @media #{$max940}
+                max-height: 350px
+            @media #{$max500}
+                max-height: 200px
+    .rental-nav
+        width: 100%
+        margin-top: 10px
+        margin-bottom: 20px
+        .rental-nav-item
+            margin: 0 5px
+            img
+                width: 100%
+                height: 80px
+
+    .rental
+        &-info
+            max-width: 61%
+            @media #{$max940}
+                order: -2
+                max-width: 100%
+        &-desc
+            h4
+                line-height: 20px
+                margin: 0
+                font-size: 18px
+                margin-bottom: 10px
+            span
+                color: $pink
+            .rentals-check
+                columns: 2
+                margin-bottom: 20px
+                text-align: center
+                p
+                    margin-bottom: 5px
+                @media #{$max500}
+                    columns: 1
+        &-desc-container
+            color: $grey
+            // margin-bottom: 20px
+            @media #{$max940}
+                flex-direction: column!important
+            p
+                max-width: 560px
+                width: 100%
+                // padding-left: 10px
+                margin: 0 0 20px
+                font-size: 14px
+                @media #{$max940}
+                    padding-left: 0
+                    max-width: 100%
+            h3
+                margin: 0
+                font-size: 22px
+                font-weight: bold
+                padding-right: 10px
+                line-height: 20px
+                @media #{$max940}
+                    margin-bottom: 10px
+            //rooms type
+            .rental
+                &-name
+                    hr
+                        margin: 20px 0
+                    h4
+                        line-height: 20px
+                        margin: 0
+                        font-size: 18px
+                        margin-bottom: 10px
+                    p
+                        margin-bottom: 20px
+                &-slider-container
+                    // overflow: hidden
+                &-img-slider
+                    padding: 20px 0
+                    max-width: 520px
+                    width: 100%
+                    @media #{$max600}
+                        max-width: 235px
+                        margin-left: -8px
+                &-img-item
+                    width: 100%
+                    margin: 0 5px
+                    img
+                        max-height: 90px
+                        width: 100%
+                        height: 100vh
+                        margin: 2.5px
+                        &:hover
+                            cursor: pointer
+                &-info
+                    @media #{$max500}
+                        flex-direction: column
+                    p
+                        margin-bottom: 5px
+                    a
+                        text-decoration: none
+                        color: $grey
+                        transition: all .5s
+                        &:hover
+                            color: $pink
+                    .tech-facilities
+                        @media #{$max500}
+                            margin-bottom: 20px
+.page-line
+    margin: 20px
+    background: rgba(0,0,0, .2)
+    height: 1px
+    border: none
+    width: 100% 
+
+.slick-prev:before, .slick-next:before
+    color: $lightblue
+.room-img-item.slick-slide.slick-active
+    outline: none
+// .slick-prev
+//     left: 11px
+// .slick-next
+//     right: 5px
+// .slick-prev, .slick-next
+//     z-index: 1

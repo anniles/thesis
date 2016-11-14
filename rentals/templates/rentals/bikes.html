@@ -25,17 +25,12 @@
             </a>
 
             <div class="filters">
-                {% include 'hotels/partials/filter_bar.html' %}
+                {% include 'rentals/partials/bike_filter.html' %}
             </div>
         </aside>
 
-        <main class="hotel-list-container" self="size-x3" layout="column center-center">
-            {# {% include 'hotels/partials/hotel_list.html' %} #}
-            {% for bike in bikes %}
-            {{ bike.model }}
-            {% empty %}
-            <p>No Bike's available.</p>
-            {% endfor %}
+        <main class="bike-list-container" self="size-x3" layout="column center-center">
+            {% include 'rentals/partials/bike_list.html' %}
         </main>
         
     </div>

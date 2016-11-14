@@ -1,0 +1,49 @@
+{% load static %}
+
+<div class="rental-desc-container" layout="row top-justify">
+    <aside self="size-x1">
+        <h3>Car Rental</h3>
+    </aside>
+    <div class="rental-name" self="size-x3">
+        <div class="rental-single">
+            <h4>{{ car.rental.name }}</h4>
+            <p>
+                {{ car.rental.description }}
+            </p>
+            
+            <div class="rental-info" layout="row top-center">
+
+                <div class="" self="size-x1">
+                    <p>
+                        <svg class="icon-check">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                        </svg>
+                        address: {{car.rental.address}}
+                    </p>
+                    <p>
+                        <svg class="icon-check">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                        </svg>
+                        phone: 
+                        <a href="tel:{{car.rental.phone}}">
+                            {{car.rental.phone}}
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="rental-slider-container" layout="row center-center">
+                <div class="rental-img-slider" layout="row center-center">
+                    {% for i in "xxxx" %}
+                    <div class="rental-img-item">
+                        <img src="http://placehold.it/200x200" alt="">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <hr class="page-line">
+        
+    </div>
+</div>

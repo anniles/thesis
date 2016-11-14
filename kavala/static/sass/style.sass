@@ -1,9 +1,11 @@
 @import settings
 @import hotels
 @import cars
+@import bikes
 @import pages
 @import search
 @import hotelpage
+@import rentalpage
 @import footer_style
 
 body::-webkit-scrollbar 
@@ -103,7 +105,7 @@ section
 		padding-right: 40px
 		position: relative
 		z-index: 1
-		@media #{$max700}
+		@media #{$max940}
 			flex-direction: column
 			position: fixed
 			background: rgba(0, 0, 0, 0.9)
@@ -114,7 +116,7 @@ section
 			z-index: 2
 			transition: all .5s
 		li
-			@media #{$max700}
+			@media #{$max940}
 				padding: 10px
 			a
 				margin: 0 20px

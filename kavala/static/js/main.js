@@ -38,6 +38,8 @@ $(document).ready(function() {
         //hotel page header
         $('.page-hotel-price').removeAttr('self');
         $('.page-hotel-info').removeAttr('self');
+        $('.page-rental-price').removeAttr('self');
+        $('.page-rental-info').removeAttr('self');
 
 
         //map button for mobile
@@ -66,12 +68,12 @@ $(document).ready(function() {
 
     }
 
-    if ($(window).width() <= 700){  
+    if ($(window).width() <= 940){  
         mobileNavOn();
     }
 
     $(window).on('resize',function(){
-        if ($(window).width() <= 700){  
+        if ($(window).width() <= 940){  
             mobileNavOn();
         }  else {
             mobileNavOff();
@@ -104,9 +106,50 @@ $(document).ready(function() {
             }
         }]
     });
+    //slick carousel for rental images page
+    $('.rental-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        cssEase: 'linear',
+        asNavFor: '.rental-nav'
+    });
+    $('.rental-nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.rental-slider',
+        dots: false,
+        arrows: false,
+        infinite: true,
+        centerMode: false,
+        focusOnSelect: true,
+        responsive: [
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 3,
+            }
+        }]
+    });
 
     //slick carousel for hotel room images
     $('.room-img-slider').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                arrows: true,
+            }
+        }]
+    });
+
+    //slick carousel for car rental images
+    $('.rental-img-slider').slick({
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,

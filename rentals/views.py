@@ -20,6 +20,10 @@ class CarDetailView(generic.DetailView):
     model = Car
     template_name = 'rentals/car.html'
 
+    def get_queryset(self):
+        slug = self.kwargs.get(self.slug_url_kwarg)
+
+        return Car.objects.select_related('rental').filter(slug=slug)
 
 class BikeIndexView(generic.ListView):
     template_name = 'rentals/bikes.html'

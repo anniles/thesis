@@ -6,9 +6,9 @@
     </aside>
     <div class="rental-name" self="size-x3">
         <div class="rental-single">
-            <h4>{{ car.rental.name }}</h4>
+            <h4>{{ bike.rental.name }}</h4>
             <p>
-                {{ car.rental.description }}
+                {{ bike.rental.description }}
             </p>
             
             <div class="rental-info" layout="row top-center">
@@ -18,15 +18,15 @@
                         <svg class="icon-check">
                             <use xlink:href="{% static 'svg/icons.svg' %}#check" />
                         </svg>
-                        address: {{car.rental.address}}
+                        address: {{bike.rental.address}}
                     </p>
                     <p>
                         <svg class="icon-check">
                             <use xlink:href="{% static 'svg/icons.svg' %}#check" />
                         </svg>
                         phone: 
-                        <a href="tel:{{car.rental.phone}}">
-                            {{car.rental.phone}}
+                        <a href="tel:{{bike.rental.phone}}">
+                            {{bike.rental.phone}}
                         </a>
                     </p>
                 </div>

@@ -4,7 +4,7 @@
     {% for bike in bikes %}
     <div class="bike-list-info" layout="row center-center">
         <figure class="bike-image" self="stretch size-x3">
-            <a href="#">
+            <a href="{% url 'rentals:bike' bike.slug %}">
                 <img src="http://placehold.it/500x500" alt="">
             </a>
         </figure>
@@ -24,7 +24,7 @@
         <div class="bike-price" self="size-x1 stretch" layout="column center-center">
             <p><span> 40</span> <span class="currency">&euro;</span></p>
             <p>From/Per day</p>
-            <a href="#" class="button" layout='column center-center'>
+            <a href="{% url 'rentals:bike' bike.slug %}" class="button" layout='column center-center'>
                 <span class="btn-top content"> Details </span>
                 <span class="btn-bottom content"> Details </span>
             </a>

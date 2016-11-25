@@ -21,5 +21,6 @@ urlpatterns = [
 	url(r'^$', TemplateView.as_view(template_name='homepage.html'), name='homepage'),
     url(r'^hotels/',include('hotels.urls')),
     url(r'^rentals/',include('rentals.urls')),
+    url(r'^contact/',include('contact.urls')),
     url(r'^admin/', admin.site.urls),
 ]

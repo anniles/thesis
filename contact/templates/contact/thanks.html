@@ -1,0 +1,15 @@
+{% load static %}
+
+<section>
+    <div class="contact-thanku" layout="row center-center">
+        <h1>Thank you for your message, <br>we will be in touch with you!</h1>
+    </div>
+</section>
+
+ <script>
+    function redirect(){
+       window.location.href = "{% url 'contact:index' %}";
+    }
+
+    setTimeout(redirect, 2000); //2000 is equivalent to 2 seconds
+</script>

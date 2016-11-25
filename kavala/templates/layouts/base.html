@@ -17,6 +17,14 @@
 	{% block header %}
 	{% endblock %}
 
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
 	{% block main %}
 	{% endblock %}
 
@@ -42,6 +50,6 @@
 	</script>
 	<script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8grR70Wi8f0ssPGu9grDPoNwqsfY1Ji8&callback=initMap">
-	</script>
+</script>
 </body>
 </html>

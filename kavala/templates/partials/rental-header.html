@@ -1,37 +1,9 @@
 {% load static %}
 
 <header class="pages header-container" layout="column top-stretch">
-    <section class="login" layout="row-right">
-        <div class="search" layout="row center-right">
-            <input type="text" class="search-input">
-            <svg class="icon-search">
-                <use xlink:href="{% static 'svg/icons.svg' %}#search" />
-            </svg>
-        </div>
-        <h6 self="right"><a href="#">Sign In</a></h6>
-    </section>
-    <hr class="header-line">
-    <div class="navigation-open show-from-940">
-        <svg class="icon-menu">
-            <use xlink:href="{% static 'svg/icons.svg' %}#menu" />
-        </svg>
-    </div>
-    <nav class="hide-from-940">
-        <ul class="navigation" layout="rows center-center">
-            <div class="nav-close show-from-940">
-                <svg class="icon-close">
-                    <use xlink:href="{% static 'svg/icons.svg' %}#close" />
-                </svg>
-            </div>
-            <li><a href="{% url 'homepage' %}">Home</a></li>
-            <li><a href="{% url 'hotels:index' %}">Hotels</a></li>
-            <li><a href="{% url 'rentals:cars' %}">Rent a car</a></li>
-            <li><a href="{% url 'rentals:bikes' %}">Rent a bike</a></li>
-            <li><a href="#">Transportation</a></li>
-            <li><a href="#">Sights</a></li>
-            <li><a href="#">Contact us</a></li>
-        </ul>
-    </nav>
+    
+    {% include 'partials/navigation.html' %}
+
     <section class="header-title rental" self="size-x1" layout="row bottom-left">
         <div class="page-rental-info" self="size-x1">
             <h2>{{rental.model}}</h2>

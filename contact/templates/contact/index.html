@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block header %}
+{% include 'partials/pages-header.html' with page_title="Contact Us" page_subtitle="you got questions we got answers"%}
+{% endblock %}
+
+{% block main %}
+<section class="contact-container">
+    <div class="contact-title">
+        <svg class="icon-pencil">
+            <use xlink:href="{% static 'svg/icons.svg' %}#pencil" />
+        </svg>
+        <h1>Fill the form below</h1>
+    </div>    
+
+    <form action="" method="post" layout="column center-center" novalidate="true">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="" layout="rows center-center">
+            <div class="contact-item">
+                {{ form.fname.errors }}
+                <label for="{{ form.fname.id_for_label }}">First Name <span class="filed_required">*</span></label>
+                {{ form.fname }}
+            </div>
+
+            <div class="contact-item">
+                {{ form.lname.errors }}
+                <label for="{{ form.lname.id_for_label }}">Last Name <span class="filed_required">*</span></label><br />
+                {{ form.lname }}
+            </div>
+        </div>
+        <div class="" layout="rows center-center">
+            <div class="contact-item">
+                {{ form.mail.errors }}
+                <label for="{{ form.mail.id_for_label }}">Email <span class="filed_required">*</span></label><br />
+                {{ form.mail }}
+            </div>
+
+            <div class="contact-item">
+                {{ form.phone.errors }}
+                <label for="{{ form.phone.id_for_label }}">Phone</label><br />
+                {{ form.phone }}
+            </div>
+        </div>
+        <div class="" layout="rows center-center">
+            <div class="contact-item txt-area">
+                {{ form.message.errors }}
+                <label for="{{ form.message.id_for_label }}">Message <span class="filed_required">*</span></label><br />
+                {{ form.message }}
+            </div>
+        </div>
+
+        <input class="contact-button" type="submit" value="submit" />
+    </form>
+    
+
+</section>
+{% endblock %}

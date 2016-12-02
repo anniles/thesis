@@ -30,9 +30,9 @@ def contact(request):
         # create a form instance and populate it with data from the request:
         form = ContactForm(request.POST)
         # check whether it's valid:
-        # print(form)
         if form.is_valid():
             # process the data in form.cleaned_data as required
+            p = form.save()
             messages.success(request, 'Thank you for your message!')
             form = ContactForm()
             # redirect to a new URL:

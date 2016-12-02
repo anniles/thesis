@@ -5,19 +5,37 @@ from django.views import generic
 
 from .models import Hotel
 from django import template
+from .forms import HotelFilterForm
 
 
 # Create your views here.
-class IndexView(generic.ListView):
-    template_name = 'hotels/index.html'
-    context_object_name = 'hotels'
+def index(request):
 
-    def get_queryset(self):
-        return Hotel.objects.order_by('name').all()
+    params = request.GET
+
+    # BUILDING QUERIES
+    q = Hotel.objects
+    if params.get('c'):
+
+        q = q.filter(category__in=params.getlist('c'))
+
+    hotels = q.order_by('name').all()
+    form = HotelFilterForm(params)
+
+    data = {
+        'hotels': hotels,
+        'form' : form,
+    }
+
+    return render(request, 'hotels/index.html', data)
 
 
-class DetailView(generic.DetailView):
-    model = Hotel
-    template_name = 'hotels/hotel.html'
+def detail(request, slug):
 
+    hotel = get_object_or_404(Hotel, slug=slug)
 
+    data = {
+        'hotel': hotel,
+    }
+
+    return render(request, 'hotels/hotel.html', data)

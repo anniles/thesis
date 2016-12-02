@@ -1,4 +1,5 @@
 {% load static %}
+{% load hotels %}
 
 <div class="filters-btn" layout="row center-left">
     <svg class="icon-gear">
@@ -10,120 +11,70 @@
     </svg>
 </div>
 
+<form action="" method="get">
+    <div class="filters-options">
 
-<div class="filters-options">
-    
-    <hr class="filters-line">
-    
-    <div class="price-range">
-        <h5>Price</h5>
-        <input type="range" id="myRange" value="90">
-    </div>
-    
-    <hr class="filters-line">
-    
-    <div class="stars">
-        <h5>Stars Category</h5>
-        <div class="stars-item">
-            <input type="checkbox" name="five_stars" value="none" id="five_stars">
-            <label for="five_stars"></label>
-            {% for i in "xxxxx" %}
-            <svg class="icon-star" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
+        <hr class="filters-line">
+
+        <div class="price-range">
+            <h5>Price</h5>
+            <input type="range" id="myRange" value="90">
         </div>
-        
-        <div class="stars-item">
-            <input type="checkbox" name="four_stars" value="none" id="four_stars">
-            <label for="four_stars"></label>
-            {% for i in "xxxx" %}
-            <svg class="icon-star" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
-            {% for i in "x" %}
-            <svg class="icon-star-nofill" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
+
+        <hr class="filters-line">
+
+        <div class="stars">
+            <h5>Stars Category</h5>
+            {% for check in form.c %}
+
+            <div class="stars-item">
+                {{ check.tag }}
+                <label for="{{ check.id_for_label }}"></label>
+                {% for i in forloop.revcounter|rangestar %}
+                <svg class="icon-star" self="right">
+                    <use xlink:href="{% static 'svg/icons.svg' %}#star" />
+                </svg>
+                {% endfor %}
+                {% for i in forloop.revcounter|add:-5|rangestar %}
+                <svg class="icon-star-nofill" self="right">
+                    <use xlink:href="{% static 'svg/icons.svg' %}#star" />
+                </svg>
+                {% endfor %}
+            </div>
             {% endfor %}
         </div>
 
-        <div class="stars-item">
-            <input type="checkbox" name="three_stars" value="none" id="three_stars">
-            <label for="three_stars"></label>
-            {% for i in "xxx" %}
-            <svg class="icon-star" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
-            {% for i in "xx" %}
-            <svg class="icon-star-nofill" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
-        </div>
+        <hr class="filters-line">
 
-        <div class="stars-item">
-            <input type="checkbox" name="tow_stars" value="none" id="tow_stars">
-            <label for="tow_stars"></label>
-            {% for i in "xx" %}
-            <svg class="icon-star" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
-            {% for i in "xxx" %}
-            <svg class="icon-star-nofill" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
-        </div>
+        <div class="hotel-type">
+            <h5>Hotel Type</h5>
+            <div class="hotel-type-item" layout="row center-left">
+                <input type="checkbox" name="ro" id="ro">
+                <label for="ro"></label>
+                <p><strong>RO</strong>: Room only</p>
+            </div>
+            <div class="hotel-type-item" layout="row center-left">
+                <input type="checkbox" name="bb" id="bb">
+                <label for="bb"></label>
+                <p><strong>BB</strong>: Bed & Breakfast</p>
+            </div>
+            <div class="hotel-type-item" layout="row center-left">
+                <input type="checkbox" name="hb" id="hb">
+                <label for="hb"></label>
+                <p><strong>HB</strong>: Half Board</p>
+            </div>
+            <div class="hotel-type-item" layout="row center-left">
+                <input type="checkbox" name="fb" id="fb">
+                <label for="fb"></label>
+                <p><strong>FB</strong>: Full Board</p>
+            </div>
+            <div class="hotel-type-item" layout="row center-left">
+                <input type="checkbox" name="ai" id="ai">
+                <label for="ai"></label>
+                <p><strong>AI</strong>: All Inclusive</p>
+            </div>
 
-        <div class="stars-item">
-            <input type="checkbox" name="one_stars" value="none" id="one_stars">
-            <label for="one_stars"></label>
-            {% for i in "x" %}
-            <svg class="icon-star" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
-            {% for i in "xxxx" %}
-            <svg class="icon-star-nofill" self="right">
-                <use xlink:href="{% static 'svg/icons.svg' %}#star" />
-            </svg>
-            {% endfor %}
         </div>
     </div>
-
-    <hr class="filters-line">
-    
-    <div class="hotel-type">
-        <h5>Hotel Type</h5>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="ro" id="ro">
-            <label for="ro"></label>
-            <p><strong>RO</strong>: Room only</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="bb" id="bb">
-            <label for="bb"></label>
-            <p><strong>BB</strong>: Bed & Breakfast</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="hb" id="hb">
-            <label for="hb"></label>
-            <p><strong>HB</strong>: Half Board</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="fb" id="fb">
-            <label for="fb"></label>
-            <p><strong>FB</strong>: Full Board</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="ai" id="ai">
-            <label for="ai"></label>
-            <p><strong>AI</strong>: All Inclusive</p>
-        </div>
-
-    </div>
-</div>
+    <input type="submit" value="Search">
+</form>

@@ -16,6 +16,10 @@ class HotelAdmin(admin.ModelAdmin):
     #slug is the name of the hotel that appears in the url hyphen(/) seperated and lowercase
     prepopulated_fields = {"slug": ("name",) }
     inlines = [RoomInline]
+    list_display = ('name', 'address', 'phone', 'category', 'short_description')
+
+    def short_description(self, obj):
+        return obj.description[:100] 
 
 
 # Register your models here.

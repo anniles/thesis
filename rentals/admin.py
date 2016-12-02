@@ -29,6 +29,10 @@ class RentalAdmin(admin.ModelAdmin):
         CarInline,
         BikeInline,
     ]
+    list_display = ('name', 'address', 'phone', 'short_description')
+
+    def short_description(self, obj):
+        return obj.description[:100] 
 
 
 # Register your models here.

@@ -42,4 +42,4 @@ def contact(request):
     else:
         form = ContactForm()
 
-    return render(request, 'contact/index.html', {'form': form})
+    return render(request, 'contact/index.html', {'form': form, 'active_tab':'contact'})

@@ -8,6 +8,8 @@
 @import hotelpage
 @import rentalpage
 @import footer_style
+@import login
+@import user_profile
 
 body::-webkit-scrollbar 
 	width: 11px
@@ -30,6 +32,9 @@ body::-webkit-scrollbar-thumb
 	background: $lightblue /* Gecko Browsers */
 	color: $white
 
+body, html
+	height: 100%
+
 body
 	margin: 0
 	color: $white
@@ -40,6 +45,13 @@ body
 		&:hover
 			cursor: pointer
 
+button
+	outline: none
+	border: none
+	max-width: 93%!important
+	margin: 10px auto
+	font-size: 14px
+
 section
 	max-width: 1180px!important
 	width: 100%
@@ -49,7 +61,7 @@ section
 	background: white url(" http://placehold.it/1440x300") no-repeat
 	background-position: center
 	background-size: cover
-	background-attachment: fixed
+	// background-attachment: fixed
 	height: 600px
 	width: 100%
 	@media #{$max700}
@@ -60,6 +72,8 @@ section
 		position: relative
 		@media #{$max700}
 			height: 300px
+	&.header-login
+		height: 300px
 
 	.header-title
 		text-align: center
@@ -145,6 +159,11 @@ section
 					&:after, &:before
 						width: 100%
 						background-color: $blue
+				&.active
+					color: $blue
+					&:after, &:before
+						width: 100%
+						background-color: $blue
 	.search
 		width: initial
 		position: relative
@@ -180,6 +199,13 @@ section
 	.login 
 		z-index: 1
 		// border-bottom: 1px solid $white
+		.user_small_pic
+			background-size: cover
+			background-position: center
+			height: 25px
+			width: 25px
+			margin-right: 5px
+			border-radius: 50%
 		h6
 			margin: 10px 50px 10px 10px
 			@media #{$max500}

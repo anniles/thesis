@@ -48,33 +48,20 @@
 
         <div class="hotel-type">
             <h5>Hotel Type</h5>
+            {% for rtype in form.rt %}
+
             <div class="hotel-type-item" layout="row center-left">
-                <input type="checkbox" name="ro" id="ro">
-                <label for="ro"></label>
-                <p><strong>RO</strong>: Room only</p>
-            </div>
-            <div class="hotel-type-item" layout="row center-left">
-                <input type="checkbox" name="bb" id="bb">
-                <label for="bb"></label>
-                <p><strong>BB</strong>: Bed & Breakfast</p>
-            </div>
-            <div class="hotel-type-item" layout="row center-left">
-                <input type="checkbox" name="hb" id="hb">
-                <label for="hb"></label>
-                <p><strong>HB</strong>: Half Board</p>
-            </div>
-            <div class="hotel-type-item" layout="row center-left">
-                <input type="checkbox" name="fb" id="fb">
-                <label for="fb"></label>
-                <p><strong>FB</strong>: Full Board</p>
-            </div>
-            <div class="hotel-type-item" layout="row center-left">
-                <input type="checkbox" name="ai" id="ai">
-                <label for="ai"></label>
-                <p><strong>AI</strong>: All Inclusive</p>
+                {{ rtype.tag }}
+                <label for="{{ rtype.id_for_label }}"></label>
+                <p>{{ rtype.choice_label }}</p>
             </div>
 
+            {% endfor %}
+
         </div>
+        <button class="button" layout='column center-center' type="submit" value="Search">
+            <span class="btn-top content"> Search </span>
+            <span class="btn-bottom content"> Search </span>
+        </button>
     </div>
-    <input type="submit" value="Search">
 </form>

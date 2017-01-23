@@ -16,8 +16,9 @@ def index(request):
     # BUILDING QUERIES
     q = Hotel.objects
     if params.get('c'):
-
         q = q.filter(category__in=params.getlist('c'))
+    if params.get('rt'):
+        q = q.filter(room__roomtype__roomtype__in=params.getlist('rt'))
 
     hotels = q.order_by('name').all()
     form = HotelFilterForm(params)
@@ -25,6 +26,7 @@ def index(request):
     data = {
         'hotels': hotels,
         'form' : form,
+        'active_tab': 'hotels',
     }
 
     return render(request, 'hotels/index.html', data)

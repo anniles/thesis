@@ -28,6 +28,7 @@ class Hotel(models.Model):
         default=1,
     )
     description = models.TextField(default='' , null=True)
+    image = models.ImageField(upload_to = 'hotel_image', blank=True)
 
     def __str__(self):
         return self.name
@@ -68,7 +69,7 @@ class Room(models.Model):
         default='single',
         max_length=200,
     )
-    # image = models.ImageField(upload_to = 'ulpoads', default = 'static/tourguide/images/pic_folder/None/no-img.jpg' , null=True)
+    image = models.ImageField(upload_to = 'room_image', blank=True)
     description = models.TextField(default='' , null=True)
     amenities = models.ManyToManyField(Amenity)
     # todo price, images

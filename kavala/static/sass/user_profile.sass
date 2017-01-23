@@ -1,0 +1,60 @@
+@import settings
+
+//container
+.profile_page
+    min-height: 255px
+    color: $grey
+
+// profile navigation
+.profile_nav
+    margin: 20px 0
+    max-width: 400px
+    width: 100%
+    a
+        margin: 0 20px
+        text-decoration: none
+        color: $grey
+        display: block
+        position: relative
+        transition: all .5s
+        &:after, &:before
+            transition: all .5s
+            position: absolute
+            bottom: -4px
+            left: 0
+            right: 0
+            margin: auto
+            width: 0%
+            content: '.'
+            color: transparent
+            background: $white
+            height: 1px
+            &:hover
+                width: 100%
+        &:hover
+            color: $blue
+            &:after, &:before
+                width: 100%
+                background-color: $blue
+        &.active
+            color: $blue
+            &:after, &:before
+                width: 100%
+                background-color: $blue
+
+// avatar page
+.profile_pic
+    background-size: cover
+    background-position: center
+    height: 200px
+    width: 200px
+
+//profile page
+.update_info
+    input
+        width: 100%
+        padding: 7px 5px
+        border-radius: 3px
+        border-style: none
+        border: 1px solid rgba(0, 0, 0, 0.3)
+        margin-top: 5px

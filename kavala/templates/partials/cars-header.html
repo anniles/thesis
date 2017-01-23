@@ -1,0 +1,11 @@
+{% load static %}
+
+<header class="pages header-container" layout="column top-stretch">
+	
+	{% include 'partials/navigation.html' with active_tab='cars' %}
+	
+	<section class="header-title" self="size-x1" layout="column center-center">
+		<h2>{{page_title}}</h2>
+		<p>{{page_subtitle}}</p>
+	</section>
+</header>

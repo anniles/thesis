@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="header-login header-container" layout="column top-stretch">
+
+    {% include 'partials/navigation.html' %}
+    
+    <section class="header-title" self="size-x1" layout="column center-center">
+        <h1>{{ selecteduser.username }}'s Profile</h1>
+    </section>
+</header>
+{% endblock %}
+
+{% block main %}
+<section layout='column top-center' class="profile_page">
+
+    {% include 'partials/profile_nav.html' with active_tab='profile' %}
+    <div class="update_info">
+        {% if selecteduser.username == user.username %}
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="contact-button login-btn" type="submit" value="Update" />
+            </form>
+        {% endif %}
+    </div>
+    <div id="edit_profile"></div>
+</section>
+{% endblock %}

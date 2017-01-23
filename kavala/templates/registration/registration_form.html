@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="header-login header-container" layout="column top-stretch">
+
+    {% include 'partials/navigation.html' %}
+    
+    <section class="header-title" self="size-x1" layout="column center-center">
+        <h1>Registration</h1>
+    </section>
+</header>
+{% endblock %}
+
+{% block main %}
+<section layout='column center-center' class="login_page">
+    <form action="." role="form" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <p class="required">
+                <input type="text" class="form-control" id="id_username" placeholder="Username" maxlength="30" name="username">
+            </p>
+            <p class="required">
+                <input class="form-control" id="id_email" name="email" placeholder="Email" type="email" />
+            </p>
+            <p class="required">
+                <input class="form-control" id="id_password1" name="password1" placeholder="Password" type="password" />
+            </p>
+            <p class="required">
+                <input class="form-control" id="id_password2" name="password2" placeholder="Password confirmation" type="password" />
+            </p>
+        </div>
+        <input class="contact-button login-btn" type="submit" value="Register" />
+    </form>
+</section>
+{% endblock %}

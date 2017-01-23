@@ -10,107 +10,53 @@
     </svg>
 </div>
 
+<form action="" method="get">
+    <div class="filters-options">
 
-<div class="filters-options">
-    
-    <hr class="filters-line">
-    
-    <div class="price-range">
-        <h5>Price</h5>
-        <input type="range" id="myRange" value="90">
-    </div>
-    
-    <hr class="filters-line">
-    
-    <div class="hotel-type">
-        <h5>Bike Category</h5>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="standard" id="standard">
-            <label for="standard"></label>
-            <p>Standard</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="cruiser" id="cruiser">
-            <label for="cruiser"></label>
-            <p>Cruiser</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="sport-bike" id="sport-bike">
-            <label for="sport-bike"></label>
-            <p>Sport bike</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="touring" id="touring">
-            <label for="touring"></label>
-            <p>Touring</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="sport-touring" id="sport-touring">
-            <label for="sport-touring"></label>
-            <p>Sport touring</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="dual-sport" id="dual-sport">
-            <label for="dual-sport"></label>
-            <p>Dual-sport</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="scooters" id="scooters">
-            <label for="scooters"></label>
-            <p>Scooters</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="off-road" id="off-road">
-            <label for="off-road"></label>
-            <p>Off-road</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="enclosed" id="enclosed">
-            <label for="enclosed"></label>
-            <p>Enclosed</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="utility" id="utility">
-            <label for="utility"></label>
-            <p>Utility</p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="tricycles" id="tricycles">
-            <label for="tricycles"></label>
-            <p>Tricycles</p>
+        <hr class="filters-line">
+
+        <div class="price-range">
+            <h5>Price</h5>
+            <input type="range" id="myRange" value="90">
         </div>
 
+        <hr class="filters-line">
+
+        <div class="hotel-type">
+            <h5>Bike Category</h5>
+
+            {% for bike_category in form.c %}
+
+            <div class="hotel-type-item" layout="row center-left">
+                {{ bike_category.tag }}
+                <label for="{{ bike_category.id_for_label }}"></label>
+                <p>{{ bike_category.choice_label }}</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <hr class="filters-line">
+
+        <div class="hotel-cc">
+            <h5>Bike cc</h5>
+            {% for bradio in form.cc %}
+
+            <div class="hotel-cc-item" layout="row center-left">
+                {{ bradio.tag }}
+                <label for="{{ bradio.id_for_label }}"></label>
+                <p>{{ bradio.choice_label }}</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <button class="button" layout='column center-center' type="submit" value="Search">
+            <span class="btn-top content"> Search </span>
+            <span class="btn-bottom content"> Search </span>
+        </button>
     </div>
 
-    <hr class="filters-line">
-    
-    <div class="hotel-type">
-        <h5>Bike cc</h5>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="cc-100-below" id="cc-100-below">
-            <label for="cc-100-below"></label>
-            <p><strong> 100 cc And Below</strong></p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="cc-100-150" id="cc-100-150">
-            <label for="cc-100-150"></label>
-            <p><strong>100 cc To 150 cc</strong></p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="cc-150-200" id="cc-150-200">
-            <label for="cc-150-200"></label>
-            <p><strong>150 cc To 200 cc</strong></p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="cc-200-250" id="cc-200-250">
-            <label for="cc-200-250"></label>
-            <p><strong> 200 cc To 250 cc</strong></p>
-        </div>
-        <div class="hotel-type-item" layout="row center-left">
-            <input type="checkbox" name="cc-250-above" id="cc-250-above">
-            <label for="cc-250-above"></label>
-            <p><strong>250 cc And Above</strong></p>
-        </div>
-
-    </div>
-</div>
+</form>

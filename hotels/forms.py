@@ -9,6 +9,13 @@ STARS_CATEGORY = (
     ('1', '1'),
 )
 
+TYPE_CHOICES = (
+    ('RO', 'Room only'),
+    ('BB', 'Bed & Breakfast'),
+    ('HB', 'Half Board'),
+    ('FB', 'Full Board'),
+    ('AI', 'All Inclusive'),
+)
 
 class HotelFilterForm(forms.Form):
 
@@ -16,4 +23,10 @@ class HotelFilterForm(forms.Form):
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=STARS_CATEGORY,
+    )
+
+    rt = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=TYPE_CHOICES,
     )

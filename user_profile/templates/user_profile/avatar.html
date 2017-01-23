@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="header-login header-container" layout="column top-stretch">
+
+    {% include 'partials/navigation.html' %}
+    
+    <section class="header-title" self="size-x1" layout="column center-center">
+        <h1>{{ selecteduser.username }}'s Profile</h1>
+    </section>
+</header>
+{% endblock %}
+
+{% block main %}
+<section layout='column top-center' class="profile_page">
+    
+    {% include 'partials/profile_nav.html' with active_tab='avatar' %}
+
+    {% if userprofile.picture %}
+    <div class="profile_pic" style="background-image:url('{{ MEDIA_URL }}{{userprofile.picture }}')"></div>
+{#     <img src="{{ MEDIA_URL }}{{userprofile.picture }}" width="300" height="300" alt="{{selecteduser.username}}" /> #}
+    {% endif %}
+    <br/>
+    <div class="update_info">
+        {% if selecteduser.username == user.username %}
+            <form method="post" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="contact-button login-btn" type="submit" value="Update" style="width:100%" />
+            </form>
+        {% endif %}
+    </div>
+    <div id="edit_profile"></div>
+</section>
+{% endblock %}

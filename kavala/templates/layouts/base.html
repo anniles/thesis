@@ -1,5 +1,5 @@
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
 	<title>{% block title %}{% endblock %}</title>
@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/slick-carousel/slick/slick.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 </head>
-<body>
+<body layout="column justify-center">
 
 
 	{% block header %}

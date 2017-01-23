@@ -2,12 +2,28 @@
 
 <section class="login" layout="row-right">
     <div class="search" layout="row center-right">
+        {% comment %}
         <input type="text" class="search-input">
         <svg class="icon-search">
             <use xlink:href="{% static 'svg/icons.svg' %}#search" />
         </svg>
+        {% endcomment %}
+        {% if user %}
+            <h4 style="margin:0;">
+                <a style="color:#1E7FBF" href="{% url 'user_profile:profile' %}" layout="row center-spread">
+                    {% if user.userprofile.picture %}
+                    <div class="user_small_pic" style="background-image:url('{{ MEDIA_URL }}{{user.userprofile.picture }}')"></div>
+                    {% endif %}
+                    {{ user.username }}
+                </a>
+            </h4>
+        {% endif %}
     </div>
-    <h6 self="right"><a href="#">Sign In</a></h6>
+    {% if user.is_authenticated %}
+        <h6 self="right"><a href="{% url 'auth_logout' %}?next=/">Log out</a></h6>
+    {% else %}
+        <h6 self="right"><a href="{% url 'auth_login' %}">Sign In</a></h6>
+    {% endif %}
 </section>
 <hr class="header-line">
 <div class="navigation-open show-from-940">
@@ -15,19 +31,19 @@
         <use xlink:href="{% static 'svg/icons.svg' %}#menu" />
     </svg>
 </div>
-<nav class="hide-from-940">
+<nav class="hide-from-940 main-nav">
     <ul class="navigation" layout="rows center-center">
         <div class="nav-close show-from-940">
             <svg class="icon-close">
                 <use xlink:href="{% static 'svg/icons.svg' %}#close" />
             </svg>
         </div>
-        <li><a href="{% url 'homepage' %}">Home</a></li>
-        <li><a href="{% url 'hotels:index' %}">Hotels</a></li>
-        <li><a href="{% url 'rentals:cars' %}">Rent a car</a></li>
-        <li><a href="{% url 'rentals:bikes' %}">Rent a bike</a></li>
-        <li><a href="#">Transportation</a></li>
-        <li><a href="#">Sights</a></li>
-        <li><a href="{% url 'contact:index' %}">Contact us</a></li>
+        <li><a class="{% if active_tab == 'home' %} active{% endif %}" href="{% url 'homepage' %}">Home</a></li>
+        <li><a class="{% if active_tab == 'hotels' %} active{% endif %}" href="{% url 'hotels:index' %}">Hotels</a></li>
+        <li><a class="{% if active_tab == 'cars' %} active{% endif %}" href="{% url 'rentals:cars' %}">Rent a car</a></li>
+        <li><a class="{% if active_tab == 'bikes' %} active{% endif %}" href="{% url 'rentals:bikes' %}">Rent a bike</a></li>
+        <li><a class="{% if active_tab == 'transportation' %} active{% endif %}" href="#">Transportation</a></li>
+        <li><a class="{% if active_tab == 'sights' %} active{% endif %}"href="#">Sights</a></li>
+        <li><a class="{% if active_tab == 'contact' %} active{% endif %}"href="{% url 'contact:index' %}">Contact us</a></li>
     </ul>
 </nav>

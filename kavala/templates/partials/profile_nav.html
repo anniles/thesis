@@ -1,0 +1,7 @@
+{% load static %}
+
+<div layout="row center-spread" class="profile_nav">
+    <a class="{% if active_tab == 'profile' %} active{% endif %}" href="{% url 'user_profile:profile' %}">Profile</a>
+    <a class="{% if active_tab == 'avatar' %} active{% endif %}" href="{% url 'user_profile:avatar' %}">Avatar</a>
+    <a class="{% if active_tab == 'bookings' %} active{% endif %}" href="{% url 'user_profile:avatar' %}">Bookings</a>
+</div>

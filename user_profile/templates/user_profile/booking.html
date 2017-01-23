@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="header-login header-container" layout="column top-stretch">
+
+    {% include 'partials/navigation.html' %}
+    
+    <section class="header-title" self="size-x1" layout="column center-center">
+        <h1>{{ user.username }}'s Booked list</h1>
+    </section>
+</header>
+{% endblock %}
+
+{% block main %}
+<section layout='column top-center' class="profile_page">
+    {# {% include 'partials/profile_nav.html' with active_tab='booking' %} #}
+    <a href="{% url 'user_profile:bookings' %}">Back</a>
+
+    <br>
+    {% for booking in booking %}
+        {% for item in booking.bookingitem_set.all %}
+            {{ item.price }}
+            <br>
+            {{ item.content_type }}
+            <br>
+            {{ item.content_object }}
+            <br>
+            {{ item.check_in }}
+            <br>
+            {{ item.check_out }}
+            <br>
+            <br>
+            <br>
+        {% endfor %}
+    {% endfor %}
+</section>
+{% endblock %}

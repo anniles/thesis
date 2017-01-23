@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="header-login header-container" layout="column top-stretch">
+
+    {% include 'partials/navigation.html' %}
+    
+    <section class="header-title" self="size-x1" layout="column center-center">
+        <h1>{{ user.username }}'s Bookins</h1>
+    </section>
+</header>
+{% endblock %}
+
+{% block main %}
+<section layout='column top-center' class="profile_page">
+    {% include 'partials/profile_nav.html' with active_tab='booking' %}
+
+    <br>
+    {% for booking in bookings %}
+       <a href="{% url 'user_profile:booking' user.id %}"> {{ booking.user.username }} </a>
+       {{ booking.created_at}}
+       <br>
+       {{  booking.updated_at|timesince }}
+    {% endfor %}
+
+</section>
+{% endblock %}

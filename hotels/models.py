@@ -6,6 +6,9 @@ from django.contrib import admin
 class Amenity(models.Model):
     name = models.CharField(max_length=200, unique=True)
 
+    class Meta:
+        verbose_name_plural = 'Amenities'
+
     def __str__(self):
         return self.name
 
@@ -72,7 +75,8 @@ class Room(models.Model):
     image = models.ImageField(upload_to = 'room_image', blank=True)
     description = models.TextField(default='' , null=True)
     amenities = models.ManyToManyField(Amenity)
-    # todo price, images
+    image = models.ImageField(upload_to = 'room_image', blank=True)
+    # todo price
 
     def __str__(self):
         return self.category

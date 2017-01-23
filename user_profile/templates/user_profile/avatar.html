@@ -8,7 +8,7 @@
     {% include 'partials/navigation.html' %}
     
     <section class="header-title" self="size-x1" layout="column center-center">
-        <h1>{{ selecteduser.username }}'s Profile</h1>
+        <h1>{{ user.username }}'s Avatar</h1>
     </section>
 </header>
 {% endblock %}
@@ -32,6 +32,6 @@
             </form>
         {% endif %}
     </div>
-    <div id="edit_profile"></div>
+   
 </section>
 {% endblock %}

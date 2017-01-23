@@ -3,8 +3,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .models import UserProfileForm, UserProfile, UserForm
 from django.contrib.auth.models import User
+
+from .forms import UserProfileForm, UserForm
+from .models import UserProfile
+
+from booking.models import Booking, BookingItem
 
 
 # Create your views here.
@@ -12,12 +16,13 @@ from django.contrib.auth.models import User
 @login_required
 def avatar(request):
     
-    user = User.objects.get(username=request.user.username)
+    user = request.user
     
     userprofile = UserProfile.objects.get_or_create(user=user)[0]
+    
     form = UserProfileForm(
         {'picture': userprofile.picture, 'home_address': userprofile.home_address, 'phone_numer': userprofile.phone_numer})
-    
+
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
         if form.is_valid():
@@ -32,7 +37,8 @@ def avatar(request):
 @login_required
 def profile(request):
     
-    user = User.objects.get(username=request.user.username)
+    user = request.user
+
     form = UserForm({
         'first_name': user.first_name,
         'last_name': user.last_name,
@@ -48,3 +54,27 @@ def profile(request):
     
     return render(request, 'user_profile/profile.html',
         {'selecteduser': user, 'form': form})
+
+@login_required
+def bookings(request):
+
+    user = request.user
+    bookings = Booking.objects.filter(user=user).all()
+
+    context = { 
+        'bookings': bookings,
+    }
+
+    return render(request, 'user_profile/bookings.html', context)
+
+@login_required
+def booking(request, id):
+
+    user = request.user
+    booking = Booking.objects.filter(user=user).all()
+
+    context = { 
+        'booking': booking,
+    }
+
+    return render(request, 'user_profile/booking.html', context)

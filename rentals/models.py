@@ -42,7 +42,8 @@ class Car(models.Model):
         default='',
         max_length=200,
     )
-    #todo price, images
+    image = models.ImageField(upload_to = 'car_image', blank=True)
+    #todo price
 
     def __str__(self):
         return self.model
@@ -74,7 +75,8 @@ class Bike(models.Model):
         default='',
         max_length=200,
     )
-    #todo price, images
+    image = models.ImageField(upload_to = 'bike_image', blank=True)
+    #todo price
 
     def __str__(self):
         return self.model

@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django import forms
 
 
 # Create your models here.
@@ -16,20 +15,6 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-class UserProfileForm(forms.ModelForm):
-    picture = forms.ImageField(required=False)
-    
-    class Meta:
-        model = UserProfile
-        exclude = ('user',)
 
-
-class UserForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=50, required=False)
-    last_name = forms.CharField(max_length=50, required=False)
-
-    class Meta:
-        model = User
-        fields = ('first_name', 'last_name')
 
         

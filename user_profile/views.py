@@ -68,10 +68,10 @@ def bookings(request):
     return render(request, 'user_profile/bookings.html', context)
 
 @login_required
-def booking(request, id):
+def bookingItems(request, id):
 
     user = request.user
-    booking = Booking.objects.filter(user=user).all()
+    booking = Booking.objects.get(pk=id)
 
     context = { 
         'booking': booking,

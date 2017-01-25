@@ -1,0 +1,63 @@
+@import settings
+
+.header-search-container
+    max-width: 800px
+    margin: 0 auto
+    width: 100%
+    .tabs
+        margin: 0px
+        padding: 0px
+        list-style: none
+        li
+            background: none
+            color: $grey
+            display: inline-block
+            padding: 10px 15px
+            cursor: pointer
+            &.current
+                background: #ededed
+                color: $grey
+                border-top-left-radius: 3px
+                border-top-right-radius: 3px
+                color: $blue
+                span
+                    svg
+                        fill: $blue
+            span
+                position: relative
+                padding-right: 30px
+                svg
+                    position: absolute
+                    top: -2px
+            .tab-title
+                @media #{$max600}
+                    display: none
+    .tab-content
+        display: none
+        background: #ededed
+        padding: 15px
+        color: $grey
+        &.current
+            display: inherit
+        input, select
+            width: 100%
+            padding: 7px 5px
+            border-radius: 3px
+            border-style: none
+            border: 1px solid rgba(0, 0, 0, 0.3)
+            margin-top: 5px
+        .search-form-container
+            @media #{$max700}
+                flex-direction: column
+            @media #{$max400}
+                div
+                    flex-direction: column
+        #persons
+            padding: 10px
+        .input-container
+            flex: 1
+            margin: 10px
+            @media #{$max400}
+                width: 100%
+        .serach-btn
+            max-width: 115px!important

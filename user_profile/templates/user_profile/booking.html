@@ -8,32 +8,64 @@
     {% include 'partials/navigation.html' %}
     
     <section class="header-title" self="size-x1" layout="column center-center">
-        <h1>{{ user.username }}'s Booked list</h1>
+        <h1>{{ user.username }}'s Booking list</h1>
     </section>
 </header>
 {% endblock %}
 
 {% block main %}
-<section layout='column top-center' class="profile_page">
-    {# {% include 'partials/profile_nav.html' with active_tab='booking' %} #}
-    <a href="{% url 'user_profile:bookings' %}">Back</a>
+<section layout='column top-center' class="profile_page booking-section">
+    {% for item in booking.bookingitem_set.all %}
+        {% if item.content_type.name == 'room' %}
+            
+            <div class="booking-item">
+                <h3>Reservation Type: {{ item.content_type }}</h3>
 
-    <br>
-    {% for booking in booking %}
-        {% for item in booking.bookingitem_set.all %}
-            {{ item.price }}
-            <br>
-            {{ item.content_type }}
-            <br>
-            {{ item.content_object }}
-            <br>
-            {{ item.check_in }}
-            <br>
-            {{ item.check_out }}
-            <br>
-            <br>
-            <br>
-        {% endfor %}
+                <div class="booking-item-info">
+                    <span class="date-span" layout="row center-justify">
+                        <p><span class="book-item-title">Check In</span>: {{ item.check_in }}</p>
+                        <p><span class="book-item-title">Check Out</span>: {{ item.check_out }}</p>
+                    </span>
+                    <p><span class="book-item-title">Room Type</span>: {{ item.content_object }}</p>
+                    <p><span class="book-item-title">Price</span>: {{ item.price }} &euro;</p>
+                </div>
+            </div>
+
+        {% elif item.content_type.name == 'car' %}
+            
+            <div class="booking-item">
+                <h3>Reservation Type: {{ item.content_type }}</h3>
+
+                <div class="booking-item-info">
+                    <span class="date-span" layout="row center-justify">
+                        <p><span class="book-item-title">Check In</span>: {{ item.check_in }}</p>
+                        <p><span class="book-item-title">Check Out</span>: {{ item.check_out }}</p>
+                    </span>
+                    <p><span class="book-item-title">Car Model</span>: {{ item.content_object }}</p>
+                    <p><span class="book-item-title">Price</span>: {{ item.price }} &euro;</p>
+                </div>
+            </div>
+
+        {% else %}
+            
+            <div class="booking-item">
+                <h3>Reservation Type: {{ item.content_type }}</h3>
+
+                <div class="booking-item-info">
+                    <span class="date-span" layout="row center-justify">
+                        <p><span class="book-item-title">Check In</span>: {{ item.check_in }}</p>
+                        <p><span class="book-item-title">Check Out</span>: {{ item.check_out }}</p>
+                    </span>
+                    <p><span class="book-item-title">Bike Model</span>: {{ item.content_object }}</p>
+                    <p><span class="book-item-title">Price</span>: {{ item.price }} &euro;</p>
+                </div>
+            </div>
+
+        {% endif %}
     {% endfor %}
+    <a href="{% url 'user_profile:bookings' %}" class="button bookings-back" layout='column center-center'>
+        <span class="btn-top content"> Back </span>
+        <span class="btn-bottom content"> Back </span>
+    </a>
 </section>
 {% endblock %}

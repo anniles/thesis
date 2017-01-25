@@ -78,6 +78,9 @@ class Room(models.Model):
     image = models.ImageField(upload_to = 'room_image', blank=True)
     # todo price
 
+    def is_available(self):
+        return False
+
     def __str__(self):
         return self.category
     

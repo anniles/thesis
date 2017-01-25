@@ -8,7 +8,7 @@
     {% include 'partials/navigation.html' %}
     
     <section class="header-title" self="size-x1" layout="column center-center">
-        <h1>{{ user.username }}'s Bookins</h1>
+        <h1>{{ user.username }}'s Bookings</h1>
     </section>
 </header>
 {% endblock %}
@@ -19,10 +19,14 @@
 
     <br>
     {% for booking in bookings %}
-       <a href="{% url 'user_profile:booking' user.id %}"> {{ booking.user.username }} </a>
-       {{ booking.created_at}}
-       <br>
-       {{  booking.updated_at|timesince }}
+        <div class="bookings-list">
+            <a href="{% url 'user_profile:bookingItems' booking.id %}" layout="row center-center"> 
+                <span class="container-span"><span class="book-title">Reservation Code</span>: 1</span>
+                <span class="container-span"><span class="book-title">Created at</span>: {{ booking.created_at}}</span> 
+                <span class="container-span"><span class="book-title">Last Update</span>: {{  booking.updated_at|timesince }}</span>
+               
+            </a>
+       </div>
     {% endfor %}
 
 </section>

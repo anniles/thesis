@@ -43,7 +43,7 @@ class Car(models.Model):
         max_length=200,
     )
     image = models.ImageField(upload_to = 'car_image', blank=True)
-    #todo price
+    price = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
         return self.model
@@ -76,7 +76,7 @@ class Bike(models.Model):
         max_length=200,
     )
     image = models.ImageField(upload_to = 'bike_image', blank=True)
-    #todo price
+    price = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
         return self.model

@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Kavala'sCars{% endblock %}
+
+{% block header %}
+{% include 'partials/cars-header.html'  with page_title="Rent a car" page_subtitle="make your trips with comfort" %}
+{% endblock %}
+
+{% block main %}
+
+    <section layout="column center-center" class="hotel-list-section">
+
+        {% if cars %}
+
+        <ul class="hotel-list" layout="rows top-spread">
+            {% for car in cars %}
+            <li class="hotel-box list-view" layout="column center-center">
+                <a href="{% url 'rentals:car' car.slug %}">
+                    <div class="hotel-img-desc" style="background-image: url({% static "images/cars/car.jpg" %})">
+                        <div class="hotel-description" layout="row center-center">
+                            <p>{{ car.description | truncatechars:150 }}</p>
+                        </div>
+                    </div>
+                    <div class="hotel-link" layout="column center-left">
+                        <a href="{% url 'rentals:car' car.slug %}">
+                            {{ car.model }} <br>
+                            cc: {{ car.cc }}
+                        </a>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+
+        <p>No cars are available.</p>
+
+        {% endif %}
+    </section>
+
+{% endblock %}

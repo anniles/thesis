@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Kavala'sHotels{% endblock %}
+
+{% block header %}
+{% include 'partials/pages-header.html'  with page_title="kavala's hotels" page_subtitle="find the best choice for you" %}
+{% endblock %}
+
+{% block main %}
+
+    <section layout="column center-center" class="hotel-list-section">
+
+        {% if hotels %}
+
+        <ul class="hotel-list" layout="rows top-spread">
+            {% for hotel in hotels %}
+            <li class="hotel-box list-view" layout="column center-center">
+                <a href="{% url 'hotels:detail' hotel.slug %}">
+                    <div class="hotel-img-desc" style="background-image: url({% static "images/hotels/hotel.jpg" %})">
+                        <!-- <img class="hotel-image" src="http://placehold.it/300x300" alt="hotel-img"> -->
+                        <div class="hotel-description" layout="row center-center">
+                            <p>{{ hotel.description | truncatechars:150 }}</p>
+                        </div>
+                    </div>
+                    <div class="hotel-link" layout="column center-left">
+                        <a href="{% url 'hotels:detail' hotel.slug %}">{{ hotel.name }}</a>
+                        <div class="stars">
+                            {% include 'hotels/partials/stars_snippet.html' with with_nofill=False hotel=hotel %}
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+
+        <p>No hotels are available.</p>
+
+        {% endif %}
+    </section>
+
+{% endblock %}
+
+

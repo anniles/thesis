@@ -33,7 +33,7 @@ def index_cars(request):
         'active_tab': 'cars',
     }
 
-    return render(request, 'rentals/cars.html', data)
+    return render(request, 'rentals/cars_list.html', data)
 
 # class CarIndexView(generic.ListView):
 #     template_name = 'rentals/cars.html'
@@ -77,7 +77,7 @@ def index_bikes(request):
         'active_tab': 'bikes',
     }
 
-    return render(request, 'rentals/bikes.html', data)
+    return render(request, 'rentals/bikes_list.html', data)
 
 
 class BikeDetailView(generic.DetailView):

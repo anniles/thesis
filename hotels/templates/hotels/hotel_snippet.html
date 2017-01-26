@@ -9,18 +9,20 @@
 <ul class="hotel-list" layout="row top-spread">
 	{% for hotel in hotels %}
 	<li class="hotel-box" layout="column center-center">
-		<div class="hotel-img-desc">
-			<!-- <img class="hotel-image" src="http://placehold.it/300x300" alt="hotel-img"> -->
-			<div class="hotel-description" layout="row center-center">
-				<p>{{ hotel.description | truncatechars:150 }}</p>
+		<a href="{% url 'hotels:detail' hotel.slug %}">
+			<div class="hotel-img-desc" style="background-image: url({% static "images/hotels/hotel.jpg" %})">
+				<!-- <img class="hotel-image" src="http://placehold.it/300x300" alt="hotel-img"> -->
+				<div class="hotel-description" layout="row center-center">
+					<p>{{ hotel.description | truncatechars:150 }}</p>
+				</div>
 			</div>
-		</div>
-		<div class="hotel-link" layout="column center-left">
-			<a href="{% url 'hotels:detail' hotel.slug %}">{{ hotel.name }}</a>
-			<div class="stars">
-				{% include 'hotels/partials/stars_snippet.html' with with_nofill=False hotel=hotel %}
+			<div class="hotel-link" layout="column center-left">
+				<a href="{% url 'hotels:detail' hotel.slug %}">{{ hotel.name }}</a>
+				<div class="stars">
+					{% include 'hotels/partials/stars_snippet.html' with with_nofill=False hotel=hotel %}
+				</div>
 			</div>
-		</div>
+		</a>
 	</li>
 	{% endfor %}
 </ul>

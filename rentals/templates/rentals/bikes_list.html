@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Kavala'sBikes{% endblock %}
+
+{% block header %}
+{% include 'partials/bikes-header.html'  with page_title="Rent a bike" page_subtitle="make your explorations in extreme" %}
+{% endblock %}
+
+{% block main %}
+
+    <section layout="column center-center" class="hotel-list-section">
+
+        {% if bikes %}
+
+        <ul class="hotel-list" layout="rows top-spread">
+            {% for bike in bikes %}
+            <li class="hotel-box list-view" layout="column center-center">
+                <a href="{% url 'rentals:bike' bike.slug %}">
+                    <div class="hotel-img-desc" style="background-image: url({% static "images/bikes/bike.jpeg" %})">
+                        <div class="hotel-description" layout="row center-center">
+                            <p>{{ bike.description | truncatechars:150 }}</p>
+                        </div>
+                    </div>
+                    <div class="hotel-link" layout="column center-left">
+                        <a href="{% url 'rentals:bike' bike.slug %}">
+                            {{ bike.model }} <br>
+                            cc: {{ bike.cc }}
+                        </a>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+
+        <p>No bikes are available.</p>
+
+        {% endif %}
+    </section>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$30000$N0U6SVfd3hQV$5gExfoMbly94N8VWLaRxN8nVkFYpfm7d6mdNZBcEHAw=
+    last_login: 2017-01-19 16:55:35.675247+00:00
+    is_superuser: true
+    username: admin
+    first_name: ''
+    last_name: ''
+    email: anniles_@hotmail.com
+    is_staff: true
+    is_active: true
+    date_joined: 2016-11-01 11:19:04.634840+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 9
+  fields:
+    password: pbkdf2_sha256$30000$0zJWUVo2rygC$i9dwYyNSf1efI7fQWquFD2JsRPcvV1FdgayxxQJhZb8=
+    last_login: 2017-01-23 18:24:07.193547+00:00
+    is_superuser: false
+    username: test1
+    first_name: sofia
+    last_name: koulis
+    email: test1@test1.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-01-17 17:29:57.996470+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 10
+  fields:
+    password: pbkdf2_sha256$30000$pTOx5ANjfWpc$1C//F+Q9NTLrowR32jOWw1/ujrX3iFs6+ukxKX27uGk=
+    last_login: 2017-01-17 17:54:37.971940+00:00
+    is_superuser: false
+    username: test2
+    first_name: ''
+    last_name: ''
+    email: test2@test2.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-01-17 17:54:37.881211+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 11
+  fields:
+    password: pbkdf2_sha256$30000$vov8mvMt6opl$hJzutBovkxlSjyrmKh7fuVBDhvgwWzwPHdkW/oK5ATo=
+    last_login: 2017-01-17 18:58:50.836932+00:00
+    is_superuser: false
+    username: test3
+    first_name: ''
+    last_name: ''
+    email: test3@test3.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-01-17 18:58:50.743008+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 12
+  fields:
+    password: pbkdf2_sha256$30000$MfTV0Pb8S3kL$MgEPcF9nWI0spkDESOYL/LXBlp/CWUvQsV5+GDYPA3Q=
+    last_login: 2017-01-23 18:23:54.316532+00:00
+    is_superuser: false
+    username: test4
+    first_name: sofia
+    last_name: koulis
+    email: test4@test4.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-01-17 19:05:39.516950+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 13
+  fields:
+    password: pbkdf2_sha256$30000$DDDzzoo1AH27$5kIx3pHICYw8jZBnUNSLBUfdd67lZjcuRAHsgDOhllk=
+    last_login: 2017-01-18 12:58:33.214738+00:00
+    is_superuser: false
+    username: test6
+    first_name: ''
+    last_name: ''
+    email: test6@test6.com
+    is_staff: false
+    is_active: true
+    date_joined: 2017-01-18 12:58:33.128743+00:00
+    groups: []
+    user_permissions: []

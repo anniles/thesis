@@ -4,19 +4,19 @@
     max-width: 800px
     margin: 0 auto
     width: 100%
+    z-index: 1
     .tabs
         margin: 0px
         padding: 0px
         list-style: none
         li
             background: none
-            color: $grey
+            color: $white
             display: inline-block
             padding: 10px 15px
             cursor: pointer
             &.current
                 background: #ededed
-                color: $grey
                 border-top-left-radius: 3px
                 border-top-right-radius: 3px
                 color: $blue
@@ -29,16 +29,19 @@
                 svg
                     position: absolute
                     top: -2px
+                    fill: $white
             .tab-title
                 @media #{$max600}
                     display: none
     .tab-content
         display: none
         background: #ededed
-        padding: 15px
+        padding: 0 15px
         color: $grey
         &.current
             display: inherit
+        select
+            background-color: $white
         input, select
             width: 100%
             padding: 7px 5px

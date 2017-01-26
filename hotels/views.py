@@ -29,7 +29,7 @@ def index(request):
         'active_tab': 'hotels',
     }
 
-    return render(request, 'hotels/index.html', data)
+    return render(request, 'hotels/hotel_list.html', data)
 
 
 def detail(request, slug):

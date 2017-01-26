@@ -10,7 +10,7 @@
         {% endcomment %}
         {% if user %}
             <h4 style="margin:0;">
-                <a style="color:#1E7FBF" href="{% url 'user_profile:profile' %}" layout="row center-spread">
+                <a href="{% url 'user_profile:profile' %}" layout="row center-spread">
                     {% if user.userprofile.picture %}
                     <div class="user_small_pic" style="background-image:url('{{ MEDIA_URL }}{{user.userprofile.picture }}')"></div>
                     {% endif %}

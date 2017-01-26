@@ -76,10 +76,8 @@ class Room(models.Model):
     description = models.TextField(default='' , null=True)
     amenities = models.ManyToManyField(Amenity)
     image = models.ImageField(upload_to = 'room_image', blank=True)
-    # todo price
+    price = models.DecimalField(max_digits=8, decimal_places=2)
 
-    def is_available(self):
-        return False
 
     def __str__(self):
         return self.category

@@ -12,6 +12,8 @@
 @import user_profile
 @import bookings
 @import header_search
+@import hotel_list
+@import cars_list
 
 body::-webkit-scrollbar 
 	width: 11px
@@ -59,12 +61,22 @@ section
 	width: 100%
 	margin: 0 auto
 
+.dark_layer
+	position: absolute
+	height: 100%
+	width: 100%
+	top: 0
+	left: 0
+	background-color: rgba(0, 0, 0, .3)
+
 .header-container
-	background: white url(" http://placehold.it/1440x300") no-repeat
+	background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../images/kavala.jpg") no-repeat
+	// background: white url(" http://placehold.it/1440x300") no-repeat
 	background-position: center
 	background-size: cover
 	// background-attachment: fixed
 	height: 600px
+	position: relative
 	width: 100%
 	@media #{$max700}
 		height: 300px
@@ -76,9 +88,9 @@ section
 			height: 300px
 	&.header-login
 		height: 300px
-
 	.header-title
 		text-align: center
+		z-index: 1
 		h1
 			font-size: 50px
 			text-transform: uppercase
@@ -169,6 +181,12 @@ section
 	.search
 		width: initial
 		position: relative
+		a
+			color: $white
+			font-size: 11px
+			transition: all .5s
+			&:hover
+				color: $blue
 		@media #{$max500}
 			width: 100%
 			max-width: 200px
@@ -356,7 +374,7 @@ section
 		overflow: hidden
 	.btn
 		&-top
-			top: 10px
+			top: 9px
 			left: 0
 		&-bottom
 			top: 40px

@@ -1,0 +1,37 @@
+{% load static %}
+
+<div class="title-hotels">
+    <h3>kavalas <span>Cars</span></h3>
+</div>
+
+{% if cars %}
+
+<ul class="hotel-list" layout="row top-spread">
+    {% for car in cars %}
+    <li class="hotel-box" layout="column center-center">
+        <a href="{% url 'rentals:car' car.slug %}">
+            <div class="hotel-img-desc" style="background-image: url({% static "images/cars/car.jpg" %})">
+                <!-- <img class="hotel-image" src="http://placehold.it/300x300" alt="hotel-img"> -->
+                <div class="hotel-description" layout="row center-center">
+                    <p>{{ car.description | truncatechars:150 }}</p>
+                </div>
+            </div>
+            <div class="hotel-link" layout="column center-left">
+                <a href="{% url 'rentals:car' car.slug %}">
+                    {{ car.model }} <br>
+                    cc: {{ car.cc }}
+                </a>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'rentals:cars' %}" class="button" layout='column center-center'>
+    <span class="btn-top content"> View all Cars </span>
+    <span class="btn-bottom content"> View all Cars </span>
+</a>
+{% else %}
+
+<p>No cars are available.</p>
+
+{% endif %}

@@ -149,6 +149,7 @@
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
     image: room_image/log-bg2.png
+    price: '30.00'
     amenities: [1]
 - model: hotels.room
   pk: 2
@@ -180,6 +181,7 @@
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
     image: ''
+    price: '30.00'
     amenities: [2, 3]
 - model: hotels.room
   pk: 3
@@ -211,6 +213,7 @@
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
     image: ''
+    price: '30.00'
     amenities: [2, 3, 1]
 - model: hotels.room
   pk: 4
@@ -242,6 +245,7 @@
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
     image: ''
+    price: '30.00'
     amenities: [2, 3, 1]
 - model: hotels.room
   pk: 5
@@ -269,6 +273,7 @@
       \u03BF\u03BD\u03B9\u03BA\u03AE\u03C2 \u03C3\u03B5\u03BB\u03B9\u03B4\u03BF\u03C0\
       \u03BF\u03AF\u03B7\u03C3\u03B7\u03C2 \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF A"
     image: ''
+    price: '30.00'
     amenities: [2, 3, 1]
 - model: hotels.room
   pk: 6
@@ -296,6 +301,7 @@
       \u03BF\u03BD\u03B9\u03BA\u03AE\u03C2 \u03C3\u03B5\u03BB\u03B9\u03B4\u03BF\u03C0\
       \u03BF\u03AF\u03B7\u03C3\u03B7\u03C2 \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF A"
     image: ''
+    price: '30.00'
     amenities: [3]
 - model: hotels.room
   pk: 7
@@ -306,4 +312,5 @@
     category: single
     description: lorem
     image: ''
+    price: '30.00'
     amenities: [2, 1]

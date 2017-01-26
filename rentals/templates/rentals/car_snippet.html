@@ -10,8 +10,11 @@
     {% for car in cars %}
     <li class="hotel-box" layout="column center-center">
         <a href="{% url 'rentals:car' car.slug %}">
-            <div class="hotel-img-desc" style="background-image: url({% static "images/cars/car.jpg" %})">
-                <!-- <img class="hotel-image" src="http://placehold.it/300x300" alt="hotel-img"> -->
+        {% if car.image %}
+            <div class="hotel-img-desc" style="background-image: url({{ car.image.url }})">
+        {% else %}
+            <div class="hotel-img-desc" style="background-image: url({% static "images/no_img.png" %})">
+        {% endif %}
                 <div class="hotel-description" layout="row center-center">
                     <p>{{ car.description | truncatechars:150 }}</p>
                 </div>

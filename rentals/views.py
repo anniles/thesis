@@ -11,25 +11,11 @@ from .forms import CarFilterForm, BikeFilterForm
 # Create your views here.
 def index_cars(request):
     params = request.GET
-    form = CarFilterForm(params)
 
     # BUILDING QUERIES
-    q = Car.objects
-    if params.get('t'):
-        q = q.filter(category__in=params.getlist('t'))
-    if params.get('cc'):
-        cc  = [int(x) for x in params.get('cc').split('-')]
-        if len(cc) == 2:
-            q = q.filter(cc__gte=cc[0]).filter(cc__lte=cc[1])
-        else:
-            q = q.filter(cc__gte=cc[0])
-
-    print(form.is_valid())
-    
-    cars = q.order_by('model').all()
+    cars = Car.objects.order_by('model').all()
     data = {
         'cars' : cars,
-        'form' : form,
         'active_tab': 'cars',
     }
 
@@ -58,22 +44,10 @@ def index_bikes(request):
     form = BikeFilterForm(params)
 
     # BUILDING QUERIES
-    q = Bike.objects
-    if params.get('c'):
-        q = q.filter(category__in=params.getlist('c'))
-    if params.get('cc'):
-        bcc  = [int(x) for x in params.get('cc').split('-')]
-        if len(bcc) == 2:
-            q = q.filter(cc__gte=bcc[0]).filter(cc__lte=bcc[1])
-        else:
-            q = q.filter(cc__gte=bcc[0])
-
-    print(form.is_valid())
+    bikes = Bike.objects.order_by('model').all()
     
-    bikes = q.order_by('model').all()
     data = {
         'bikes' : bikes,
-        'form' : form,
         'active_tab': 'bikes',
     }
 

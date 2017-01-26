@@ -5,7 +5,7 @@ register = template.Library()
 
 @register.inclusion_tag('hotels/hotel_snippet.html')
 def render_three_random_hotels():
-    hotels = Hotel.objects.all()[:3]
+    hotels = Hotel.objects.all().order_by('?')[:3]
     return {'hotels': hotels}
 
 @register.filter

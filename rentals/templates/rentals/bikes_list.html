@@ -18,7 +18,11 @@
             {% for bike in bikes %}
             <li class="hotel-box list-view" layout="column center-center">
                 <a href="{% url 'rentals:bike' bike.slug %}">
-                    <div class="hotel-img-desc" style="background-image: url({% static "images/bikes/bike.jpeg" %})">
+                {% if bike.image %}
+                    <div class="hotel-img-desc" style="background-image: url({{ bike.image.url }})">
+                {% else %}
+                    <div class="hotel-img-desc" style="background-image: url({% static "images/no_img.png" %})">
+                {% endif %}
                         <div class="hotel-description" layout="row center-center">
                             <p>{{ bike.description | truncatechars:150 }}</p>
                         </div>

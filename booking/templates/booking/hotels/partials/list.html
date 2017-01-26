@@ -5,9 +5,12 @@
     {% for hotel in hotels %}
     <div class="hotel-list-info" layout="row center-center">
         <figure class="hotel-image" self="stretch size-x3">
-            <a href="{% url 'hotels:detail' hotel.slug %}">
-                <img src="http://placehold.it/500x500" alt="">
-            </a>
+            {# <a href="{% url 'hotels:detail' hotel.slug %}" style="background-image: url('{% static "images/hotels/hotel.jpg" %}');"></a> #}
+            {% if hotel.image %}
+                <a href="{% url 'hotels:detail' hotel.slug %}" style="background-image: url('{{ hotel.image.url }}');"></a>
+            {% else %}
+                <a href="{% url 'hotels:detail' hotel.slug %}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
+            {% endif %}
         </figure>
         <div class="hotel-general" self="size-x4">
             <div class="hotel-name-stars" layout="row center-left">

@@ -5,5 +5,5 @@ register = template.Library()
 
 @register.inclusion_tag('rentals/car_snippet.html')
 def render_three_random_cars():
-    cars = Car.objects.all()[:3]
+    cars = Car.objects.all().order_by('?')[:3]
     return {'cars': cars}

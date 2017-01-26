@@ -88,30 +88,37 @@
         h3
             margin: 0 10px 0 0
             text-transform: uppercase
+        .bike-image
+            a:first-of-type
+                height: 100%
+                min-height: 220px
+                width: 100%
+                display: block
+                background-size: cover
+                background-position: center
+                transition: all .5s
+                transform: scale(1.1)
+                backface-visibility: hidden
+                &:hover
+                    transform: scale(1)
         .bike
             &-image
                 overflow: hidden
-                min-height: 220px
                 text-align: center
                 position: relative
                 margin: 0
                 width: 100%
-                // max-height: 240px
-                // height: 100vh
-                background-size: cover
-                background-position: center
-                // background-image: url("http://placehold.it/300x300")
-                img
-                    height: 250px
-                    width: 100%
-                    backface-visibility: hidden
-                    position: absolute
-                    left: 0
-                    transition: all .5s
-                    transform: scale(1.3)
-                    top: -15px
-                    &:hover
-                        transform: scale(1.1)
+                // img
+                //     height: 250px
+                //     width: 100%
+                //     backface-visibility: hidden
+                //     position: absolute
+                //     left: 0
+                //     transition: all .5s
+                //     transform: scale(1.3)
+                //     top: -15px
+                //     &:hover
+                //         transform: scale(1.1)
             &-general
                 padding: 30px
             &-info

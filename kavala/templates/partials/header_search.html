@@ -34,7 +34,7 @@
     </ul>
 
     <div id="hotels" class="tab-content current">
-        <form action="" layout="column center-center">
+        <form action="{% url 'booking:search_hotel' %}" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
@@ -56,8 +56,8 @@
 
                     <div class="input-container">    
                         <label for="roomtype">Roomtype</label><br>
-                        <select name="roomtype">
-                            <option value="ALL">Any</option>
+                        <select name="rt">
+                            <option value="">Any</option>
                             <option value="RO">Room only</option>
                             <option value="BB">Bed & Breakfast</option>
                             <option value="HB">Half Board</option>
@@ -75,7 +75,7 @@
         </form>
     </div>
     <div id="cars" class="tab-content">
-        <form action="" layout="column center-center">
+        <form action="{% url 'booking:search_car' %}" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
@@ -93,33 +93,33 @@
 
                     <div class="input-container">
                         <label for="car_cc">Car cc</label><br>
-                        <select name="car_cc">
-                            <option value="ALL">Any</option>
+                        <select name="cc">
+                            <option value="">Any</option>
                             <option value="0-1000">0-1000</option>
                             <option value="1000-1100">1000-1100</option>
                             <option value="1100-1300">1100-1300</option>
                             <option value="1300-1600">1300-1600</option>
                             <option value="1600-2000">1600-2000</option>
-                            <option value="Bigger-than-2000">Bigger than 2000</option>
+                            <option value="2000">Bigger than 2000</option>
                         </select>
                     </div>
 
                     <div class="input-container">
                         <label for="car_category">Car Category</label><br>
-                        <select name="car_category">
-                            <option value="ALL">Any</option>
-                            <option value="suv">SUV</option>
-                            <option value="sedan">Sedan</option>
-                            <option value="van">Van</option>
-                            <option value="coupe/compact">Coupe/Compact</option>
-                            <option value="wagon">Wagon</option>
-                            <option value="convertible">Convertible</option>
-                            <option value="sports_car">Sports Car</option>
-                            <option value="diesel">Diesel</option>
-                            <option value="crossover">Crossover</option>
-                            <option value="luxury_car">Luxury Car</option>
-                            <option value="hybrid/electric">Hybrid/Electric</option>
-                            <option value="hatchback">Hatchback</option>
+                        <select name="t">
+                            <option value="">Any</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="Van">Van</option>
+                            <option value="Coupe/Compact">Coupe/Compact</option>
+                            <option value="Wagon">Wagon</option>
+                            <option value="Convertible">Convertible</option>
+                            <option value="Sports_Car">Sports Car</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Crossover">Crossover</option>
+                            <option value="Luxury_Car">Luxury Car</option>
+                            <option value="Hybrid/Electric">Hybrid/Electric</option>
+                            <option value="Hatchback">Hatchback</option>
                         </select>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
         </form>
     </div>
     <div id="bikes" class="tab-content">
-        <form action="" layout="column center-center">
+        <form action="{% url 'booking:search_bike' %}" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
@@ -150,31 +150,31 @@
 
                     <div class="input-container">
                         <label for="bike_cc">Bike cc</label><br>
-                        <select name="bike_cc">
-                            <option value="ALL">Any</option>
+                        <select name="cc">
+                            <option value="">Any</option>
                             <option value="0-100">100 cc And Below</option>
                             <option value="100-150">100cc-150cc</option>
                             <option value="150-200">150cc-200cc</option>
                             <option value="200-250">200cc-250cc</option>
-                            <option value="250-above">250cc And Above</option>
+                            <option value="250">250cc And Above</option>
                         </select>
                     </div>
 
                     <div class="input-container">
                         <label for="bike_category">Bike Category</label><br>
-                        <select name="bike_category">
-                            <option value="ALL">Any</option>
-                            <option value="standard">Standard</option>
-                            <option value="cruiser">Cruiser</option>
-                            <option value="sport bike">Sport bike</option>
-                            <option value="touring">Touring</option>
-                            <option value="sport-touring">Sport touring</option>
-                            <option value="dual-sport">Dual-sport</option>
-                            <option value="scooters">Scooters</option>
-                            <option value="off-road">Off-road</option>
-                            <option value="enclosed">Enclosed</option>
-                            <option value="utility">Utility</option>
-                            <option value="tricycles">Tricycles</option>
+                        <select name="c">
+                            <option value="">Any</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Cruiser">Cruiser</option>
+                            <option value="Sport_bike">Sport bike</option>
+                            <option value="Touring">Touring</option>
+                            <option value="Sport_touring">Sport touring</option>
+                            <option value="Dual_sport">Dual-sport</option>
+                            <option value="Scooters">Scooters</option>
+                            <option value="Off_road">Off-road</option>
+                            <option value="Enclosed">Enclosed</option>
+                            <option value="Utility">Utility</option>
+                            <option value="Tricycles">Tricycles</option>
                         </select>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
         </form>
     </div>
     <div id="packages" class="tab-content">
-        <form action="" layout="column center-center">
+        <form action="" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
@@ -210,7 +210,7 @@
                     <div class="input-container">    
                         <label for="roomtype">Roomtype</label><br>
                         <select name="roomtype">
-                            <option value="ALL">Any</option>
+                            <option value="">Any</option>
                             <option value="RO">Room only</option>
                             <option value="BB">Bed & Breakfast</option>
                             <option value="HB">Half Board</option>

@@ -1,25 +1,29 @@
 {% load static %}
 {% load hotels %}
 
-<header class="pages header-container" layout="column top-stretch">
-    
-    {% include 'partials/navigation.html' with active_tab='hotels' %}
-    
-    <section class="header-title hotel" self="size-x1" layout="row bottom-left">
-        <div class="page-hotel-info" self="size-x1">
-            <div class="stars">
-                {% include 'hotels/partials/stars_snippet.html' with with_nofill=True hotel=hotel %}
-            </div>
-            <h2>{{hotel.name}}</h2>
-            <p>{{hotel.address}}</p>
-        </div>
-        <div class="page-hotel-price" self="right size-x1" layout="row bottom-right">
-            <p>from/per night</p>
-             <p>
-                <span> 40</span> <span class="currency">&euro;</span>
-             </p>
-        </div>
-    </section>
 
-    <div class="bottom-shadow"></div>
-</header>
+{% if hotel.image %}
+    <header class="pages header-container" layout="column top-stretch" style="background-image: url({{ hotel.image.url }})">
+{% else %}
+    <header class="pages header-container" layout="column top-stretch">
+{% endif %}    
+        {% include 'partials/navigation.html' with active_tab='hotels' %}
+        
+        <section class="header-title hotel" self="size-x1" layout="row bottom-left">
+            <div class="page-hotel-info" self="size-x1">
+                <div class="stars">
+                    {% include 'hotels/partials/stars_snippet.html' with with_nofill=True hotel=hotel %}
+                </div>
+                <h2>{{hotel.name}}</h2>
+                <p>{{hotel.address}}</p>
+            </div>
+            <div class="page-hotel-price" self="right size-x1" layout="row bottom-right">
+                <p>from/per night</p>
+                 <p>
+                    <span> 40</span> <span class="currency">&euro;</span>
+                 </p>
+            </div>
+        </section>
+
+        <div class="bottom-shadow"></div>
+    </header>

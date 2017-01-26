@@ -37,6 +37,11 @@ class Hotel(models.Model):
         return self.name
 
 
+class HotelImage(models.Model):
+    property = models.ForeignKey(Hotel, related_name='images')
+    image = models.ImageField(upload_to = 'hotel_image', blank=True)
+
+
 class RoomType(models.Model):
 
     TYPE_CHOICES = (

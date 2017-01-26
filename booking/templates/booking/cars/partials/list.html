@@ -4,9 +4,11 @@
     {% for car in cars %}
     <div class="car-list-info" layout="row center-center">
         <figure class="car-image" self="stretch size-x3">
-            <a href="{% url 'rentals:car' car.slug %}">
-                <img src="http://placehold.it/500x500" alt="">
-            </a>
+            {% if car.image %}
+                <a href="{% url 'rentals:car' car.slug %}" style="background-image: url('{{ car.image.url }}');"></a>
+            {% else %}
+                <a href="{% url 'rentals:car' car.slug %}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
+            {% endif %}
         </figure>
         <div class="car-general" self="size-x4">
             <div class="car-name-stars" layout="row center-left">

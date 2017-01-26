@@ -4,9 +4,11 @@
     {% for bike in bikes %}
     <div class="bike-list-info" layout="row center-center">
         <figure class="bike-image" self="stretch size-x3">
-            <a href="{% url 'rentals:bike' bike.slug %}">
-                <img src="http://placehold.it/500x500" alt="">
-            </a>
+            {% if bike.image %}
+                <a href="{% url 'rentals:bike' bike.slug %}" style="background-image: url('{{ bike.image.url }}');"></a>
+            {% else %}
+                <a href="{% url 'rentals:bike' bike.slug %}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
+            {% endif %}
         </figure>
         <div class="bike-general" self="size-x4">
             <div class="bike-name-stars" layout="row center-left">

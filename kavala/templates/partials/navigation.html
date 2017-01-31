@@ -43,7 +43,7 @@
         <li><a class="{% if active_tab == 'cars' %} active{% endif %}" href="{% url 'rentals:cars' %}">Rent a car</a></li>
         <li><a class="{% if active_tab == 'bikes' %} active{% endif %}" href="{% url 'rentals:bikes' %}">Rent a bike</a></li>
         <li><a class="{% if active_tab == 'transportation' %} active{% endif %}" href="#">Transportation</a></li>
-        <li><a class="{% if active_tab == 'sights' %} active{% endif %}"href="#">Sights</a></li>
+        <li><a class="{% if active_tab == 'sights' %} active{% endif %}"href="{% url 'sights:index' %}">Sights</a></li>
         <li><a class="{% if active_tab == 'contact' %} active{% endif %}"href="{% url 'contact:index' %}">Contact us</a></li>
     </ul>
 </nav>

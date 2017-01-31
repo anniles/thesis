@@ -42,14 +42,14 @@ class BookRoom(Room):
     def is_available(self, check_in, check_out):
 
         room_content_type = ContentType.objects.get_for_model(self)
-        
+
         count = BookingItem.objects.filter(
             (Q(check_in__gte=check_in) & Q(check_in__lte=check_out)) |
             (Q(check_out__gte=check_in) & Q(check_out__lte=check_out)) |
             (Q(check_in__lte=check_in) & Q(check_out__gte=check_out)),
             Q(content_type__pk=room_content_type.id) & Q(object_id=self.id)
             ).count()
-        
+
         return False if count>0 else True
 
     class Meta:
@@ -67,14 +67,14 @@ class BookCar(Car):
     def is_available(self, check_in, check_out):
 
         car_content_type = ContentType.objects.get_for_model(self)
-        
+
         count = BookingItem.objects.filter(
             (Q(check_in__gte=check_in) & Q(check_in__lte=check_out)) |
             (Q(check_out__gte=check_in) & Q(check_out__lte=check_out)) |
             (Q(check_in__lte=check_in) & Q(check_out__gte=check_out)),
             Q(content_type__pk=car_content_type.id) & Q(object_id=self.id)
             ).count()
-        
+
         return False if count>0 else True
 
     class Meta:
@@ -92,14 +92,14 @@ class BookBike(Bike):
     def is_available(self, check_in, check_out):
 
         bike_content_type = ContentType.objects.get_for_model(self)
-        
+
         count = BookingItem.objects.filter(
             (Q(check_in__gte=check_in) & Q(check_in__lte=check_out)) |
             (Q(check_out__gte=check_in) & Q(check_out__lte=check_out)) |
             (Q(check_in__lte=check_in) & Q(check_out__gte=check_out)),
             Q(content_type__pk=bike_content_type.id) & Q(object_id=self.id)
             ).count()
-        
+
         return False if count>0 else True
 
     class Meta:

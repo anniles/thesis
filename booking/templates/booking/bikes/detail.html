@@ -1,0 +1,121 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}{{bike.model}}{% endblock %}
+
+{% block header %}
+{% include 'partials/bike-header.html'  with rental=bike %}
+{% endblock %}
+
+{% block main %}
+<div class="collapse">
+    <div id="map"></div>
+</div>
+<section class="main-wrapper rental-main" layout="row top-justify">
+
+    <div class="rental-info" self="size-x2" layout="column center-center">
+
+        <a href="#" class="button map-btn-mobile show-from-940" layout='column center-center'>
+            <span class="btn-top content"> view on map </span>
+            <span class="btn-bottom content"> view on map </span>
+        </a>
+        <div class="rental-slider-container" layout="column center-center">
+
+            <div class="rental-slider">
+                {% if image_list %}
+                    {% for image in image_list %}
+                        <div class="rental-slider-item">
+                            <img src="{{ image.image.url }}" alt="">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for i in "xxxxx" %}
+                        <div class="rental-slider-item">
+                            <img src="{% static "images/no_img.png" %}" alt="">
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="rental-nav">
+                {% if image_list %}
+                    {% for image in image_list %}
+                        <div class="rental-nav-item">
+                            <img src="{{ image.image.url }}" alt="">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for i in "xxxxx" %}
+                        <div class="rental-nav-item">
+                            <img src="{% static "images/no_img.png" %}" alt="">
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <hr class="page-line">
+
+        <div class="rental-desc-container" layout="row top-justify">
+            <aside self="size-x1">
+                <h3>Description</h3>
+            </aside>
+            <div class="rental-desc" self="size-x3">
+                <p>
+                    {{ bike.description }} <br><br>
+                    Plate: <span>{{ bike.plate}}</span>, CC: <span>{{bike.cc}}</span>
+                </p>
+
+                <h4>What's include</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
+                </p>
+
+                <div class="rentals-check">
+                    {% for i in "xxxxxxxxxxx" %}
+                    <p>
+                        <svg class="icon-check">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                        </svg>
+                        Lorem ipsum dolor sit amet,
+                    </p>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="button select_room_btn _continue" layout='column center-center'>
+                    <span class="btn-top content"> Select </span>
+                    <span class="btn-bottom content"> Select </span>
+                </button>
+            </div>
+        </div>
+        
+        <hr class="page-line">
+        {% include 'rentals/partials/bike_rental.html' %}
+    </div>
+
+    <aside class="search-container rental-availability" self="size-x1" layout="column center-center">
+        <a href="#" class="button hide-from-940 map-btn " layout='column center-center'>
+            <span class="btn-top content"> view on map </span>
+            <span class="btn-bottom content"> view on map </span>
+        </a>
+
+        <div class="check-availability" layout='column center-center'>
+            <h4 class="check-title">Check Availability</h4>
+
+            {% include 'rentals/partials/availability_rental.html' %}
+            
+        </div>
+        <div class="book-by-phone" layout="column center-center">
+            <div class="arrow-up">&nbsp;</div>
+            <svg class="icon-phone">
+                <use xlink:href="{% static 'svg/icons.svg' %}#phone" />
+            </svg>
+            <h5><span>Book</span> by phone</h5>
+            <a href="tel:{{bike.rental.phone}}">{{ bike.rental.phone }}</a>
+            <small>Monday to Friday 9.00am - 8.00pm</small>
+        </div>
+    </aside>
+
+</section>
+
+
+
+{% endblock %}

@@ -41,6 +41,9 @@ class HotelImage(models.Model):
     property = models.ForeignKey(Hotel, related_name='images')
     image = models.ImageField(upload_to = 'hotel_image', blank=True)
 
+    def __str__(self):
+        return self.image.url
+
 
 class RoomType(models.Model):
 
@@ -77,15 +80,19 @@ class Room(models.Model):
         default='single',
         max_length=200,
     )
-    image = models.ImageField(upload_to = 'room_image', blank=True)
     description = models.TextField(default='' , null=True)
     amenities = models.ManyToManyField(Amenity)
-    image = models.ImageField(upload_to = 'room_image', blank=True)
+    # image = models.ImageField(upload_to = 'room_image', blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
 
 
     def __str__(self):
-        return self.category
-    
-    # checkin = models.DateField(null=True)
-    # checkout = models.DateField(null=True)
+        return "{}_{}_{}".format(self.id, self.category, self.hotel)
+
+
+class RoomImage(models.Model):
+    property = models.ForeignKey(Room, related_name='images')
+    image = models.ImageField(upload_to = 'room_image', blank=True)
+
+    def __str__(self):
+        return "{}_{}".format(self.property, self.image.url)

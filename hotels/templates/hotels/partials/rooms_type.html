@@ -47,11 +47,21 @@
 
             <div class="room-slider-container" layout="row center-center">
                 <div class="room-img-slider" layout="row center-center">
-                    {% for i in "xxxx" %}
-                    <div class="room-img-item">
-                        <img src="http://placehold.it/200x200" alt="">
-                    </div>
-                    {% endfor %}
+
+                    {% if image_list %}
+                        {% for image in image_list %}
+                            <div class="room-img-item">
+                                <img src="{{ image.image.url }}" alt="">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {% for i in "xxxx" %}
+                            <div class="room-img-item">
+                                <img src="{% static "images/no_img.png" %}" alt="">
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
                 </div>
             </div>
         </div>
@@ -100,11 +110,21 @@
 
             <div class="room-slider-container" layout="row center-center">
                 <div class="room-img-slider" layout="row center-center">
-                    {% for i in "xxxx" %}
-                    <div class="room-img-item">
-                        <img src="http://placehold.it/200x200" alt="">
-                    </div>
-                    {% endfor %}
+                    
+                    {% if image_list %}
+                        {% for image in image_list %}
+                            <div class="room-img-item">
+                                <img src="{{ image.image.url }}" alt="">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {% for i in "xxxx" %}
+                            <div class="room-img-item">
+                                <img src="{% static "images/no_img.png" %}" alt="">
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    
                 </div>
             </div>
         </div>

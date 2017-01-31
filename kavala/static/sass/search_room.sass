@@ -1,0 +1,41 @@
+@import settings
+
+
+.rooms_available
+    h2
+        font-size: 18px
+    .room_table
+        padding: 5px 10px
+        border: 1px solid rgba(0, 0, 0, 0.2)
+        margin: 10px 0
+        background-color: $pink
+        color: $white
+        border-radius: 3px
+        @media #{$max400}
+            flex-direction: column
+        &.blue
+            background-color: $lightblue
+        p
+            margin: 0!important
+            @media #{$max400}
+                margin-bottom: 5px!important
+        .check_room
+            width: 110px
+            margin-top: 0
+        .guests_input
+            max-width: 40px
+        input
+            color: $grey
+            @media #{$max400}
+                margin-bottom: 5px!important
+.select_room_btn
+    max-width: 160px!important
+    width: 100%
+    margin-top: 20px
+
+#modal_continue
+    .modal_car_search
+        a
+            text-decoration: none
+            color: $white
+

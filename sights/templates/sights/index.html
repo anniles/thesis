@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Kavala'sSights{% endblock %}
+
+{% block header %}
+{% include 'partials/pages-header.html'  with page_title="kavala's sights" page_subtitle="explore the history" %}
+{% endblock %}
+
+{% block main %}
+
+    <section layout="column center-center" class="hotel-list-section">
+
+        {% if sights %}
+
+        <ul class="hotel-list" layout="rows top-spread">
+            {% for sight in sights %}
+            <li class="hotel-box list-view" layout="column center-center">
+                <a href="{% url 'sights:detail' sight.slug %}">
+                {% if sight.image %}
+                    <div class="hotel-img-desc" style="background-image: url({{ sight.image.url }})">
+                {% else %}
+                    <div class="hotel-img-desc" style="background-image: url({% static "images/no_img.png" %})">
+                {% endif %}
+                        <div class="hotel-description" layout="row center-center">
+                            <p>{{ sight.description | truncatechars:150 }}</p>
+                        </div>
+                    </div>
+                    <div class="hotel-link" layout="column center-left">
+                        <a href="{% url 'sights:detail' sight.slug %}">{{ sight.name }}</a>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+
+        <p>No hotels are available.</p>
+
+        {% endif %}
+    </section>
+
+{% endblock %}

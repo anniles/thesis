@@ -1,0 +1,149 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}{{sight.name}}{% endblock %}
+
+{% block header %}
+{% include 'partials/sight-header.html'%}
+{% endblock %}
+
+{% block scripts %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8grR70Wi8f0ssPGu9grDPoNwqsfY1Ji8">
+    </script>
+    <script src="{% static 'js/map.js' %}">
+    </script>
+
+    <script>
+
+    function initMap() {
+        var uluru = {lat: {{sight.lat}}, lng: {{sight.lng}} };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: uluru,
+            scrollwheel: false
+        });
+
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+
+    </script>
+{% endblock %}
+
+{% block main %}
+<div class="collapse">
+    <div id="map"></div>
+</div>
+
+<section class="main-wrapper hotel-main" layout="row top-justify">
+
+    <div class="hotel-info" self="size-x2" layout="column center-center">
+
+        <a href="#" class="button map-btn-mobile show-from-940" layout='column center-center'>
+            <span class="btn-top content"> view on map </span>
+            <span class="btn-bottom content"> view on map </span>
+        </a>
+        <div class="hotel-slider-container" layout="column center-center">
+
+            <div class="hotel-slider">
+                {% if image_list %}
+                    {% for image in image_list %}
+                        <div class="hotel-slider-item">
+                            <img src="{{ image.image.url }}" alt="">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for i in "xxxxx" %}
+                        <div class="hotel-slider-item">
+                            <img src="{% static "images/no_img.png" %}" alt="">
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="hotel-nav">
+                {% if image_list %}
+                    {% for image in image_list %}
+                        <div class="hotel-nav-item">
+                            <img src="{{ image.image.url }}" alt="">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for i in "xxxxx" %}
+                        <div class="hotel-nav-item">
+                            <img src="{% static "images/no_img.png" %}" alt="">
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+
+        <hr class="page-line">
+
+        <div class="hotel-desc-container" layout="row top-justify">
+            <aside self="size-x1">
+                <h3>Description</h3>
+            </aside>
+            <div class="hotel-desc" self="size-x3">
+                <p>
+                    {{ sight.description }}
+                </p>
+
+
+                {% comment %}
+                <h4>{{sight.name}} facilities</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
+                </p>
+
+                <div class="hotels-check">
+                    {% for i in "xxxxxxxxxxx" %}
+                    <p>
+                        <svg class="icon-check">
+                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                        </svg>
+                        Lorem ipsum dolor sit amet,
+                    </p>
+                    {% endfor %}
+                {% endcomment %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <aside class="search-container hotel-availability" self="size-x1" layout="column center-center">
+        <a href="#" class="button hide-from-940 map-btn " layout='column center-center'>
+            <span class="btn-top content"> view on map </span>
+            <span class="btn-bottom content"> view on map </span>
+        </a>
+
+        {% comment %}
+        <div class="check-availability" layout='column center-center'>
+            <h4 class="check-title">Check Availability</h4>
+
+            {% include 'hotels/partials/availability_form.html' %}
+
+        </div>
+        {% endcomment %}
+        <div class="book-by-phone" layout="column center-center">
+            <div class="arrow-up">&nbsp;</div>
+            <svg class="icon-phone">
+                <use xlink:href="{% static 'svg/icons.svg' %}#phone" />
+            </svg>
+            <h5><span>Book</span> by phone</h5>
+            <a href="tel:{{sight.phone}}">{{ sight.phone }}</a>
+            <small>Monday to Friday 9.00am - 8.00pm</small>
+        </div>
+    </aside>
+
+</section>
+
+
+
+{% endblock %}

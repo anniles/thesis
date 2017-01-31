@@ -1,30 +1,29 @@
 {% load static %}
 
 <div class="header-search-container">
-
     <ul class="tabs">
-        <li class="tab-link current" data-tab="hotels">
+        <li class="tab-link {% if active_tab not in 'carsbikespackages' or not active_tab %} current{% endif %}" data-tab="hotels">
             <span> 
                 <svg class="icon-tent" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#tent" />
                 </svg>
             </span><span class="tab-title">Hotels</span>
         </li>
-        <li class="tab-link" data-tab="cars">
+        <li class="tab-link{% if active_tab == 'cars' %} current{% endif %}" data-tab="cars">
             <span> 
                 <svg class="icon-car" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#car" />
                 </svg>
             </span><span class="tab-title">Cars</span>
         </li>
-        <li class="tab-link" data-tab="bikes">
+        <li class="tab-link{% if active_tab == 'bikes' %} current{% endif %}" data-tab="bikes">
             <span> 
                 <svg class="icon-vespa" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#vespa" />
                 </svg>
             </span><span class="tab-title">Bikes</span>
         </li>
-        <li class="tab-link" data-tab="packages">
+        <li class="tab-link{% if active_tab == 'packages' %} current{% endif %}" data-tab="packages">
             <span> 
                 <svg class="icon-box" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#box" />
@@ -33,7 +32,7 @@
         </li>
     </ul>
 
-    <div id="hotels" class="tab-content current">
+    <div id="hotels" class="tab-content {% if active_tab not in 'carsbikespackages' or not active_tab %} current{% endif %}">
         <form action="{% url 'booking:search_hotel' %}" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
@@ -74,7 +73,7 @@
             </button>
         </form>
     </div>
-    <div id="cars" class="tab-content">
+    <div id="cars" class="tab-content {% if active_tab == 'cars' %} current{% endif %}">
         <form action="{% url 'booking:search_car' %}" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
@@ -131,7 +130,7 @@
             </button>
         </form>
     </div>
-    <div id="bikes" class="tab-content">
+    <div id="bikes" class="tab-content {% if active_tab == 'bikes' %} current{% endif %}">
         <form action="{% url 'booking:search_bike' %}" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
@@ -186,7 +185,7 @@
             </button>
         </form>
     </div>
-    <div id="packages" class="tab-content">
+    <div id="packages" class="tab-content {% if active_tab == 'packages' %} current{% endif %}">
         <form action="" method="get" layout="column center-center">
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">

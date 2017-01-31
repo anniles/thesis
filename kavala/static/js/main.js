@@ -1,27 +1,5 @@
 $(document).ready(function() {
 
-    //map button for desctop
-    $('.map-btn').on('click', function() {
-        // var docPos = $(document).scrollTop();
-        if( !($('.collapse').hasClass('in')) ) {
-            $('.collapse').addClass('in');
-            $('html,body').animate({
-                scrollTop: $('.map-btn').offset().top-50},
-                500);
-            setTimeout(function() {
-                $('#map').css('z-index', '1')
-            }, 500);
-        }else {
-            $('#map').css('z-index', '-1')
-            
-            var offset = $('.map-btn').offset();
-
-            $('.collapse').removeClass('in');
-            $('html,body').animate({
-                scrollTop: $('.map-btn').offset().top-((offset.top/2)-30)},
-            500);
-        }
-    });
 
     //hotels page filter button
     $('.filters-btn').on('click', function() {
@@ -33,8 +11,8 @@ $(document).ready(function() {
 
 
     //mobile and smaller screens query
-    if ($(window).width() <= 940){  
-        
+    if ($(window).width() <= 940){
+
         //hotel page header
         $('.page-hotel-price').removeAttr('self');
         $('.page-hotel-info').removeAttr('self');
@@ -55,7 +33,7 @@ $(document).ready(function() {
                 }, 500);
             }else {
                 $('#map').css('z-index', '-1')
-                
+
                 var offset = $('.map-btn-mobile').offset();
 
                 $('.collapse').removeClass('in');
@@ -68,12 +46,12 @@ $(document).ready(function() {
 
     }
 
-    if ($(window).width() <= 940){  
+    if ($(window).width() <= 940){
         mobileNavOn();
     }
 
     $(window).on('resize',function(){
-        if ($(window).width() <= 940){  
+        if ($(window).width() <= 940){
             mobileNavOn();
         }  else {
             mobileNavOff();
@@ -174,8 +152,8 @@ $(document).ready(function() {
         $(this).addClass('current');
         $("#"+tab_id).addClass('current');
     })
-    
-    
+
+
 });
 
 
@@ -183,7 +161,7 @@ $(document).ready(function() {
 function mobileNavOn() {
 
     $('nav').css('display', 'none');
-    
+
     //open navigation menu
     $('.navigation-open').on('click', function() {
         $('nav').css({
@@ -192,7 +170,7 @@ function mobileNavOn() {
             'display': 'flex'
         });
     });
-    
+
     //close navigation menu
     $('.nav-close').on('click', function() {
         $('nav').fadeOut();
@@ -222,7 +200,7 @@ function mobileNavOn() {
 function mobileNavOff() {
  //open navigation menu
     $('.navigation-open').off('click');
-    
+
     //close navigation menu
     $('.nav-close').off('click');
 

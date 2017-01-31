@@ -20,19 +20,36 @@
             <span class="btn-bottom content"> view on map </span>
         </a>
         <div class="rental-slider-container" layout="column center-center">
+
             <div class="rental-slider">
-                {% for i in "xxxxx" %}
-                <div class="rental-slider-item">
-                    <img src="http://placehold.it/500x500" alt="">
-                </div>
-                {% endfor %}
+                {% if image_list %}
+                    {% for image in image_list %}
+                        <div class="rental-slider-item">
+                            <img src="{{ image.image.url }}" alt="">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for i in "xxxxx" %}
+                        <div class="rental-slider-item">
+                            <img src="{% static "images/no_img.png" %}" alt="">
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="rental-nav">
-                {% for i in "xxxxx" %}
-                <div class="rental-nav-item">
-                    <img src="http://placehold.it/500x500" alt="">
-                </div>
-                {% endfor %}
+                {% if image_list %}
+                    {% for image in image_list %}
+                        <div class="rental-nav-item">
+                            <img src="{{ image.image.url }}" alt="">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for i in "xxxxx" %}
+                        <div class="rental-nav-item">
+                            <img src="{% static "images/no_img.png" %}" alt="">
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
 

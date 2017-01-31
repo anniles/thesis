@@ -5,9 +5,9 @@
     <div class="car-list-info" layout="row center-center">
         <figure class="car-image" self="stretch size-x3">
             {% if car.image %}
-                <a href="{% url 'rentals:car' car.slug %}" style="background-image: url('{{ car.image.url }}');"></a>
+                <a href="{% url 'booking:search_car_detail' car.slug %}" style="background-image: url('{{ car.image.url }}');"></a>
             {% else %}
-                <a href="{% url 'rentals:car' car.slug %}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
+                <a href="{% url 'booking:search_car_detail' car.slug %}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
             {% endif %}
         </figure>
         <div class="car-general" self="size-x4">
@@ -26,7 +26,7 @@
         <div class="car-price" self="size-x1 stretch" layout="column center-center">
             <p><span> 40</span> <span class="currency">&euro;</span></p>
             <p>From/Per day</p>
-            <a href="{% url 'rentals:car' car.slug %}" class="button" layout='column center-center'>
+            <a href="{% url 'booking:search_car_detail' car.slug %}" class="button" layout='column center-center'>
                 <span class="btn-top content"> Details </span>
                 <span class="btn-bottom content"> Details </span>
             </a>

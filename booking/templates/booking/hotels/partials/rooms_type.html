@@ -1,0 +1,288 @@
+{% load static %}
+{% load book_rooms %}
+<div class="hotel-desc-container" layout="row top-justify">
+    <aside self="size-x1">
+
+        <h3>Rooms Type</h3>
+    </aside>
+    <div class="room-type" self="size-x4">
+
+        <form action="">
+            {% for cat, rooms in categories.items  %}
+
+                <div class="room-single">
+                    <h4>{{cat|title}} room</h4>
+                    <p>
+                        {{ hotel.description }}
+                    </p>
+
+                    <div class="room-extras" layout="row top-spread">
+                        <div class="tech-facilities" self="size-x1" layout="column center-center">
+
+                            <p>
+                                <svg class="icon-wifi">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
+                                </svg>
+                                Free wifi
+                            </p>
+                            <p>
+                                <svg class="icon-tv">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
+                                </svg>
+                                Tv
+                            </p>
+                            <p>
+                                <svg class="icon-safe">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
+                                </svg>
+                                Safety box
+                            </p>
+                        </div>
+
+                        <div class="" self="size-x1">
+                            {% for i in "xxx" %}
+                            <p>
+                                <svg class="icon-check">
+                                    <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                                </svg>
+                                Lorem ipsum dolor sit amet,
+                            </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="room-slider-container" layout="row center-center">
+                        <div class="room-img-slider" layout="row center-center">
+                            {% for room in rooms %}
+                                {% for image in room.images.all %}
+                                    <div class="room-img-item">
+                                        <img src="{{ image.image.url }}" alt="">
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% with "2017-01-01"|concatch:"2017-01-03" as dates %}
+
+
+                        <div class="rooms_available ">
+                            <h2>Available Rooms</h2>
+                            {% for room in rooms  %}
+
+                                <div class="room_table {% if room|is_available:dates %}blue{% endif %}" layout="row center-justify">
+
+                                    <p>{{room.roomtype}}</p>
+                                    <p>
+                                        {% if room|is_available:dates %}
+                                        Available
+                                        {% else %}
+                                        Not Available
+                                        {% endif %}
+                                    </p>
+                                    <p>max-guests: {{room.max_guest}}</p>
+                                    {# <input type="number" class="guests_input"> #}
+                                    <p>price: {{room.price}} &euro;</p>
+                                    <input type="checkbox" class="check_room" name="room" value="single_bb">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endwith %}
+                </div>
+
+
+                <hr class="page-line">
+            {% endfor %}
+        </form>
+
+        {% comment %}
+        <form action="">
+            <div class="room-single">
+                <h4>Single room</h4>
+                <p>
+                    {{ hotel.description }}
+                </p>
+
+                <div class="room-extras" layout="row top-spread">
+                    <div class="tech-facilities" self="size-x1" layout="column center-center">
+                        <p>
+                            <svg class="icon-wifi">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
+                            </svg>
+                            Free wifi
+                        </p>
+                        <p>
+                            <svg class="icon-tv">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
+                            </svg>
+                            Tv
+                        </p>
+                        <p>
+                            <svg class="icon-safe">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
+                            </svg>
+                            Safety box
+                        </p>
+                    </div>
+
+                    <div class="" self="size-x1">
+                        {% for i in "xxx" %}
+                        <p>
+                            <svg class="icon-check">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                            </svg>
+                            Lorem ipsum dolor sit amet,
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="room-slider-container" layout="row center-center">
+                    <div class="room-img-slider" layout="row center-center">
+                        {% for room in rooms %}
+                            {% for image in room.images.all %}
+                                    <div class="room-img-item">
+                                        <img src="{{ image.image.url }}" alt="">
+                                    </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="rooms_available">
+                    <h2>Available Rooms</h2>
+                    <div class="room_table" layout="row center-justify">
+                        <p>Bed & Breakfast</p>
+                        <p>2 Available</p>
+                        <p>max-guests: 4</p>
+                        {# <input type="number" class="guests_input"> #}
+                        <p>price: 40 &euro;</p>
+                        <input type="checkbox" class="check_room" name="room" value="single_bb">
+                    </div>
+                    <div class="room_table" layout="row center-justify">
+                        <p>All Inclusive</p>
+                        <p>2 Available</p>
+                        <p>max-guests: 4</p>
+                        {# <input type="number" class="guests_input"> #}
+                        <p>price: 40 &euro;</p>
+                        <input type="checkbox" class="check_room" name="room" value="single_bb">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="page-line">
+
+            <div class="room-double">
+                <h4>Double room</h4>
+                <p>
+                    {{ hotel.description }}
+                </p>
+
+                <div class="room-extras" layout="row top-spread">
+                    <div class="tech-facilities" self="size-x1" layout="column center-center">
+                        <p>
+                            <svg class="icon-wifi">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
+                            </svg>
+                            Free wifi
+                        </p>
+                        <p>
+                            <svg class="icon-tv">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
+                            </svg>
+                            Tv
+                        </p>
+                        <p>
+                            <svg class="icon-safe">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
+                            </svg>
+                            Safety box
+                        </p>
+                    </div>
+
+                    <div class="" self="size-x1">
+                        {% for i in "xxx" %}
+                        <p>
+                            <svg class="icon-check">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                            </svg>
+                            Lorem ipsum dolor sit amet,
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="room-slider-container" layout="row center-center">
+                    <div class="room-img-slider" layout="row center-center">
+
+                        {% if image_list %}
+                            {% for image in image_list %}
+                                <div class="room-img-item">
+                                    <img src="{{ image.image.url }}" alt="">
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in "xxxx" %}
+                                <div class="room-img-item">
+                                    <img src="{% static "images/no_img.png" %}" alt="">
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <div class="rooms_available">
+                    <h2>Available Rooms</h2>
+                    <div class="room_table" layout="row center-justify">
+                        <p>Bed & Breakfast</p>
+                        <p>2 Available</p>
+                        <p>max-guests: 4</p>
+                        {# <input type="number" class="guests_input"> #}
+                        <p>price: 40 &euro;</p>
+                        <input type="checkbox" class="check_room" name="room" value="single_bb">
+                    </div>
+                    <div class="room_table" layout="row center-justify">
+                        <p>All Inclusive</p>
+                        <p>2 Available</p>
+                        <p>max-guests: 4</p>
+                        {# <input type="number" class="guests_input"> #}
+                        <p>price: 40 &euro;</p>
+                        <input type="checkbox" class="check_room" name="room" value="single_bb">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="button select_room_btn _continue" layout='column center-center' data-toggle="modal" data-target="#modal_continue">
+                <span class="btn-top content"> Select </span>
+                <span class="btn-bottom content"> Select </span>
+            </button>
+        </form>
+        {% endcomment %}
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal_continue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Almost there...</h4>
+                </div>
+
+                <div class="modal-body">
+                    Great! Now you have a room, what about a vechicle too?
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No, thanks!</button>
+                    <button type="button" class="btn btn-primary modal_car_search"><a href="{% url 'booking:search_car' %}">Yes, great idea!</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

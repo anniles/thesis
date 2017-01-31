@@ -87,7 +87,8 @@
             text-align: center
             font-size: 20px
             padding: 7px
-            border-radius: 3px
+            border-top-right-radius: 3px
+            border-top-left-radius: 3px
             margin: 0
         form
             width: 100%  
@@ -116,6 +117,20 @@
                     margin: 20px 0 10px 10px
                     @media #{$max500}
                         margin-left: 0
+            .availability_roomtype
+                margin: 20px 0 10px 10px
+                @media #{$max500}
+                    margin-left: 0
+                label
+                    font-weight: bold
+                select
+                    width: 100%
+                    padding: 7px 0px
+                    border-radius: 3px
+                    border-style: none
+                    border: 1px solid rgba(0,0,0, .3)
+                    margin-top: 5px
+                    background-color: $white
             .check-people
                 color: $grey
                 p
@@ -132,9 +147,9 @@
                     margin-top: 5px
                     justify-content: space-around
                 .adults
-                    margin: 10px auto 10px 0
-                .children
-                    margin: 10px auto 10px 20px
+                    margin: 20px 10px 10px 0
+                    @media #{$max500}
+                        margin-right: 0
                 .number-adults, .number-children
                     padding: 7px 0
                     border-left: 1px solid rgba(0,0,0, .3)
@@ -188,7 +203,7 @@
                 text-transform: uppercase
                 max-width: 100%
                 border: none
-                margin: 20px 0 
+                margin: 20px auto 
                 font-size: 16px
                 font-family: 'Montserrat', sans-serif
     .book-by-phone
@@ -283,7 +298,7 @@
                     max-width: 100%
             h3
                 margin: 0
-                font-size: 22px
+                font-size: 20px
                 font-weight: bold
                 padding-right: 10px
                 line-height: 20px

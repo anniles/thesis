@@ -1,0 +1,25 @@
+{% load static %}
+
+
+{% if sight.image %}
+    <header class="pages header-container" layout="column top-stretch" style="background-image: url({{ sight.image.url }})">
+{% else %}
+    <header class="pages header-container" layout="column top-stretch">
+{% endif %}
+        {% include 'partials/navigation.html' %}
+
+        <section class="header-title hotel" self="size-x1" layout="row bottom-left">
+            <div class="page-hotel-info" self="size-x1">
+                <h2>{{sight.name}}</h2>
+                <p>{{sight.address}}</p>
+            </div>
+            <div class="page-hotel-price" self="right size-x1" layout="row bottom-right">
+                <p>Ticket</p>
+                 <p>
+                    <span> {{sight.price}}</span> <span class="currency">&euro;</span>
+                 </p>
+            </div>
+        </section>
+
+        <div class="bottom-shadow"></div>
+    </header>

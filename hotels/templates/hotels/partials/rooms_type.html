@@ -5,128 +5,63 @@
         <h3>Rooms Type</h3>
     </aside>
     <div class="room-type" self="size-x3">
-        <div class="room-single">
-            <h4>Single room</h4>
-            <p>
-                {{ hotel.description }}
-            </p>
-            
-            <div class="room-extras" layout="row top-spread">
-                <div class="tech-facilities" self="size-x1" layout="column center-center">
-                    <p>
-                        <svg class="icon-wifi">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
-                        </svg>
-                        Free wifi
-                    </p>
-                    <p>
-                        <svg class="icon-tv">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
-                        </svg>
-                        Tv
-                    </p>
-                    <p>
-                        <svg class="icon-safe">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
-                        </svg>
-                        Safety box
-                    </p>
+        {% for cat, rooms in categories.items  %}
+
+            <div class="room-single">
+                <h4>{{cat|title}} room</h4>
+                <p>
+                    {{ hotel.description }}
+                </p>
+
+                <div class="room-extras" layout="row top-spread">
+                    <div class="tech-facilities" self="size-x1" layout="column center-center">
+                        <p>
+                            <svg class="icon-wifi">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
+                            </svg>
+                            Free wifi
+                        </p>
+                        <p>
+                            <svg class="icon-tv">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
+                            </svg>
+                            Tv
+                        </p>
+                        <p>
+                            <svg class="icon-safe">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
+                            </svg>
+                            Safety box
+                        </p>
+                    </div>
+
+                    <div class="" self="size-x1">
+                        {% for i in "xxx" %}
+                        <p>
+                            <svg class="icon-check">
+                                <use xlink:href="{% static 'svg/icons.svg' %}#check" />
+                            </svg>
+                            Lorem ipsum dolor sit amet,
+                        </p>
+                        {% endfor %}
+                    </div>
                 </div>
 
-                <div class="" self="size-x1">
-                    {% for i in "xxx" %}
-                    <p>
-                        <svg class="icon-check">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
-                        </svg>
-                        Lorem ipsum dolor sit amet,
-                    </p>
-                    {% endfor %}
+                <div class="room-slider-container" layout="row center-center">
+                    <div class="room-img-slider" layout="row center-center">
+                        {% for room in rooms %}
+                            {% for image in room.images.all %}
+                                <div class="room-img-item">
+                                    <img src="{{ image.image.url }}" alt="">
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
 
-            <div class="room-slider-container" layout="row center-center">
-                <div class="room-img-slider" layout="row center-center">
+            <hr class="page-line">
 
-                    {% if image_list %}
-                        {% for image in image_list %}
-                            <div class="room-img-item">
-                                <img src="{{ image.image.url }}" alt="">
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        {% for i in "xxxx" %}
-                            <div class="room-img-item">
-                                <img src="{% static "images/no_img.png" %}" alt="">
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-
-                </div>
-            </div>
-        </div>
-
-        <hr class="page-line">
-        
-        <div class="room-double">
-            <h4>Double room</h4>
-            <p>
-                {{ hotel.description }}
-            </p>
-
-            <div class="room-extras" layout="row top-spread">
-                <div class="tech-facilities" self="size-x1" layout="column center-center">
-                    <p>
-                        <svg class="icon-wifi">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#wifi" />
-                        </svg>
-                        Free wifi
-                    </p>
-                    <p>
-                        <svg class="icon-tv">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#tv" />
-                        </svg>
-                        Tv
-                    </p>
-                    <p>
-                        <svg class="icon-safe">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#safe" />
-                        </svg>
-                        Safety box
-                    </p>
-                </div>
-
-                <div class="" self="size-x1">
-                    {% for i in "xxx" %}
-                    <p>
-                        <svg class="icon-check">
-                            <use xlink:href="{% static 'svg/icons.svg' %}#check" />
-                        </svg>
-                        Lorem ipsum dolor sit amet,
-                    </p>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="room-slider-container" layout="row center-center">
-                <div class="room-img-slider" layout="row center-center">
-                    
-                    {% if image_list %}
-                        {% for image in image_list %}
-                            <div class="room-img-item">
-                                <img src="{{ image.image.url }}" alt="">
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        {% for i in "xxxx" %}
-                            <div class="room-img-item">
-                                <img src="{% static "images/no_img.png" %}" alt="">
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                    
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>

@@ -8,16 +8,58 @@
 {% include 'partials/pages-header.html'  with page_title="kavala's hotels" page_subtitle="find the best choice for you" %}
 {% endblock %}
 
+{% block scripts %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8grR70Wi8f0ssPGu9grDPoNwqsfY1Ji8">
+    </script>
+    <script src="{% static 'js/map.js' %}">
+    </script>
+
+	<script type="text/javascript">
+	    function initMap() {
+		    var locations = [
+				{% for hotel in hotels %}
+					['{{hotel.name}}', {{hotel.lat}}, {{hotel.lng}}],
+				{% endfor %}
+		    ];
+
+		    var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 15,
+				center: new google.maps.LatLng(40.937600, 24.411864),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+		    });
+
+		    var infowindow = new google.maps.InfoWindow();
+
+		    var marker, i;
+
+		    for (i = 0; i < locations.length; i++) {
+		    	marker = new google.maps.Marker({
+		    		position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+		    		map: map
+		    	});
+
+		    	google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		    		return function() {
+		    			infowindow.setContent(locations[i][0]);
+		    			infowindow.open(map, marker);
+		    		}
+		    	})(marker, i));
+		    }
+		}
+	</script>
+
+{% endblock %}
+
 {% block main %}
 
-<div class="collapse">
+<div class="my_collapse">
     <div id="map"></div>
 </div>
 
 <section layout="column center-center">
 
 	<div class="main-wrapper" layout="row top-justify">
-		
+
 		<aside class="search-container" self="size-x1" layout="column center-center">
 			<a href="#" class="button map-btn" layout='column center-center'>
 				<span class="btn-top content"> view on map </span>
@@ -32,7 +74,7 @@
 		<main class="hotel-list-container" self="size-x3" layout="column center-center">
 			{% include 'booking/hotels/partials/list.html' %}
 		</main>
-		
+
 	</div>
 </section>
 

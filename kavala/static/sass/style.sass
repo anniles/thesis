@@ -383,9 +383,12 @@ section
 		&-bottom
 			top: 40px
 			left: 0
+	&:focus
+		text-decoration: none
 	&:hover
 		cursor: pointer
 		background: $blue
+		text-decoration: none
 		.btn
 			&-top
 				top: -40px
@@ -414,7 +417,7 @@ section
 	z-index: -1
 	transition: all .5s
 
-.collapse
+.my_collapse
 	height: 0
 	position: relative
 	transition: all .5s
@@ -424,6 +427,8 @@ section
 		#map
 			top: 0
 			// z-index: 1
+.gm-style-iw
+	color: $grey
 
 .map-btn-mobile
     text-transform: uppercase

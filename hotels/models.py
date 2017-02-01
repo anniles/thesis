@@ -32,6 +32,8 @@ class Hotel(models.Model):
     )
     description = models.TextField(default='' , null=True)
     image = models.ImageField(upload_to = 'hotel_image', blank=True)
+    lng = models.FloatField(null=True)
+    lat = models.FloatField(null=True)
 
     def __str__(self):
         return self.name

@@ -7,8 +7,35 @@
 {% include 'partials/hotel-header.html'  with hotel=hotel %}
 {% endblock %}
 
+{% block scripts %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8grR70Wi8f0ssPGu9grDPoNwqsfY1Ji8">
+    </script>
+    <script src="{% static 'js/map.js' %}">
+    </script>
+
+    <script>
+
+    function initMap() {
+        var uluru = {lat: {{hotel.lat}}, lng: {{hotel.lng}} };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: uluru,
+            scrollwheel: false
+        });
+
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+
+    </script>
+{% endblock %}
+
 {% block main %}
-<div class="collapse">
+<div class="my_collapse">
     <div id="map"></div>
 </div>
 
@@ -21,7 +48,7 @@
             <span class="btn-bottom content"> view on map </span>
         </a>
         <div class="hotel-slider-container" layout="column center-center">
-            
+
             <div class="hotel-slider">
                 {% if image_list %}
                     {% for image in image_list %}
@@ -84,7 +111,7 @@
                 </div>
             </div>
         </div>
-        
+
         <hr class="page-line">
 
         {% include 'hotels/partials/rooms_type.html' %}
@@ -100,7 +127,7 @@
             <h4 class="check-title">Check Availability</h4>
 
             {% include 'hotels/partials/availability_form.html' %}
-            
+
         </div>
         <div class="book-by-phone" layout="column center-center">
             <div class="arrow-up">&nbsp;</div>

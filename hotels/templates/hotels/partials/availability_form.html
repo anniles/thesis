@@ -1,48 +1,39 @@
 {% load static %}
-
-<form action="">
+<form action="{% url 'booking:search_hotel_detail' slug=hotel.slug %}" method="get">
     <div class="checkdate" layout="row center-justify">
         <div class="checkin" layout="column center-left">
-            <label for="checkin">
+            <label for="checkin_hotel">
                 <svg class="icon-calendar" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
                 </svg>
-                Check in 
+                Check in
             </label>
-
-            <input type="date" name="checkin" id="checkin" required>
+            <input id="checkin_hotel" name="checkin" type="text" placeholder="Check In" required value="{{request.GET.checkin}}">
         </div>
+
         <div class="checkout" layout="column center-left">
-            <label for="checkout">
+            <label for="checkout_hotel">
                 <svg class="icon-calendar" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
                 </svg>
-                Check out 
+                Check out
             </label>
-
-            <input type="date" name="checkout" id="checkout" required>
+            <input id="checkout_hotel" name="checkout" type="text" placeholder="Check Out" required value="{{request.GET.checkout}}">
         </div>
     </div>
 
-    <div class="check-people" layout="row center-center">
-        <div class="adults" self="left" layout="column center-left">
-            <p>Guests</p>
-            <div class="adults-count" self="left size-x1" layout="row center-center">
-                <div class="minus" self="size-x1"> - </div>
-                <div class="number-adults" self="size-x1"> 1 </div>
-                <div class="plus" self="size-x1"> + </div>
-            </div>
-        </div>
+    <div class="check-people" layout="row center-left">
+
 
         <div class="availability_roomtype" layout="column center-left">
             <label for="roomtype">Roomtype</label>
-            <select name="rt">
-                <option value="">Any</option>
-                <option value="RO">Room only</option>
-                <option value="BB">Bed & Breakfast</option>
-                <option value="HB">Half Board</option>
-                <option value="FB">Full Board</option>
-                <option value="AI">All Inclusive</option>
+            <select name="rt" value="{{request.GET.rt}}">
+                <option value="" {% if not request.GET.rt %}selected{% endif %}>Any</option>
+                <option value="RO" {% if request.GET.rt == "RO" %}selected{% endif %}>Room only</option>
+                <option value="BB" {% if request.GET.rt == "BB" %}selected{% endif %}>Bed & Breakfast</option>
+                <option value="HB" {% if request.GET.rt == "HB" %}selected{% endif %}>Half Board</option>
+                <option value="FB" {% if request.GET.rt == "FB" %}selected{% endif %}>Full Board</option>
+                <option value="AI" {% if request.GET.rt == "AI" %}selected{% endif %}>All Inclusive</option>
             </select>
         </div>
     </div>

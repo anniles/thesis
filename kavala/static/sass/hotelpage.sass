@@ -66,146 +66,150 @@
 .main-wrapper
     &.hotel-main
         margin-top: 50px
-    // aside container with search form
-    .search-container
-        &.hotel-availability
-            padding-right: 0
-            padding-left: 20px
-            @media #{$max940}
-                order: -1 
-                padding-left: 0
-                margin-top: 20px
-    .check-availability
-        border-top-right-radius: 3px
-        border-top-left-radius: 3px
-        background: $white
-        // box-shadow: rgba(0,0,0, .1) 1px 1px 1px
-        border: 1px solid rgba(0,0,0, .2)
-        .check-title    
-            background: $pink
-            width: 100%
-            text-align: center
-            font-size: 20px
-            padding: 7px
+        // aside container with search form
+        .search-container
+            &.hotel-availability
+                padding-right: 0
+                padding-left: 20px
+                @media #{$max940}
+                    order: -1
+                    padding-left: 0
+                    margin-top: 20px
+        .check-availability
             border-top-right-radius: 3px
             border-top-left-radius: 3px
-            margin: 0
-        form
-            width: 100%  
-            padding: 0 20px         
-            .checkdate
+            background: $white
+            // box-shadow: rgba(0,0,0, .1) 1px 1px 1px
+            border: 1px solid rgba(0,0,0, .2)
+            .check-title
+                background: $pink
                 width: 100%
-                @media #{$max500}
-                    flex-direction: column!important
-                label
-                    color: $grey
-                    font-size: 14px
-                    font-weight: bold
-                input
-                    // max-width: 133px
+                text-align: center
+                font-size: 20px
+                padding: 7px
+                border-top-right-radius: 3px
+                border-top-left-radius: 3px
+                margin: 0
+            form
+                width: 100%
+                padding: 0 20px
+                .checkdate
                     width: 100%
-                    padding: 7px 0px
-                    border-radius: 3px
-                    border-style: none
-                    border: 1px solid rgba(0,0,0, .3)
-                    margin-top: 5px
-                .checkin
-                    margin: 20px 10px 10px 0
                     @media #{$max500}
-                        margin-right: 0
-                .checkout
-                    margin: 20px 0 10px 10px
-                    @media #{$max500}
-                        margin-left: 0
-            .availability_roomtype
-                margin: 20px 0 10px 10px
-                @media #{$max500}
-                    margin-left: 0
-                label
-                    font-weight: bold
-                select
-                    width: 100%
-                    padding: 7px 0px
-                    border-radius: 3px
-                    border-style: none
-                    border: 1px solid rgba(0,0,0, .3)
-                    margin-top: 5px
-                    background-color: $white
-            .check-people
-                color: $grey
-                p
-                    font-size: 14px
-                    font-weight: bold
-                    margin: 0
-                .adults-count, .children-count
-                    border: 1px solid rgba(0,0,0, .3)
-                    color: $grey
-                    max-width: 90px
-                    width: 100%
-                    text-align: center
-                    border-radius: 3px
-                    margin-top: 5px
-                    justify-content: space-around
-                .adults
-                    margin: 20px 10px 10px 0
-                    @media #{$max500}
-                        margin-right: 0
-                .number-adults, .number-children
-                    padding: 7px 0
-                    border-left: 1px solid rgba(0,0,0, .3)
-                    border-right: 1px solid rgba(0,0,0, .3)
-                .minus, .plus
-                    padding: 7px 0
-                    &:hover
-                        cursor: pointer
-            .name-wrapper
-                @media #{$max500}
-                    flex-direction: column!important
-                label
-                    color: $grey
-                    font-size: 14px
-                    font-weight: bold
-                input
-                    width: 100%
-                    padding: 10px 0px
-                    border-radius: 3px
-                    border-style: none
-                    border: 1px solid rgba(0,0,0, .3)
-                    margin-top: 5px
-                .container
-                    &-fname
+                        flex-direction: column!important
+                    label
+                        color: $grey
+                        font-size: 14px
+                        font-weight: bold
+                    input
+                        // max-width: 133px
+                        width: 100%
+                        padding: 7px 10px
+                        border-radius: 3px
+                        border-style: none
+                        border: 1px solid rgba(0,0,0, .3)
+                        margin-top: 5px
+                        color: $grey
+                    .checkin
                         margin: 20px 10px 10px 0
                         @media #{$max500}
                             margin-right: 0
-                    &-lname
+                    .checkout
                         margin: 20px 0 10px 10px
                         @media #{$max500}
                             margin-left: 0
-
-            .email-wrapper
-                label
+                .availability_roomtype
+                    margin: 20px 0 10px
+                    max-width: 48%
+                    @media #{$max500}
+                        max-width: 100%
+                        margin-left: 0
+                    label
+                        font-weight: bold
+                    select
+                        width: 100%
+                        padding: 7px 0px
+                        border-radius: 3px
+                        border-style: none
+                        border: 1px solid rgba(0,0,0, .3)
+                        margin-top: 5px
+                        background-color: $white
+                .check-people
                     color: $grey
-                    font-size: 14px
-                    font-weight: bold
-                input
-                    width: 100%
-                    padding: 10px 0px
-                    border-radius: 3px
-                    border-style: none
-                    border: 1px solid rgba(0,0,0, .3)
-                    margin-top: 5px
-                .container
-                    &-email
-                        padding: 20px 0 10px 0
-                    &-phone
-                        padding: 20px 0 10px 0
-            .submit-btn
-                text-transform: uppercase
-                max-width: 100%
-                border: none
-                margin: 20px auto 
-                font-size: 16px
-                font-family: 'Montserrat', sans-serif
+                    p
+                        font-size: 14px
+                        font-weight: bold
+                        margin: 0
+                    .adults-count, .children-count
+                        border: 1px solid rgba(0,0,0, .3)
+                        color: $grey
+                        max-width: 90px
+                        width: 100%
+                        text-align: center
+                        border-radius: 3px
+                        margin-top: 5px
+                        justify-content: space-around
+                    .adults
+                        margin: 20px 10px 10px 0
+                        @media #{$max500}
+                            margin-right: 0
+                    .number-adults, .number-children
+                        padding: 7px 0
+                        border-left: 1px solid rgba(0,0,0, .3)
+                        border-right: 1px solid rgba(0,0,0, .3)
+                    .minus, .plus
+                        padding: 7px 0
+                        &:hover
+                            cursor: pointer
+                .name-wrapper
+                    @media #{$max500}
+                        flex-direction: column!important
+                    label
+                        color: $grey
+                        font-size: 14px
+                        font-weight: bold
+                    input
+                        width: 100%
+                        padding: 10px 0px
+                        border-radius: 3px
+                        border-style: none
+                        border: 1px solid rgba(0,0,0, .3)
+                        margin-top: 5px
+                    .container
+                        &-fname
+                            margin: 20px 10px 10px 0
+                            @media #{$max500}
+                                margin-right: 0
+                        &-lname
+                            margin: 20px 0 10px 10px
+                            @media #{$max500}
+                                margin-left: 0
+
+                .email-wrapper
+                    label
+                        color: $grey
+                        font-size: 14px
+                        font-weight: bold
+                    input
+                        width: 100%
+                        padding: 10px 0px
+                        border-radius: 3px
+                        border-style: none
+                        border: 1px solid rgba(0,0,0, .3)
+                        margin-top: 5px
+                    .container
+                        &-email
+                            padding: 20px 0 10px 0
+                        &-phone
+                            padding: 20px 0 10px 0
+                .submit-btn
+                    text-transform: uppercase
+                    max-width: 100%
+                    border: none
+                    margin: 20px auto
+                    line-height: 1.2
+                    font-size: 16px
+                    font-family: 'Montserrat', sans-serif
     .book-by-phone
         background: $white
         // box-shadow: rgba(0,0,0, .1) 1px 1px 1px
@@ -228,7 +232,7 @@
             transition: all .5s
             &:hover
                 color: $deepblue
-        .arrow-up 
+        .arrow-up
             position: absolute
             top: -11px
             width: 20px
@@ -237,7 +241,7 @@
             border-left: 1px solid rgba(0,0,0, .2)
             background: $white
             transform: rotate(45deg)
-    
+
     // right part with hotel info and slider
     //slider
     .hotel-slider-container
@@ -348,7 +352,7 @@
     background: rgba(0,0,0, .2)
     height: 1px
     border: none
-    width: 100% 
+    width: 100%
 
 .slick-prev:before, .slick-next:before
     color: $lightblue

@@ -115,3 +115,5 @@ class BikeFilterForm(forms.Form):
         widget=forms.RadioSelect,
         choices=BCC_CATEGORY,
     )
+
+

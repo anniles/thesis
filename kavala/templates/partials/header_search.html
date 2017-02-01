@@ -3,28 +3,28 @@
 <div class="header-search-container">
     <ul class="tabs">
         <li class="tab-link {% if active_tab not in 'carsbikespackages' or not active_tab %} current{% endif %}" data-tab="hotels">
-            <span> 
+            <span>
                 <svg class="icon-tent" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#tent" />
                 </svg>
             </span><span class="tab-title">Hotels</span>
         </li>
         <li class="tab-link{% if active_tab == 'cars' %} current{% endif %}" data-tab="cars">
-            <span> 
+            <span>
                 <svg class="icon-car" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#car" />
                 </svg>
             </span><span class="tab-title">Cars</span>
         </li>
         <li class="tab-link{% if active_tab == 'bikes' %} current{% endif %}" data-tab="bikes">
-            <span> 
+            <span>
                 <svg class="icon-vespa" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#vespa" />
                 </svg>
             </span><span class="tab-title">Bikes</span>
         </li>
         <li class="tab-link{% if active_tab == 'packages' %} current{% endif %}" data-tab="packages">
-            <span> 
+            <span>
                 <svg class="icon-box" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#box" />
                 </svg>
@@ -37,23 +37,25 @@
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
-                        <label for="checkin">Check In</label><br>
-                        <input id="checkin" name="" type="date" placeholder="Check In">
+                        <label for="checkin_hotel">Check In</label><br>
+                        <input id="checkin_hotel" name="checkin" type="text" placeholder="Check In" required {% if request.GET.checkin %}value="{{request.GET.checkin}}"{% endif %}>
                     </div>
 
                     <div class="input-container">
-                        <label for="checkout">Check Out</label><br>
-                        <input id="checkout" name="" type="date" placeholder="Check Out">
+                        <label for="checkout_hotel">Check Out</label><br>
+                        <input id="checkout_hotel" name="checkout" type="text" placeholder="Check Out" required {% if request.GET.checkout %}value="{{request.GET.checkin}}"{% endif %} >
                     </div>
                 </div>
-            
-                <div layout="row center-spread">
+
+                <div layout="row center-left">
+                    {% comment %}
                     <div class="input-container">
                         <label for="guests">Guests</label><br>
                         <input id="guests" name="" type="number" placeholder="Guests">
                     </div>
+                    {% endcomment %}
 
-                    <div class="input-container">    
+                    <div class="input-container roomtype">
                         <label for="roomtype">Roomtype</label><br>
                         <select name="rt">
                             <option value="">Any</option>
@@ -78,16 +80,16 @@
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
-                        <label for="pickup">Pick up</label><br>
-                        <input id="pickup" name="" type="date" placeholder="Pick up">
+                        <label for="pickup_car">Pick up</label><br>
+                        <input id="pickup_car" name="checkin" type="text" placeholder="Pick up" required {% if request.GET.checkin %}value="{{request.GET.checkin}}"{% endif %}>
                     </div>
 
                     <div class="input-container">
-                        <label for="dropoff">Drop off</label><br>
-                        <input id="dropoff" name="" type="date" placeholder="Drop off">
+                        <label for="dropoff_car">Drop off</label><br>
+                        <input id="dropoff_car" name="checkout" type="text" placeholder="Drop off" required {% if request.GET.checkout %}value="{{request.GET.checkin}}"{% endif %} >
                     </div>
                 </div>
-            
+
                 <div layout="row center-spread">
 
                     <div class="input-container">
@@ -135,16 +137,16 @@
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
-                        <label for="pickup">Pick up</label><br>
-                        <input id="pickup" name="" type="date" placeholder="Pick up">
+                        <label for="pickup_bike">Pick up</label><br>
+                        <input id="pickup_bike" name="checkin" type="text" placeholder="Pick up" required {% if request.GET.checkin %}value="{{request.GET.checkin}}"{% endif %}>
                     </div>
 
                     <div class="input-container">
-                        <label for="dropoff">Drop off</label><br>
-                        <input id="dropoff" name="" type="date" placeholder="Drop off">
+                        <label for="dropoff_bike">Drop off</label><br>
+                        <input id="dropoff_bike" name="checkout" type="text" placeholder="Drop off" required {% if request.GET.checkout %}value="{{request.GET.checkin}}"{% endif %} >
                     </div>
                 </div>
-            
+
                 <div layout="row center-spread">
 
                     <div class="input-container">
@@ -190,23 +192,23 @@
             <div class="search-form-container" layout="row center-spread">
                 <div layout="row center-spread">
                     <div class="input-container">
-                        <label for="checkin">Check In</label><br>
-                        <input id="checkin" name="" type="date" placeholder="Check In">
+                        <label for="checkin_packages">Check In</label><br>
+                        <input id="checkin_packages" name="checkin" type="text" placeholder="Check In" required {% if request.GET.checkin %}value="{{request.GET.checkin}}"{% endif %}>
                     </div>
 
                     <div class="input-container">
-                        <label for="checkout">Check Out</label><br>
-                        <input id="checkout" name="" type="date" placeholder="Check Out">
+                        <label for="checkout_packages">Check Out</label><br>
+                        <input id="checkout_packages" name="checkout" type="text" placeholder="Check Out" required {% if request.GET.checkout %}value="{{request.GET.checkin}}"{% endif %} >
                     </div>
                 </div>
-            
+
                 <div layout="row center-spread">
                     <div class="input-container">
                         <label for="guests">Guests</label><br>
                         <input id="guests" name="" type="number" placeholder="Guests">
                     </div>
 
-                    <div class="input-container">    
+                    <div class="input-container">
                         <label for="roomtype">Roomtype</label><br>
                         <select name="roomtype">
                             <option value="">Any</option>

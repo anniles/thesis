@@ -33,7 +33,7 @@
         <div class="hotel-price" self="size-x1 stretch" layout="column center-center">
             <p><span> 40</span> <span class="currency">&euro;</span></p>
             <p>From/Per night</p>
-            <a href="{% url 'booking:search_hotel_detail' hotel.slug %}" class="button" layout='column center-center'>
+            <a href="{% url 'booking:search_hotel_detail' hotel.slug %}?{{request.GET.urlencode}}" class="button" layout='column center-center'>
                 <span class="btn-top content"> Details </span>
                 <span class="btn-bottom content"> Details </span>
             </a>
@@ -41,7 +41,7 @@
     </div>
     {% empty %}
     <p>
-        No hotel's available. <br> 
+        No hotel's available. <br>
         Sorry for the inconvenience.
     </p>
     {% endfor %}

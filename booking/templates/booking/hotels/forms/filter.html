@@ -20,8 +20,11 @@
         <hr class="filters-line">
 
         <div class="price-range">
-            <h5>Price</h5>
-            <input type="range" id="myRange" value="90">
+            <p>
+                <label for="amount">Price range:</label>
+                <input type="text" id="amount" readonly name="price" style="border:0; font-weight:bold;">
+            </p>
+            <div id="slider-range"></div>
         </div>
 
         <hr class="filters-line">
@@ -68,3 +71,6 @@
         </button>
     </div>
 </form>
+
+
+

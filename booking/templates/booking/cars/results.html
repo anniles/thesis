@@ -8,9 +8,67 @@
 {% include 'partials/cars-header.html'  with page_title="Rent a car" page_subtitle="make your trips with comfort" %}
 {% endblock %}
 
+{% block scripts %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8grR70Wi8f0ssPGu9grDPoNwqsfY1Ji8">
+    </script>
+    <script src="{% static 'js/map.js' %}">
+    </script>
+
+    <script type="text/javascript">
+        function initMap() {
+            var locations = [
+                {% for car in cars %}
+                    ['{{car.name}}', {{car.rental.lat}}, {{car.rental.lng}}],
+                {% endfor %}
+            ];
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: new google.maps.LatLng(40.937600, 24.411864),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        }
+    </script>
+
+    <script>
+
+        $( "#slider-range" ).slider({
+          range: 'min',
+          min: {{ meta.prices.min }},
+          max: {{meta.prices.max}},
+          value: {{request.GET.price|default:meta.prices.min }},
+          slide: function( event, ui ) {
+            $( "#amount" ).val(ui.value);
+          }
+        });
+
+        $( "#amount" ).val({{request.GET.price|default_if_none:meta.prices.min }});
+
+    </script>
+
+{% endblock %}
+
 {% block main %}
 
-<div class="collapse">
+<div class="my_collapse">
     <div id="map"></div>
 </div>
 
@@ -32,7 +90,7 @@
         <main class="car-list-container" self="size-x3" layout="column center-center">
             {% include 'booking/cars/partials/list.html' %}
         </main>
-        
+
     </div>
 </section>
 

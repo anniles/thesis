@@ -9,7 +9,9 @@ class Rental(models.Model):
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=20)
     description = models.TextField(default="", null=True)
-    
+    lng = models.FloatField(null=True)
+    lat = models.FloatField(null=True)
+
     def __str__(self):
         return self.name
 
@@ -46,7 +48,15 @@ class Car(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
-        return self.model
+        return "{}_{}_{}".format(self.id, self.model, self.rental)
+
+
+class CarImage(models.Model):
+    property = models.ForeignKey(Car, related_name='images')
+    image = models.ImageField(upload_to = 'car_image', blank=True)
+
+    def __str__(self):
+        return "{}_{}".format(self.property, self.image.url)
 
 
 class Bike(models.Model):
@@ -79,4 +89,12 @@ class Bike(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
-        return self.model
+        return "{}_{}_{}".format(self.id, self.model, self.rental)
+
+
+class BikeImage(models.Model):
+    property = models.ForeignKey(Bike, related_name='images')
+    image = models.ImageField(upload_to = 'bike_image', blank=True)
+
+    def __str__(self):
+        return "{}_{}".format(self.property, self.image.url)

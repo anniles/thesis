@@ -1,7 +1,7 @@
 {% load static %}
 
 <header class="pages header-container" layout="column top-stretch">
-    
+
     {% include 'partials/navigation.html' with active_tab='bikes' %}
 
     <section class="header-title rental" self="size-x1" layout="row bottom-left">
@@ -12,7 +12,7 @@
         <div class="page-rental-price" self="right size-x1" layout="row bottom-right">
             <p>from/per day</p>
              <p>
-                <span> 40</span> <span class="currency">&euro;</span>
+                <span>{{ bike.price|floatformat:'0' }}</span> <span class="currency">&euro;</span>
              </p>
         </div>
     </section>

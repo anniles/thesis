@@ -6,6 +6,7 @@
         <h3>Rooms Type</h3>
     </aside>
     <div class="room-type" self="size-x4">
+    {% if categories %}
 
         <form action="">
             {% for cat, rooms in categories.items  %}
@@ -68,23 +69,21 @@
                         <div class="rooms_available ">
                             <h2>Available Rooms</h2>
                             {% for room in rooms  %}
-                                {% if not request.GET.rt or request.GET.rt == room.roomtype.roomtype %}
-                                    <div class="room_table {% if room|is_available:dates %}blue{% endif %}" layout="row center-justify">
+                                <div class="room_table {% if room|is_available:dates %}blue{% endif %}" layout="row center-justify">
 
-                                        <p>{{room.roomtype}}</p>
-                                        <p>
-                                            {% if room|is_available:dates %}
-                                            Available
-                                            {% else %}
-                                            Not Available
-                                            {% endif %}
-                                        </p>
-                                        <p>max-guests: {{room.max_guest}}</p>
-                                        {# <input type="number" class="guests_input"> #}
-                                        <p>price: {{room.price}} &euro;</p>
-                                        <input type="checkbox" class="check_room" name="room" value="single_bb">
-                                    </div>
-                                {% endif %}
+                                    <p>{{room.roomtype}}</p>
+                                    <p>
+                                        {% if room|is_available:dates %}
+                                        Available
+                                        {% else %}
+                                        Not Available
+                                        {% endif %}
+                                    </p>
+                                    <p>max-guests: {{room.max_guest}}</p>
+                                    {# <input type="number" class="guests_input"> #}
+                                    <p>price: {{room.price}} &euro;</p>
+                                    <input type="checkbox" class="check_room" name="room" value="single_bb">
+                                </div>
                             {% endfor %}
                         </div>
                     {% endwith %}
@@ -99,6 +98,9 @@
                 <span class="btn-bottom content"> Select </span>
             </button>
         </form>
+    {% else %}
+        <p>Sorry no rooms, try a different search!</p>
+    {% endif %}
     </div>
 
 
@@ -117,8 +119,9 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">No, thanks!</button>
-                    <button type="button" class="btn btn-primary modal_car_search"><a href="{% url 'booking:search_car' %}">Yes, great idea!</a></button>
+                    <button type="button" class="btn btn-default">No, thanks!</button>
+
+                    <a href="{% url 'booking:search_car' %}" class="btn btn-primary modal_car_search">Yes, great idea!</a>
                 </div>
             </div>
         </div>

@@ -5,9 +5,9 @@
     <div class="bike-list-info" layout="row center-center">
         <figure class="bike-image" self="stretch size-x3">
             {% if bike.image %}
-                <a href="{% url 'booking:search_bike_detail' bike.slug %}" style="background-image: url('{{ bike.image.url }}');"></a>
+                <a href="{% url 'booking:search_bike_detail' bike.slug %}?{{request.GET.urlencode}}" style="background-image: url('{{ bike.image.url }}');"></a>
             {% else %}
-                <a href="{% url 'booking:search_bike_detail' bike.slug %}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
+                <a href="{% url 'booking:search_bike_detail' bike.slug %}?{{request.GET.urlencode}}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
             {% endif %}
         </figure>
         <div class="bike-general" self="size-x4">
@@ -24,9 +24,9 @@
             </div>
         </div>
         <div class="bike-price" self="size-x1 stretch" layout="column center-center">
-            <p><span> 40</span> <span class="currency">&euro;</span></p>
+            <p><span>{{ bike.price|floatformat:'0' }}</span> <span class="currency">&euro;</span></p>
             <p>From/Per day</p>
-            <a href="{% url 'booking:search_bike_detail' bike.slug %}" class="button" layout='column center-center'>
+            <a href="{% url 'booking:search_bike_detail' bike.slug %}?{{request.GET.urlencode}}" class="button" layout='column center-center'>
                 <span class="btn-top content"> Details </span>
                 <span class="btn-bottom content"> Details </span>
             </a>
@@ -34,7 +34,7 @@
     </div>
     {% empty %}
     <p>
-        No Bike's available. <br> 
+        No Bike's available. <br>
         Sorry for the inconvenience.
     </p>
     {% endfor %}

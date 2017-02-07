@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Booking{% endblock %}
+
+{% block header %}
+{% include 'partials/book-header.html'  with page_title="Booking Details" page_subtitle="" %}
+{% endblock %}
+
+{% block main %}
+
+    <section class="booking-container">
+        <div class="booking-title">
+            <svg class="icon-pencil">
+                <use xlink:href="{% static 'svg/icons.svg' %}#pencil" />
+            </svg>
+            <h1>Fill the form below</h1>
+        </div>
+
+        <form action="" method="post" layout="column center-center" novalidate="true">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+            <div class="" layout="rows center-center">
+                <div class="booking-item">
+                    {{ form.fname.errors }}
+                    <label for="{{ form.fname.id_for_label }}">First Name*</label>
+                    {{ form.fname }}
+                </div>
+                <div class="booking-item">
+                    {{ form.lname.errors }}
+                    <label for="{{ form.lname.id_for_label }}">Last Name*</label>
+                    {{ form.lname }}
+                </div>
+            </div>
+            <div class="" layout="rows center-center">
+                <div class="booking-item">
+                    {{ form.email.errors }}
+                    <label for="{{ form.email.id_for_label }}">Email*</label>
+                    {{ form.email }}
+                </div>
+                <div class="booking-item">
+                    {{ form.phone.errors }}
+                    <label for="{{ form.phone.id_for_label }}">Phone</label>
+                    {{ form.phone }}
+                </div>
+            </div>
+            <div class="" layout="rows center-center">
+                <div class="booking-item one" self="left">
+                    {{ form.address.errors }}
+                    <label for="{{ form.address.id_for_label }}">Address</label>
+                    {{ form.address }}
+                </div>
+            </div>
+
+            <input class="booking-button" type="submit" value="Submit"/>
+        </form>
+    </section>
+
+{% endblock %}

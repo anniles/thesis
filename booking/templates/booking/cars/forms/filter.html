@@ -11,19 +11,26 @@
 </div>
 
 <form action="" method="get">
+    <input type="hidden" name="checkin" value="{{request.GET.checkin}}">
+    <input type="hidden" name="checkout" value="{{request.GET.checkout}}">
+
     <div class="filters-options">
 
         <hr class="filters-line">
 
         <div class="price-range">
-            <h5>Price</h5>
-            <input type="range" id="myRange" value="90">
+            <p>
+                <label for="amount">Price range:</label>
+                <input type="text" id="amount" readonly name="price" style="border:0; font-weight:bold;">
+            </p>
+            <div id="slider-range"></div>
         </div>
 
         <hr class="filters-line">
 
         <div class="hotel-type">
             <h5>Car Category</h5>
+
             {% for check in form.t %}
 
             <div class="hotel-type-item" layout="row center-left">
@@ -40,7 +47,7 @@
 
         <div class="hotel-cc">
             <h5>Car cc</h5>
-            
+
             {% for radio in form.cc %}
 
             <div class="hotel-cc-item" layout="row center-left">

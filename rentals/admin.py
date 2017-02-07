@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rental, Car, Bike
+from .models import Rental, Car, Bike, CarImage, BikeImage
 
 
 # not working
@@ -32,10 +32,12 @@ class RentalAdmin(admin.ModelAdmin):
     list_display = ('name', 'address', 'phone', 'short_description')
 
     def short_description(self, obj):
-        return obj.description[:100] 
+        return obj.description[:100]
 
 
 # Register your models here.
 admin.site.register(Rental, RentalAdmin)
+admin.site.register(CarImage)
+admin.site.register(BikeImage)
 # admin.site.register(Bike, BikeAdmin)
 # admin.site.register(Car, CarAdmin)

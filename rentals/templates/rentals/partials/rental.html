@@ -10,7 +10,7 @@
             <p>
                 {{ car.rental.description }}
             </p>
-            
+
             <div class="rental-info" layout="row top-center">
 
                 <div class="" self="size-x1">
@@ -24,7 +24,7 @@
                         <svg class="icon-check">
                             <use xlink:href="{% static 'svg/icons.svg' %}#check" />
                         </svg>
-                        phone: 
+                        phone:
                         <a href="tel:{{car.rental.phone}}">
                             {{car.rental.phone}}
                         </a>
@@ -32,15 +32,10 @@
                 </div>
             </div>
 
+            {% comment %}
             <div class="rental-slider-container" layout="row center-center">
                 <div class="rental-img-slider" layout="row center-center">
-                    {% comment %}
-                    {% for i in "xxxx" %}
-                    <div class="rental-img-item">
-                        <img src="http://placehold.it/200x200" alt="">
-                    </div>
-                    {% endfor %}
-                    {% endcomment %}
+
                     {% if image_list %}
                         {% for image in image_list %}
                             <div class="rental-img-item">
@@ -56,9 +51,10 @@
                     {% endif %}
                 </div>
             </div>
+            {% endcomment %}
         </div>
 
         {# <hr class="page-line"> #}
-        
+
     </div>
 </div>

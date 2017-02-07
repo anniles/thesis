@@ -1,7 +1,7 @@
 {% load static %}
 
 <header class="pages header-container" layout="column top-stretch">
-    
+
     {% include 'partials/navigation.html' with active_tab='cars' %}
 
     <section class="header-title rental" self="size-x1" layout="row bottom-left">
@@ -9,12 +9,14 @@
             <h2>{{rental.model}}</h2>
             <p>{{rental.rental.address}}</p>
         </div>
-        <div class="page-rental-price" self="right size-x1" layout="row bottom-right">
-            <p>from/per day</p>
-             <p>
-                <span> 40</span> <span class="currency">&euro;</span>
-             </p>
-        </div>
+        {% if car.price %}
+            <div class="page-rental-price" self="right size-x1" layout="row bottom-right">
+                <p>from/per day</p>
+                 <p>
+                    <span>{{ car.price|floatformat:'0' }}</span> <span class="currency">&euro;</span>
+                 </p>
+            </div>
+        {% endif %}
     </section>
 
     <div class="bottom-shadow"></div>

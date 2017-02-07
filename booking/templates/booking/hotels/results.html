@@ -48,6 +48,22 @@
 		}
 	</script>
 
+	<script>
+
+	    $( "#slider-range" ).slider({
+	      range: 'min',
+	      min: {{ meta.prices.min }},
+	      max: {{meta.prices.max}},
+	      value: {{request.GET.price|default:meta.prices.min }},
+	      slide: function( event, ui ) {
+	        $( "#amount" ).val(ui.value);
+	      }
+	    });
+
+	    $( "#amount" ).val({{request.GET.price|default_if_none:meta.prices.min }});
+
+  	</script>
+
 {% endblock %}
 
 {% block main %}

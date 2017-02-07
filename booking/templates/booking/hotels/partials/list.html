@@ -7,9 +7,9 @@
         <figure class="hotel-image" self="stretch size-x3">
             {# <a href="{% url 'hotels:detail' hotel.slug %}" style="background-image: url('{% static "images/hotels/hotel.jpg" %}');"></a> #}
             {% if hotel.image %}
-                <a href="{% url 'booking:search_hotel_detail' hotel.slug %}" style="background-image: url('{{ hotel.image.url }}');"></a>
+                <a href="{% url 'booking:search_hotel_detail' hotel.slug %}?{{request.GET.urlencode}}" style="background-image: url('{{ hotel.image.url }}');"></a>
             {% else %}
-                <a href="{% url 'booking:search_hotel_detail' hotel.slug %}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
+                <a href="{% url 'booking:search_hotel_detail' hotel.slug %}?{{request.GET.urlencode}}" style="background-image: url('{% static "images/no_img.png" %}');"></a>
             {% endif %}
         </figure>
         <div class="hotel-general" self="size-x4">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="hotel-price" self="size-x1 stretch" layout="column center-center">
-            <p><span> 40</span> <span class="currency">&euro;</span></p>
+            <p><span> {{hotel.min_price|floatformat:'0'}}</span> <span class="currency">&euro;</span></p>
             <p>From/Per night</p>
             <a href="{% url 'booking:search_hotel_detail' hotel.slug %}?{{request.GET.urlencode}}" class="button" layout='column center-center'>
                 <span class="btn-top content"> Details </span>

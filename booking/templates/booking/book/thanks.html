@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Booking{% endblock %}
+
+{% block header %}
+{% include 'partials/book-header.html'  with page_title="Booking Details" page_subtitle="" %}
+{% endblock %}
+
+{% block main %}
+    <section>
+        <div class="booking-thanku" layout="row center-center">
+            <h1>Thank you for your booking, <br>enjoy your vacations!</h1>
+        </div>
+    </section>
+{% endblock %}
+
+{% comment %}
+{% block scripts %}
+    <script>
+        function redirect(){
+           window.location.href = "{% url 'kavala:book' %}";
+        }
+
+        setTimeout(redirect, 2000); //2000 is equivalent to 2 seconds
+    </script>
+{% endblock %}
+{% endcomment %}

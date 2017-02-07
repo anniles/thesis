@@ -7,6 +7,9 @@
 - model: hotels.amenity
   pk: 3
   fields: {name: Safe}
+- model: hotels.amenity
+  pk: 4
+  fields: {name: Pool}
 - model: hotels.hotel
   pk: 1
   fields: {slug: oceanis, name: oceanis, address: Venizelou 32, phone: '2510222333',
@@ -22,10 +25,11 @@
       \u03C4\u03C5\u03C0\u03BF \u03CC\u03C3\u03BF\u03BD \u03B1\u03C6\u03BF\u03C1\u03AC\
       \ \u03C4\u03BF \u03BA\u03B5\u03AF\u03BC\u03B5\u03BD\u03BF \u03C7\u03C9\u03C1\
       \u03AF\u03C2 \u03BD\u03CC\u03B7\u03BC\u03B1, \u03B1\u03C0\u03CC \u03C4\u03BF\
-      \u03BD 15\u03BF \u03B1\u03B9\u03CE\u03BD\u03B1,", image: ''}
+      \u03BD 15\u03BF \u03B1\u03B9\u03CE\u03BD\u03B1,", image: hotel_image/oceanis_emIv7R0.jpg,
+    lng: 24.405828, lat: 40.936591}
 - model: hotels.hotel
   pk: 2
-  fields: {slug: batis, name: batis, address: batis, phone: '2510333222', category: 4,
+  fields: {slug: egnatia, name: egnatia, address: egnatia, phone: '2510333222', category: 4,
     description: "\u0388\u03B3\u03B9\u03BD\u03B5 \u03B4\u03B7\u03BC\u03BF\u03C6\u03B9\
       \u03BB\u03AD\u03C2 \u03C4\u03B7 \u03B4\u03B5\u03BA\u03B1\u03B5\u03C4\u03AF\u03B1\
       \ \u03C4\u03BF\u03C5 '60 \u03BC\u03B5 \u03C4\u03B7\u03BD \u03AD\u03BA\u03B4\u03BF\
@@ -39,10 +43,11 @@
       \u03C2 \u03C3\u03B5\u03BB\u03B9\u03B4\u03BF\u03C0\u03BF\u03AF\u03B7\u03C3\u03B7\
       \u03C2 \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF Aldus PageMaker \u03C0\u03BF\u03C5\
       \ \u03C0\u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\
-      \u03C7\u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum.", image: ''}
+      \u03C7\u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum.", image: hotel_image/egnatia_fGkGdkx.jpg,
+    lng: 24.388808, lat: 40.942201}
 - model: hotels.hotel
   pk: 3
-  fields: {slug: lato, name: lato, address: parapom, phone: '2510222666', category: 3,
+  fields: {slug: galaxy, name: galaxy, address: parapom, phone: '2510222666', category: 3,
     description: "\u03A4\u03BF Lorem Ipsum \u03B5\u03AF\u03BD\u03B1\u03B9 \u03B1\u03C0\
       \u03BB\u03AC \u03AD\u03BD\u03B1 \u03BA\u03B5\u03AF\u03BC\u03B5\u03BD\u03BF \u03C7\
       \u03C9\u03C1\u03AF\u03C2 \u03BD\u03CC\u03B7\u03BC\u03B1 \u03B3\u03B9\u03B1 \u03C4\
@@ -55,7 +60,8 @@
       \ \u03CC\u03C3\u03BF\u03BD \u03B1\u03C6\u03BF\u03C1\u03AC \u03C4\u03BF \u03BA\
       \u03B5\u03AF\u03BC\u03B5\u03BD\u03BF \u03C7\u03C9\u03C1\u03AF\u03C2 \u03BD\u03CC\
       \u03B7\u03BC\u03B1, \u03B1\u03C0\u03CC \u03C4\u03BF\u03BD 15\u03BF \u03B1\u03B9\
-      \u03CE\u03BD\u03B1,", image: ''}
+      \u03CE\u03BD\u03B1,", image: hotel_image/galaxy_rJ2Qsu6.jpeg, lng: 24.410487,
+    lat: 40.936798}
 - model: hotels.hotel
   pk: 4
   fields: {slug: imaret, name: imaret, address: panagia, phone: '2510999888', category: 5,
@@ -100,7 +106,85 @@
       \u03BF\u03AF\u03B7\u03C3\u03B7\u03C2 \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF Aldus\
       \ PageMaker \u03C0\u03BF\u03C5 \u03C0\u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\
       \u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum.",
-    image: hotel_image/biscotto.png}
+    image: hotel_image/imaret_ml086bN.jpg, lng: 24.413859, lat: 40.933654}
+- model: hotels.hotelimage
+  pk: 1
+  fields: {property: 4, image: hotel_image/imaret_eGlvOop.jpg}
+- model: hotels.hotelimage
+  pk: 2
+  fields: {property: 4, image: hotel_image/imaret1.jpg}
+- model: hotels.hotelimage
+  pk: 3
+  fields: {property: 4, image: hotel_image/imaret2.jpg}
+- model: hotels.hotelimage
+  pk: 4
+  fields: {property: 4, image: hotel_image/imaret3.jpg}
+- model: hotels.hotelimage
+  pk: 5
+  fields: {property: 4, image: hotel_image/imaret4.jpg}
+- model: hotels.hotelimage
+  pk: 6
+  fields: {property: 4, image: hotel_image/imaret5.jpg}
+- model: hotels.hotelimage
+  pk: 7
+  fields: {property: 4, image: hotel_image/imaret6.jpg}
+- model: hotels.hotelimage
+  pk: 8
+  fields: {property: 4, image: hotel_image/imaret7.jpg}
+- model: hotels.hotelimage
+  pk: 9
+  fields: {property: 3, image: hotel_image/galaxy1.jpg}
+- model: hotels.hotelimage
+  pk: 10
+  fields: {property: 3, image: hotel_image/galaxy2.jpeg}
+- model: hotels.hotelimage
+  pk: 11
+  fields: {property: 3, image: hotel_image/galaxy3.png}
+- model: hotels.hotelimage
+  pk: 12
+  fields: {property: 3, image: hotel_image/galaxy4.jpg}
+- model: hotels.hotelimage
+  pk: 13
+  fields: {property: 3, image: hotel_image/galaxy5.jpg}
+- model: hotels.hotelimage
+  pk: 14
+  fields: {property: 2, image: hotel_image/egnatia_c5nqIbg.jpg}
+- model: hotels.hotelimage
+  pk: 15
+  fields: {property: 2, image: hotel_image/egnatia1.jpg}
+- model: hotels.hotelimage
+  pk: 16
+  fields: {property: 2, image: hotel_image/egnatia2.jpg}
+- model: hotels.hotelimage
+  pk: 17
+  fields: {property: 2, image: hotel_image/egnatia3.jpg}
+- model: hotels.hotelimage
+  pk: 18
+  fields: {property: 2, image: hotel_image/egnatia4.jpg}
+- model: hotels.hotelimage
+  pk: 19
+  fields: {property: 2, image: hotel_image/egnatia5.jpg}
+- model: hotels.hotelimage
+  pk: 20
+  fields: {property: 1, image: hotel_image/oceanis_XdA6enZ.jpg}
+- model: hotels.hotelimage
+  pk: 21
+  fields: {property: 1, image: hotel_image/oceanis1.jpg}
+- model: hotels.hotelimage
+  pk: 22
+  fields: {property: 1, image: hotel_image/oceanis2.jpg}
+- model: hotels.hotelimage
+  pk: 23
+  fields: {property: 1, image: hotel_image/oceanis3.jpeg}
+- model: hotels.hotelimage
+  pk: 24
+  fields: {property: 1, image: hotel_image/oceanis4.jpg}
+- model: hotels.hotelimage
+  pk: 25
+  fields: {property: 1, image: hotel_image/oceanis5.jpg}
+- model: hotels.hotelimage
+  pk: 26
+  fields: {property: 3, image: hotel_image/galaxy_zW6Ot0x.jpeg}
 - model: hotels.roomtype
   pk: 1
   fields: {roomtype: HB, coefficient: '1.00'}
@@ -148,8 +232,7 @@
       \ \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF Aldus PageMaker \u03C0\u03BF\u03C5 \u03C0\
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
-    image: room_image/log-bg2.png
-    price: '30.00'
+    price: '20.00'
     amenities: [1]
 - model: hotels.room
   pk: 2
@@ -180,8 +263,7 @@
       \ \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF Aldus PageMaker \u03C0\u03BF\u03C5 \u03C0\
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
-    image: ''
-    price: '30.00'
+    price: '25.00'
     amenities: [2, 3]
 - model: hotels.room
   pk: 3
@@ -212,8 +294,7 @@
       \ \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF Aldus PageMaker \u03C0\u03BF\u03C5 \u03C0\
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
-    image: ''
-    price: '30.00'
+    price: '20.00'
     amenities: [2, 3, 1]
 - model: hotels.room
   pk: 4
@@ -244,8 +325,7 @@
       \ \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF Aldus PageMaker \u03C0\u03BF\u03C5 \u03C0\
       \u03B5\u03C1\u03B9\u03B5\u03AF\u03C7\u03B1\u03BD \u03B5\u03BA\u03B4\u03BF\u03C7\
       \u03AD\u03C2 \u03C4\u03BF\u03C5 Lorem Ipsum."
-    image: ''
-    price: '30.00'
+    price: '32.00'
     amenities: [2, 3, 1]
 - model: hotels.room
   pk: 5
@@ -272,8 +352,7 @@
       \u03B3\u03B9\u03C3\u03BC\u03B9\u03BA\u03CC \u03B7\u03BB\u03B5\u03BA\u03C4\u03C1\
       \u03BF\u03BD\u03B9\u03BA\u03AE\u03C2 \u03C3\u03B5\u03BB\u03B9\u03B4\u03BF\u03C0\
       \u03BF\u03AF\u03B7\u03C3\u03B7\u03C2 \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF A"
-    image: ''
-    price: '30.00'
+    price: '60.00'
     amenities: [2, 3, 1]
 - model: hotels.room
   pk: 6
@@ -300,17 +379,21 @@
       \u03B3\u03B9\u03C3\u03BC\u03B9\u03BA\u03CC \u03B7\u03BB\u03B5\u03BA\u03C4\u03C1\
       \u03BF\u03BD\u03B9\u03BA\u03AE\u03C2 \u03C3\u03B5\u03BB\u03B9\u03B4\u03BF\u03C0\
       \u03BF\u03AF\u03B7\u03C3\u03B7\u03C2 \u03CC\u03C0\u03C9\u03C2 \u03C4\u03BF A"
-    image: ''
-    price: '30.00'
+    price: '35.00'
     amenities: [3]
 - model: hotels.room
   pk: 7
   fields:
     hotel: 4
-    roomtype: 1
+    roomtype: 2
     max_guest: 3
     category: single
     description: lorem
-    image: ''
-    price: '30.00'
+    price: '40.00'
     amenities: [2, 1]
+- model: hotels.roomimage
+  pk: 1
+  fields: {property: 1, image: room_image/imaret2.jpg}
+- model: hotels.roomimage
+  pk: 2
+  fields: {property: 5, image: room_image/imaret1.jpg}

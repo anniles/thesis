@@ -1,23 +1,23 @@
 {% load static %}
 
-<form action="">
+<form action="{% url 'booking:search_car_detail' slug=car.slug %}" method="get">
     <div class="checkdate" layout="row center-justify">
         <div class="checkin" layout="column center-left">
-            <label for="checkin">
+            <label for="pickup_car">
                 <svg class="icon-calendar" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
                 </svg>
                 Date
             </label>
 
-            <input type="date" name="checkin" id="checkin-date" required>
+            <input id="pickup_car" name="checkin" type="text" placeholder="pickup" required value="{{request.GET.checkin}}">
         </div>
         <div class="checkout" layout="column center-left">
-            <label for="checkout">
+            <label for="checkin-time">
                 <svg class="icon-clock" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#clock" />
                 </svg>
-                Time 
+                Time
             </label>
 
             <input type="time" name="checkout" id="checkin-time" required>
@@ -27,36 +27,36 @@
     <div class="check-people" layout="row center-center">
         <div class="adults" self="left" layout="column center-left">
             <p>Pick Up</p>
-            <select class="pick-up" self="left size-x1" layout="row center-center">
+            <select class="pick-up" self="left size-x1" layout="row center-center" name="place" value="{{request.GET.place}}">
 
-                <option value="airport">Airport</option>
-                <option value="port">Port</option>
-                <option value="bus_station">Bus Station</option>
-                <option value="shop">Shop</option>
+                <option value="airport" {% if request.GET.place == "airport" %}selected{% endif %}>Airport</option>
+                <option value="port" {% if request.GET.place == "port" %}selected{% endif %}>Port</option>
+                <option value="bus" {% if request.GET.place == "bus" %}selected{% endif %}>Bus Station</option>
+                <option value="shop" {% if request.GET.place == "shop" %}selected{% endif %}>Shop</option>
             </select>
 
         </div>
     </div>
 
     <hr class="filters-line">
-    
+
     <div class="checkdate" layout="row center-justify">
         <div class="checkin" layout="column center-left">
-            <label for="checkin">
+            <label for="dropoff_car">
                 <svg class="icon-calendar" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#calendar" />
                 </svg>
                 Date
             </label>
 
-            <input type="date" name="checkin" id="checkout-date" required>
+            <input id="dropoff_car" name="checkin" type="text" placeholder="pickup" required value="{{request.GET.checkout}}">
         </div>
         <div class="checkout" layout="column center-left">
-            <label for="checkout">
+            <label for="checkout-time">
                 <svg class="icon-clock" self="right">
                     <use xlink:href="{% static 'svg/icons.svg' %}#clock" />
                 </svg>
-                Time 
+                Time
             </label>
 
             <input type="time" name="checkout" id="checkout-time" required>
@@ -66,12 +66,12 @@
     <div class="check-people" layout="row center-center">
         <div class="adults" self="left" layout="column center-left">
             <p>Drop Off</p>
-            <select class="pick-up" self="left size-x1" layout="row center-center">
+            <select class="pick-up" self="left size-x1" layout="row center-center" name="place" value="{{request.GET.place}}">
 
-                <option value="airport">Airport</option>
-                <option value="port">Port</option>
-                <option value="bus_station">Bus Station</option>
-                <option value="shop">Shop</option>
+                <option value="airport" {% if request.GET.place == "airport" %}selected{% endif %}>Airport</option>
+                <option value="port" {% if request.GET.place == "port" %}selected{% endif %}>Port</option>
+                <option value="bus" {% if request.GET.place == "bus" %}selected{% endif %}>Bus Station</option>
+                <option value="shop" {% if request.GET.place == "shop" %}selected{% endif %}>Shop</option>
             </select>
 
         </div>

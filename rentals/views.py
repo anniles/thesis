@@ -21,22 +21,26 @@ def index_cars(request):
 
     return render(request, 'rentals/cars_list.html', data)
 
-# class CarIndexView(generic.ListView):
-#     template_name = 'rentals/cars.html'
-#     context_object_name = 'cars'
+
+def car_detail(request, slug):
+    car = get_object_or_404(Car, slug=slug)
+
+    image_list = car.images.all()
+    data = {
+        'car': car,
+        'image_list': image_list,
+    }
+
+    return render(request, 'rentals/car.html', data)
+
+# class CarDetailView(generic.DetailView):
+#     model = Car
+#     template_name = 'rentals/car.html'
 
 #     def get_queryset(self):
-#         return Car.objects.order_by('model').all()
+#         slug = self.kwargs.get(self.slug_url_kwarg)
 
-
-class CarDetailView(generic.DetailView):
-    model = Car
-    template_name = 'rentals/car.html'
-
-    def get_queryset(self):
-        slug = self.kwargs.get(self.slug_url_kwarg)
-
-        return Car.objects.select_related('rental').filter(slug=slug)
+#         return Car.objects.select_related('rental').filter(slug=slug)
 
 # BIKES
 def index_bikes(request):
@@ -45,7 +49,7 @@ def index_bikes(request):
 
     # BUILDING QUERIES
     bikes = Bike.objects.order_by('model').all()
-    
+
     data = {
         'bikes' : bikes,
         'active_tab': 'bikes',
@@ -54,6 +58,18 @@ def index_bikes(request):
     return render(request, 'rentals/bikes_list.html', data)
 
 
-class BikeDetailView(generic.DetailView):
-    model = Bike
-    template_name = 'rentals/bike.html'
+def bike_detail(request, slug):
+    bike = get_object_or_404(Bike, slug=slug)
+
+    image_list = bike.images.all()
+
+    data = {
+        'bike': bike,
+        'image_list': image_list,
+    }
+
+    return render(request, 'rentals/bike.html', data)
+
+# class BikeDetailView(generic.DetailView):
+#     model = Bike
+#     template_name = 'rentals/bike.html'

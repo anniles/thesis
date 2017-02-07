@@ -7,10 +7,38 @@
 {% include 'partials/car-header.html'  with rental=car %}
 {% endblock %}
 
+{% block scripts %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8grR70Wi8f0ssPGu9grDPoNwqsfY1Ji8">
+    </script>
+    <script src="{% static 'js/map.js' %}">
+    </script>
+
+    <script>
+
+    function initMap() {
+        var uluru = {lat: {{car.rental.lat}}, lng: {{car.rental.lng}} };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: uluru,
+            scrollwheel: false
+        });
+
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+
+    </script>
+{% endblock %}
+
 {% block main %}
-<div class="collapse">
+<div class="my_collapse">
     <div id="map"></div>
 </div>
+
 <section class="main-wrapper rental-main" layout="row top-justify">
 
     <div class="rental-info" self="size-x2" layout="column center-center">
@@ -79,14 +107,21 @@
                     </p>
                     {% endfor %}
                 </div>
-                <button type="submit" class="button select_room_btn _continue" layout='column center-center'>
-                    <span class="btn-top content"> Select </span>
-                    <span class="btn-bottom content"> Select </span>
-                </button>
+                <form action="{% url 'booking:book' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="car" value="{{car.id}}">
+                    <input type="hidden" name="checkin" value="{{request.GET.checkin}}">
+                    <input type="hidden" name="checkout" value="{{request.GET.checkout}}">
+
+                    <button type="submit" class="button select_room_btn _continue" layout='column center-center'>
+                        <span class="btn-top content"> Select </span>
+                        <span class="btn-bottom content"> Select </span>
+                    </button>
+                </form>
             </div>
         </div>
-        
-        
+
+
         <hr class="page-line">
         {% include 'rentals/partials/rental.html' %}
     </div>
@@ -100,8 +135,8 @@
         <div class="check-availability" layout='column center-center'>
             <h4 class="check-title">Check Availability</h4>
 
-            {% include 'rentals/partials/availability_rental.html' %}
-            
+            {% include 'rentals/partials/availability_form_car.html' %}
+
         </div>
         <div class="book-by-phone" layout="column center-center">
             <div class="arrow-up">&nbsp;</div>

@@ -2,3 +2,4 @@ Django==1.10
 psycopg2
 pillow>=2.0.0
 PyYAML
+django-registration-redux

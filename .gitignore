@@ -3,6 +3,7 @@ node_modules
 
 bower_components
 kavala/static/vendor
+kavala/static/css/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

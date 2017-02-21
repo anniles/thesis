@@ -124,3 +124,4 @@ class BookForm(forms.Form):
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Enter Email'}))
     phone = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Enter Phone'}), required=False)
     address = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Enter Address'}), required=False)
+

@@ -8,7 +8,11 @@
     <div class="room-type" self="size-x4">
     {% if categories %}
 
-        <form action="">
+    <form name="hotel" method="POST" action="{% url 'booking:add_room' %}">
+        {% csrf_token %}
+        <input type="hidden" name="checkin"  value="{{request.GET.checkin}}">
+        <input type="hidden" name="checkout" value="{{request.GET.checkout}}">
+
             {% for cat, rooms in categories.items  %}
 
                 <div class="room-single">
@@ -82,7 +86,7 @@
                                     <p>max-guests: {{room.max_guest}}</p>
                                     {# <input type="number" class="guests_input"> #}
                                     <p>price: {{room.price}} &euro;</p>
-                                    <input type="checkbox" class="check_room" name="room" value="single_bb">
+                                    <input type="checkbox" class="check_room" name="room" value="{{room.id}}">
                                 </div>
                             {% endfor %}
                         </div>
@@ -119,9 +123,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default">No, thanks!</button>
-
-                    <a href="{% url 'booking:search_car' %}" class="btn btn-primary modal_car_search">Yes, great idea!</a>
+                    <button id="_no_master" class="btn btn-default">No, thanks!</button>
+                    <button id="_yes_master" class="btn btn-primary modal_car_search">Yes, great idea!</button>
                 </div>
             </div>
         </div>

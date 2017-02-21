@@ -5,6 +5,7 @@ from . import views
 app_name = 'booking'
 urlpatterns = [
     url(r'^hotels/$', views.search_hotel, name='search_hotel'),
+    url(r'^hotels/add/$', views.add_room, name='add_room'),
     url(r'^hotels/(?P<slug>[\w-]+)/$', views.search_hotel_detail, name='search_hotel_detail'),
     url(r'^cars/$', views.search_car, name='search_car'),
     url(r'^cars/(?P<slug>[\w-]+)/$', views.search_car_detail, name='search_car_detail'),

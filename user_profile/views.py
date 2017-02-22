@@ -59,7 +59,7 @@ def profile(request):
 def bookings(request):
 
     user = request.user
-    bookings = Booking.objects.filter(user=user).all()
+    bookings = Booking.objects.filter(user__user=user).all()
 
     context = { 
         'bookings': bookings,

@@ -11,11 +11,100 @@
 {% block main %}
 
     <section class="booking-container">
+
         <div class="booking-title">
             <svg class="icon-pencil">
                 <use xlink:href="{% static 'svg/icons.svg' %}#pencil" />
             </svg>
-            <h1>Fill the form below</h1>
+            <h1>Your booking details</h1>
+        </div>
+
+        <div class="booktable" layout="column center-center">
+            <div class="checkdates" layout="row center-spread">
+                <p>Checkin: 22/2/2017</p>
+                <p>Checkout: 26/2/2017</p>
+            </div>
+
+            {% if rooms %}
+                <div class="infobookroom title" layout="row center-left">
+                    <h4>Rooms</h4>
+                </div>
+
+                <div class="infobookroom" layout="row center-spread">
+                    <p self="size-x1">#</p>
+                    <p self="size-x1">Room type</p>
+                    <p self="size-x1">Hotel name</p>
+                    <p self="size-x1">max guests</p>
+                    <p self="size-x1">price</p>
+                </div>
+
+                {% for room in rooms %}
+                    <div class="infobookroom" layout="row center-spread">
+                        <p self="size-x1">{{ forloop.counter }}</p>
+                        <p self="size-x1">{{ room.roomtype.roomtype }}</p>
+                        <p self="size-x1">{{ room.hotel.name }}</p>
+                        <p self="size-x1">{{ room.max_guest }}</p>
+                        <p self="size-x1">{{ room.price}} &euro;</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+            {% if car %}
+                <div class="infobookroom title" layout="row center-left">
+                    <h4>Cars</h4>
+                </div>
+
+                <div class="infobookcar" layout="row center-spread">
+                    <p self="size-x1">#</p>
+                    <p self="size-x1">model</p>
+                    <p self="size-x1">Cc</p>
+                    <p self="size-x1">plate</p>
+                    <p self="size-x1">category</p>
+                    <p self="size-x1">price</p>
+                </div>
+
+                <div class="infobookcar" layout="row center-spread">
+                    <p self="size-x1">1</p>
+                    <p self="size-x1">{{ car.model }}</p>
+                    <p self="size-x1">{{ car.cc }}</p>
+                    <p self="size-x1">{{ car.plate}}</p>
+                    <p self="size-x1">{{ car.category }}</p>
+                    <p self="size-x1">{{ car.price }} &euro;</p>
+                </div>
+            {% endif %}
+
+            {% if bike %}
+                <div class="infobookroom title" layout="row center-left">
+                    <h4>Bikes</h4>
+                </div>
+
+                <div class="infobookbike" layout="row center-spread">
+                    <p self="size-x1">#</p>
+                    <p self="size-x1">model</p>
+                    <p self="size-x1">Cc</p>
+                    <p self="size-x1">plate</p>
+                    <p self="size-x1">category</p>
+                    <p self="size-x1">price</p>
+                </div>
+
+
+                <div class="infobookbike" layout="row center-spread">
+                    <p self="size-x1">1</p>
+                    <p self="size-x1">{{ bike.model }}</p>
+                    <p self="size-x1">{{ bike.cc }}</p>
+                    <p self="size-x1">{{ bike.plate}}</p>
+                    <p self="size-x1">{{ bike.category }}</p>
+                    <p self="size-x1">{{ bike.price }} &euro;</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="booking-title">
+            <svg class="icon-pencil">
+                <use xlink:href="{% static 'svg/icons.svg' %}#pencil" />
+            </svg>
+            <h1>Fill the form below to complete your booking</h1>
         </div>
 
         <form action="{{ request.get_full_path }}" method="post" layout="column center-center" novalidate="true">

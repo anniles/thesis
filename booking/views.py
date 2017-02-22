@@ -239,6 +239,7 @@ def book(request, what):
                             room.add_item(booking, dates)
 
                     # redirect to a new URL:
+
                     return render(request, 'booking/book/thanks.html')
             except Exception as e:
                 print (str(e))

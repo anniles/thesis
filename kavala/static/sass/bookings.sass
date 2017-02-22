@@ -28,32 +28,33 @@
             padding: 0px 7px
 
 // booking items page
-.booking-item
-    max-width: 750px
-    width: 100%
-    margin-bottom: 20px
-    padding: 0 10px
-    h3
-        font-size: 15px
-        text-transform: uppercase
-        background-color: $pink
-        color: $white
-        padding: 5px 10px
-        margin: 0
-        border-top-left-radius: 3px
-        border-top-right-radius: 3px
-    .book-item-title
-        color: $pink
-    p
-        margin: 0
-        padding: 5px 10px
-    .booking-item-info
-        border: 1px solid $grey
-        border-top: none
-    .date-span
-        @media #{$max600}
-            flex-direction: column
-            align-items: flex-start
+.booking-section
+    .booking-item
+        max-width: 750px
+        width: 100%
+        margin-bottom: 20px
+        padding: 0 10px
+        h3
+            font-size: 15px
+            text-transform: uppercase
+            background-color: $pink
+            color: $white
+            padding: 5px 10px
+            margin: 0
+            border-top-left-radius: 3px
+            border-top-right-radius: 3px
+        .book-item-title
+            color: $pink
+        p
+            margin: 0
+            padding: 5px 10px
+        .booking-item-info
+            border: 1px solid $grey
+            border-top: none
+        .date-span
+            @media #{$max600}
+                flex-direction: column
+                align-items: flex-start
 
 // button back
 .bookings-back
@@ -130,3 +131,30 @@
         color: $grey
         width: 100%
         text-align: center
+
+
+//div with info in booking form
+.booktable
+    margin-top: 20px
+    .checkdates
+        color: $white
+        background: $pink
+        max-width: 600px
+        border-top-right-radius: 3px
+        border-top-left-radius: 3px
+        p
+            margin: 0
+            padding: 10px
+    .infobookroom, .infobookcar, .infobookbike
+        max-width: 600px
+        border: 1px solid $grey
+        border-top: none
+        background: $white
+        &.title
+            background: #f3f3f6
+        h4
+            margin: 0
+            padding: 5px
+        p
+            margin: 0
+            padding: 5px

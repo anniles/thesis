@@ -23,7 +23,9 @@ Tour guide for Kavala City
     connect as postgres user:
 
     ` $ sudo su postgres`
+
     ` $ psql`
+
     ` postgres# \password kavala` e.g: 123456
 
 5. We now need to run the migrations:
@@ -32,20 +34,22 @@ Tour guide for Kavala City
 
 6. If we need sample data:
 
-    ` $python3 manage.py hotels rentals sights`
+    ` $ python3 manage.py hotels rentals sights`
 
 7. To access the admin we need a superuser
 
-    ` $python3 manage.py createsuperuser`
+    ` $ python3 manage.py createsuperuser`
 
 8. build the assets
 
     ` $ npm install`
+
     ` $ bower install`
+
     ` $ gulp sass`
 
 9. Run the server
 
-    ` $python3 manage.py 0.0.0.0:8000`
+    ` $ python3 manage.py 0.0.0.0:8000`
 
 Access the application at [localhost:5000](http://localhost:5000)

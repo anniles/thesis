@@ -74,7 +74,7 @@ section
 	background-color: rgba(0, 0, 0, .3)
 
 .header-container
-	background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("../images/kavala.jpg") no-repeat
+	background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("../images/kavala.jpg") no-repeat
 	background-position: 0 70%
 	background-size: cover
 	// background-attachment: fixed
@@ -174,15 +174,15 @@ section
 					&:hover
 						width: 100%
 				&:hover
-					color: $blue
+					color: $lightblue
 					&:after, &:before
 						width: 100%
-						background-color: $blue
+						background-color: $lightblue
 				&.active
-					color: $blue
+					color: $lightblue
 					&:after, &:before
 						width: 100%
-						background-color: $blue
+						background-color: $lightblue
 	.search
 		width: initial
 		position: relative
@@ -369,6 +369,7 @@ section
 
 
 
+
 .button
 	text-decoration: none
 	color: $white
@@ -381,6 +382,16 @@ section
 	overflow: hidden
 	margin-bottom: 10px
 	max-width: 170px
+	&:disabled
+		opacity: .5
+		&:hover
+			cursor: default
+			background: $lightblue
+			.btn
+				&-top
+					top: 9px
+				&-bottom
+					top: 40px
 	span
 		color: $white!important
 	.content

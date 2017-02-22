@@ -86,7 +86,11 @@
                                     <p>max-guests: {{room.max_guest}}</p>
                                     {# <input type="number" class="guests_input"> #}
                                     <p>price: {{room.price}} &euro;</p>
-                                    <input type="checkbox" class="check_room" name="room" value="{{room.id}}">
+                                    {% if room|is_available:dates %}
+                                        <input type="checkbox" class="check_room" name="room" value="{{room.id}}">
+                                    {% else %}
+
+                                    {% endif %}
                                 </div>
                             {% endfor %}
                         </div>

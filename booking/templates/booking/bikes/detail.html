@@ -107,9 +107,11 @@
                     </p>
                     {% endfor %}
                 </div>
-                <form action="{% url 'booking:book' %}" method="post">
+                <form action="{% url 'booking:add_rental' %}" method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="bike" value="{{bike.id}}">
+                    <input type="hidden" name="rental" value="{{bike.id}}">
+                    <input type="hidden" name="type" value="bike">
+                    <input type="hidden" name="from" value="{{request.GET.from}}">
                     <input type="hidden" name="checkin" value="{{request.GET.checkin}}">
                     <input type="hidden" name="checkout" value="{{request.GET.checkout}}">
 

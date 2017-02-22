@@ -10,16 +10,16 @@
         checkValidation();
 
         $no.on('click', function() {
-            $('#_gimme_car').remove();
+            $('#_from').remove();
             $form.submit();
         });
 
         // add hidden input gimme_car
         $yes.on('click', function() {
             $('<input />').attr('type', 'hidden')
-                .attr('name', "gimme_car")
-                .attr('value', "true")
-                .attr('id', "gimme_car")
+                .attr('name', "from")
+                .attr('value', "hotel")
+                .attr('id', "_from")
                 .appendTo($form);
             $form.submit();
         });

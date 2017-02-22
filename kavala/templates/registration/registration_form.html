@@ -15,18 +15,25 @@
 
 {% block main %}
 <section layout='column center-center' class="login_page">
+
     <form action="." role="form" method="post">
         {% csrf_token %}
+        {{ form.non_field_errors }}
+
         <div class="form-group">
+            {{form.username.errors}}
             <p class="required">
                 <input type="text" class="form-control" id="id_username" placeholder="Username" maxlength="30" name="username">
             </p>
+            {{form.email.errors}}
             <p class="required">
                 <input class="form-control" id="id_email" name="email" placeholder="Email" type="email" />
             </p>
+            {{form.password1.errors}}
             <p class="required">
                 <input class="form-control" id="id_password1" name="password1" placeholder="Password" type="password" />
             </p>
+            {{form.password2.errors}}
             <p class="required">
                 <input class="form-control" id="id_password2" name="password2" placeholder="Password confirmation" type="password" />
             </p>

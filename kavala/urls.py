@@ -28,7 +28,7 @@ class MyRegistrationView(RegistrationView):
         return reverse('user_profile:profile', current_app=self.request.resolver_match.namespace)
 
 urlpatterns = [
-	url(r'^$', TemplateView.as_view(template_name='homepage.html'), name='homepage'),
+    url(r'^$', TemplateView.as_view(template_name='homepage.html'), name='homepage'),
     url(r'^hotels/',include('hotels.urls')),
     url(r'^rentals/',include('rentals.urls')),
     url(r'^contact/',include('contact.urls')),
@@ -38,4 +38,5 @@ urlpatterns = [
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', admin.site.urls),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

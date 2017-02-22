@@ -79,25 +79,6 @@ def search_hotel_detail(request, slug):
 
     return render(request, 'booking/hotels/detail.html', data)
 
-@require_POST
-def add_room(request):
-    params = request.POST
-
-    checkin = params.get('checkin')
-    checkout = params.get('checkout')
-    rooms = params.getlist('room')
-
-    request.session['rooms'] = rooms
-    request.session['checkin'] = checkin
-    request.session['checkout'] = checkout
-
-    if params.get('gimme_car'):
-        url = "%s?checkin=%s&checkout=%s&from=hotel" % ( reverse(''), checkin, checkout )
-    else:
-        url = reverse('booking:book')
-
-    return HttpResponseRedirect(url)
-
 def search_car(request):
     params = request.GET
     form = CarFilterForm(params)
@@ -213,20 +194,27 @@ def search_bike_detail(request, slug):
 def search_package(request):
     pass
 
-def book(request):
+def book(request, what):
     checkin = request.session.get('checkin')
     checkout = request.session.get('checkout')
 
     if not checkin:
         return HttpResponseBadRequest()
 
-    roomids = request.session.get('rooms')
-    carid = request.session.get('car')
-    bikeid = request.session.get('bike')
+    bike = None
+    car = None
+    rooms = None
 
-    rooms = BookRoom.objects.filter(id__in=roomids).all()
-    car = Car.objects.filter(id=carid).all()
-    bike = Car.objects.filter(id=bikeid).all()
+    roomids = request.session.get('rooms')
+    rental = request.session.get('rental')
+
+    if what == 'hotel' or request.GET.get('from') == 'hotel':
+        rooms = BookRoom.objects.filter(id__in=roomids).all()
+
+    if what == 'car' and rental["type"] == 'car':
+        car = Car.objects.get(pk=rental["id"])
+    elif what == 'bike' and rental["type"] == 'bike':
+        bike = Bike.objects.get(pk=rental["id"])
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -251,6 +239,50 @@ def book(request):
     }
 
     return render(request, 'booking/book/index.html', data)
+
+@require_POST
+def add_rental(request):
+    params = request.POST
+
+    checkin = params.get('checkin')
+    checkout = params.get('checkout')
+    rentalid = params.get('rental')
+    rentaltype = params.get('type')
+
+    request.session["rental"] = {
+        "type": rentaltype,
+        "id": rentalid
+    }
+
+    request.session['checkin'] = checkin
+    request.session['checkout'] = checkout
+    # if we came from hotel pass the param
+    if params.get('from'):
+        url = "%s?checkin=%s&checkout=%s&from=%s" % (reverse('booking:book', kwargs={'what': rentaltype}),
+                checkin, checkout, params.get('from') )
+    else:
+        url = reverse('booking:book', kwargs={'what': rentaltype})
+
+    return HttpResponseRedirect(url)
+
+@require_POST
+def add_room(request):
+    params = request.POST
+
+    checkin = params.get('checkin')
+    checkout = params.get('checkout')
+
+    request.session['rooms'] = BookRoom.objects.filter(id__in=params.getlist('room')).all()
+    request.session['checkin'] = checkin
+    request.session['checkout'] = checkout
+
+    if params.get('from'):
+        url = "%s?checkin=%s&checkout=%s&from=%s" % (reverse('booking:search_car'),
+                checkin, checkout, params.get('from'))
+    else:
+        url = reverse('booking:book', kwargs={what: 'hotel'})
+
+    return HttpResponseRedirect(url)
 
 def _get_booked_ids(model, checkin, checkout):
     # (polymorphism) getting car type from the relation(inside has car/bike/rooms)

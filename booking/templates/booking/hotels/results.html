@@ -14,55 +14,55 @@
     <script src="{% static 'js/map.js' %}">
     </script>
 
-	<script type="text/javascript">
-	    function initMap() {
-		    var locations = [
-				{% for hotel in hotels %}
-					['{{hotel.name}}', {{hotel.lat}}, {{hotel.lng}}],
-				{% endfor %}
-		    ];
+    <script type="text/javascript">
+        function initMap() {
+            var locations = [
+                {% for hotel in hotels %}
+                    ['{{hotel.name}}', {{hotel.lat}}, {{hotel.lng}}],
+                {% endfor %}
+            ];
 
-		    var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 15,
-				center: new google.maps.LatLng(40.937600, 24.411864),
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-		    });
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: new google.maps.LatLng(40.937600, 24.411864),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
 
-		    var infowindow = new google.maps.InfoWindow();
+            var infowindow = new google.maps.InfoWindow();
 
-		    var marker, i;
+            var marker, i;
 
-		    for (i = 0; i < locations.length; i++) {
-		    	marker = new google.maps.Marker({
-		    		position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-		    		map: map
-		    	});
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
 
-		    	google.maps.event.addListener(marker, 'click', (function(marker, i) {
-		    		return function() {
-		    			infowindow.setContent(locations[i][0]);
-		    			infowindow.open(map, marker);
-		    		}
-		    	})(marker, i));
-		    }
-		}
-	</script>
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        }
+    </script>
 
-	<script>
+    <script>
 
-	    $( "#slider-range" ).slider({
-	      range: 'min',
-	      min: {{ meta.prices.min }},
-	      max: {{meta.prices.max}},
-	      value: {{request.GET.price|default:meta.prices.min }},
-	      slide: function( event, ui ) {
-	        $( "#amount" ).val(ui.value);
-	      }
-	    });
+        $( "#slider-range" ).slider({
+          range: 'min',
+          min: {{ meta.prices.min }},
+          max: {{meta.prices.max}},
+          value: {{request.GET.price|default:meta.prices.min }},
+          slide: function( event, ui ) {
+            $( "#amount" ).val(ui.value);
+          }
+        });
 
-	    $( "#amount" ).val({{request.GET.price|default_if_none:meta.prices.min }});
+        $( "#amount" ).val({{request.GET.price|default_if_none:meta.prices.min }});
 
-  	</script>
+    </script>
 
 {% endblock %}
 
@@ -74,24 +74,24 @@
 
 <section layout="column center-center">
 
-	<div class="main-wrapper" layout="row top-justify">
+    <div class="main-wrapper" layout="row top-justify">
 
-		<aside class="search-container" self="size-x1" layout="column center-center">
-			<a href="#" class="button map-btn" layout='column center-center'>
-				<span class="btn-top content"> view on map </span>
-				<span class="btn-bottom content"> view on map </span>
-			</a>
+        <aside class="search-container" self="size-x1" layout="column center-center">
+            <a href="#" class="button map-btn" layout='column center-center'>
+                <span class="btn-top content"> view on map </span>
+                <span class="btn-bottom content"> view on map </span>
+            </a>
 
-			<div class="filters">
-				{% include 'booking/hotels/forms/filter.html' %}
-			</div>
-		</aside>
+            <div class="filters">
+                {% include 'booking/hotels/forms/filter.html' %}
+            </div>
+        </aside>
 
-		<main class="hotel-list-container" self="size-x3" layout="column center-center">
-			{% include 'booking/hotels/partials/list.html' %}
-		</main>
+        <main class="hotel-list-container" self="size-x3" layout="column center-center">
+            {% include 'booking/hotels/partials/list.html' %}
+        </main>
 
-	</div>
+    </div>
 </section>
 
 {% endblock %}

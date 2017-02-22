@@ -26,7 +26,7 @@
     </form>
     <p>
         Not a member?
-        <a href="{% url 'registration_register' %}">Register</a>
+        <a href="{% url 'registration_register' %}{% if next %}">Register</a>
     </p>
 </section>
 {% endblock %}

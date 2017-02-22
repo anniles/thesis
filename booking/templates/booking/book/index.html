@@ -18,12 +18,23 @@
             <h1>Fill the form below</h1>
         </div>
 
-        {{ rooms }}
-        {{ bike }}
-        {{ car }}
-
-        <form action="" method="post" layout="column center-center" novalidate="true">
+        <form action="{{ request.get_full_path }}" method="post" layout="column center-center" novalidate="true">
             {% csrf_token %}
+
+            {% if rooms %}
+            {% for r in rooms %}
+            <input name="rooms" type="hidden" value="{{ r.id }}">
+            {% endfor %}
+            {% endif %}
+
+            {% if bike %}
+            <input name="bike" type="hidden" value="{{ bike.id }}">
+            {% endif %}
+
+            {% if car %}
+            <input name="car" type="hidden" value="{{ car.id }}">
+            {% endif %}
+
 
             {{ form.non_field_errors }}
             <div class="" layout="rows center-center">
@@ -48,13 +59,6 @@
                     {{ form.phone.errors }}
                     <label for="{{ form.phone.id_for_label }}">Phone</label>
                     {{ form.phone }}
-                </div>
-            </div>
-            <div class="" layout="rows center-center">
-                <div class="booking-item one" self="left">
-                    {{ form.address.errors }}
-                    <label for="{{ form.address.id_for_label }}">Address</label>
-                    {{ form.address }}
                 </div>
             </div>
 

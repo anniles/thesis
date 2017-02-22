@@ -119,9 +119,12 @@ class BikeFilterForm(forms.Form):
 
 # booking form after select
 class BookForm(forms.Form):
+
     fname = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Enter Name'}))
     lname = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Enter Last Name'}))
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Enter Email'}))
     phone = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Enter Phone'}), required=False)
-    address = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Enter Address'}), required=False)
+    rooms = forms.CharField(max_length=100, required=False)
+    car = forms.CharField(max_length=100, required=False)
+    bike = forms.CharField(max_length=100, required=False)
 

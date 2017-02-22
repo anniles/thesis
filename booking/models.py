@@ -36,9 +36,6 @@ class Booking(models.Model):
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
 
-    def __str__(self):
-        return self.user.username
-
 
 class BookingItem(models.Model):
 
@@ -54,10 +51,15 @@ class BookingItem(models.Model):
 
 class BookRoom(Room):
 
-    # def add_item(self, booking):
+    def add_item(self, booking, dates):
 
-    #     bookingItem = BookingItem(content_object=self.room, booking=booking, check_in=date(2017,1,1), check_out=date(2017,1,8), price=self.room.price)
-    #     bookingItem.save()
+        bookingItem = BookingItem(content_object=self,
+                booking=booking,
+                check_in=dates["checkin"],
+                check_out=dates["checkout"],
+                price=self.price)
+
+        bookingItem.save()
 
     # check if room is available on wanted dates
     def is_available(self, check_in, check_out):
@@ -79,10 +81,15 @@ class BookRoom(Room):
 
 class BookCar(Car):
 
-    # def add_item(self, booking):
+    def add_item(self, booking, dates):
 
-    #     bookingItem = BookingItem(content_object=self.room, booking=booking, check_in=date(2017,1,1), check_out=date(2017,1,8), price=self.room.price)
-    #     bookingItem.save()
+        bookingItem = BookingItem(content_object=self,
+                booking=booking,
+                check_in=dates["checkin"],
+                check_out=dates["checkout"],
+                price=self.price)
+
+        bookingItem.save()
 
     # check if car is available on wanted dates
     def is_available(self, check_in, check_out):
@@ -104,10 +111,15 @@ class BookCar(Car):
 
 class BookBike(Bike):
 
-    # def add_item(self, booking):
+    def add_item(self, booking, dates):
 
-    #     bookingItem = BookingItem(content_object=self.room, booking=booking, check_in=date(2017,1,1), check_out=date(2017,1,8), price=self.room.price)
-    #     bookingItem.save()
+        bookingItem = BookingItem(content_object=self,
+                booking=booking,
+                check_in=dates["checkin"],
+                check_out=dates["checkout"],
+                price=self.price)
+
+        bookingItem.save()
 
     # check if bike is available on wanted dates
     def is_available(self, check_in, check_out):
@@ -127,8 +139,12 @@ class BookBike(Bike):
         proxy = True
 
 
+# upon register we want to connect the user to a client who has bookings
+# we do that by cross checking emails
 @receiver(user_registered)
-def create_client(sender, **kwargs):
-    pass
-
+def create_client(sender, user, **kwargs):
+    try:
+        client = BookingContact.objects.filter(email=user.email).update(user=user)
+    except Exception as e:
+        print (str(e))
 

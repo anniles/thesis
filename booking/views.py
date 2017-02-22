@@ -4,17 +4,18 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseBadRequest
 from django.views.decorators.http import require_POST
 from django.urls import reverse
+from django.db import transaction
 
 from django.db.models import Min, Max, Count, Sum, Q
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
-from .models import BookRoom, BookCar, BookBike, BookingItem
+from .models import BookRoom, BookCar, BookBike, BookingItem, BookingContact, Booking
 
 from hotels.models import Hotel
 from hotels.forms import HotelFilterForm
 
-from rentals.models import Rental, Car, Bike
 from .forms import CarFilterForm, BikeFilterForm, BookForm
 
 # Create your views here.
@@ -90,7 +91,7 @@ def search_car(request):
     booked_ids = _get_booked_ids(BookCar, checkin, checkout)
 
     # BUILDING QUERIES
-    q = Car.objects.exclude(id__in=booked_ids)
+    q = BookCar.objects.exclude(id__in=booked_ids)
 
     prices = q.aggregate(max=Max('price'),min=Min('price'))
 
@@ -145,7 +146,7 @@ def search_bike(request):
 
     booked_ids = _get_booked_ids(BookBike, checkin, checkout)
     # BUILDING QUERIES
-    q = Bike.objects.exclude(id__in=booked_ids)
+    q = BookBike.objects.exclude(id__in=booked_ids)
 
 
     prices = q.aggregate(max=Max('price'),min=Min('price'))
@@ -196,10 +197,12 @@ def search_package(request):
 
 def book(request, what):
 
-    checkin = request.session.get('checkin')
-    checkout = request.session.get('checkout')
+    dates = {
+        "checkin": request.session.get('checkin'),
+        "checkout": request.session.get('checkout')
+    }
 
-    if not checkin:
+    if not dates["checkin"]:
         return HttpResponseBadRequest()
 
     bike = None
@@ -213,18 +216,32 @@ def book(request, what):
         rooms = BookRoom.objects.filter(id__in=roomids).all()
 
     if what == 'car' and rental["type"] == 'car':
-        car = Car.objects.get(pk=rental["id"])
+        car = BookCar.objects.get(pk=rental["id"])
     elif what == 'bike' and rental["type"] == 'bike':
-        bike = Bike.objects.get(pk=rental["id"])
+        bike = BookBike.objects.get(pk=rental["id"])
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
+        form = BookForm(data=request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
+            try:
+                with transaction.atomic():
+                    # make the booking
+                    booking = _process_data(request, form)
+                    # add boooking items
+                    if car:
+                        car.add_item(booking, dates)
+                    if bike:
+                        bike.add_item(booking, dates)
+                    if rooms:
+                        for room in rooms:
+                            room.add_item(booking, dates)
 
-            # redirect to a new URL:
-            return render(request, 'booking/book/thanks.html')
+                    # redirect to a new URL:
+                    return render(request, 'booking/book/thanks.html')
+            except Exception as e:
+                print (str(e))
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -232,8 +249,7 @@ def book(request, what):
 
     data = {
         'form': form,
-        'checkin': checkin,
-        'checkout': checkout,
+        'dates': dates,
         'rooms': rooms,
         'bike': bike,
         'car': car
@@ -280,7 +296,7 @@ def add_room(request):
         url = "%s?checkin=%s&checkout=%s&from=%s" % (reverse('booking:search_car'),
                 checkin, checkout, params.get('from'))
     else:
-        url = reverse('booking:book', kwargs={what: 'hotel'})
+        url = reverse('booking:book', kwargs={ 'what': 'hotel'})
 
     return HttpResponseRedirect(url)
 
@@ -294,6 +310,40 @@ def _get_booked_ids(model, checkin, checkout):
         (Q(check_in__lte=checkin) & Q(check_out__gte=checkout)),
         Q(content_type__pk=bike_content_type.id)
         ).values_list('object_id', flat=True)
+
+def _get_user(r, email):
+    user = None
+    if r.user.is_authenticated:
+        user =  r.user
+    else:
+        try:
+            user = User.objects.get(email=email)
+        except Exception as e:
+            print (str(e))
+
+    return user
+
+
+def _process_data(request, form):
+    f = form.cleaned_data
+    user = _get_user(request, f["email"])
+    print(user)
+
+    client = BookingContact(email=f["email"],
+            first_name=f["fname"],
+            last_name=f["lname"],
+            phone=f["phone"])
+
+    print(client)
+    if user:
+        client.user = user
+
+    client.save()
+
+    booking = Booking(user=client)
+    booking.save()
+
+    return booking
 
 
 def thanku(request):

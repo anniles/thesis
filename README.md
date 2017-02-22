@@ -3,37 +3,49 @@ Tour guide for Kavala City
 
 ## installation
 
-- run `npm i` to install any dependencies
+1. Install vagrant and virtualbox.
 
-- Install vagrant and virualbox
+2. clone the repostitory and run:
 
-- run `vagrant up` to bring up the vm (the first time it downloads the box and provisions the vm.
+`$ vagrant up` at the root dir of the repo.
 
-- run `vagrant ssh` after to connect to the vm.
+It may take a while the first time.
 
-- set database access:
+3. When it is up you can run:
 
-    `sudo -u postgres psql`
+`$ vagrant ssh`  to connect to the vm.
 
-    ```sql
-    alter user kavala with password '123456'
-    ```
+the projects woking direcotry is
 
-- inside the vm run `python3 manage.py migrate`.
+`/home/vagrant/kavala`
 
- - to run the server inside the vm run:  
-    `python3 manage.py runserver 0.0.0.0:5000`
+4. We need now to set the db connection's password  
+connect as postgres user:
 
-    afterwards you can open your browser and point at `localhost:5000`.
+` $ sudo su postgres`
+` $ psql`
+` postgres# \password kavala` e.g: 123456
 
-- `vagrant halt` shuts down the vm
+5. We now need to run the migrations:
 
-## build assets
+` $ python3 manage.py migrate`
 
-Using the gulp task runner
+6. If we need sample data:
 
-Tasks:
+` $python3 manage.py hotels rentals sights`
 
-- `gulp sass`: compiles sass to css and uses an autoprefixer for the css
-- `gulp sass:watch`: watches predefined sources for changes and runs `gulp sass`
-- `gulp`: runs the 2 above
+7. To access the admin we need a superuser
+
+` $python3 manage.py createsuperuser`
+
+8. build the assets
+
+` $ npm install`
+` $ bower install`
+` $ gulp sass`
+
+9. Run the server
+
+` $python3 manage.py 0.0.0.0:8000`
+
+Access the application at [localhost:5000](http://localhost:5000)

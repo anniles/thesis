@@ -1,0 +1,34 @@
+@import settings
+
+.btn-bus, .btn-boat
+    width: 100px
+    height: 100px
+    border-radius: 50%
+    background: $lightblue
+    margin: 10px 20px
+
+.boat-roots, .bus-roots
+    overflow: auto
+
+.timetable
+    color: $grey
+    padding: 20px
+    width: 100%
+    margin: 0 auto
+    min-width: 780px
+    .lines
+        text-align: center
+        border-left: 1px solid $grey
+        border-right: 1px solid $grey
+        border-bottom: 1px solid $grey
+        &:first-of-type
+            border-top: 1px solid $grey
+        &.title
+            background: $pink
+            color: $white
+        p
+            border-right: 1px solid $grey
+            font-size: 12px
+            &:last-of-type
+                border-right: none
+

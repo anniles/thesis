@@ -16,6 +16,7 @@
 @import cars_list
 @import city_info
 @import search_room
+@import transportations
 
 body::-webkit-scrollbar
 	width: 11px
@@ -81,7 +82,7 @@ section
 	position: relative
 	width: 100%
 	@media #{$max700}
-		height: 300px
+		height: 100%
 		background-attachment: initial
 	&.book
 	    height: 300px
@@ -89,7 +90,7 @@ section
 		height: 465px
 		position: relative
 		@media #{$max700}
-			height: 300px
+			height: 100%
 	&.header-login
 		height: 300px
 	.header-title
@@ -355,6 +356,14 @@ section
 		width: 20px
 		height: 20px
 		// fill: $white
+	&-boat
+		width: 40px
+		height: 40px
+		fill: $white
+	&-bus
+		width: 40px
+		height: 40px
+		fill: $white
 
 
 

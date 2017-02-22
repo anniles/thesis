@@ -1,0 +1,254 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}Kavala'sTransport{% endblock %}
+
+{% block header %}
+{% include 'partials/pages-header.html'  with page_title="kavala's transportations" page_subtitle="travel freely" %}
+{% endblock %}
+
+{% block main %}
+
+<section layout="column center-center" class="hotel-list-section">
+
+    <div class="boat-roots" layout="column center-center">
+        <div class="btn-boat" layout="row center-center">
+            <svg class="icon-boat">
+                <use xlink:href="{% static 'svg/icons.svg' %}#boat" />
+            </svg>
+        </div>
+
+        <div class="timetable boat" layout="column center-center">
+            <div class="lines title" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">going to..</p>
+                <p layout="row center-center" self="stretch size-x1">Monday</p>
+                <p layout="row center-center" self="stretch size-x1">Tusday</p>
+                <p layout="row center-center" self="stretch size-x1">Wensday</p>
+                <p layout="row center-center" self="stretch size-x1">Thursday</p>
+                <p layout="row center-center" self="stretch size-x1">Friday</p>
+                <p layout="row center-center" self="stretch size-x1">Saturday</p>
+                <p layout="row center-center" self="stretch size-x1">Sunday</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Limnos</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-20:30 <br>EXP.PEGASUS</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-01:00 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-20:30 <br>EXP.PEGASUS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-01:00 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-20:30 <br>EXP.PEGASUS</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Snt.Eustratios</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-23:00 <br>EXP.PEGASUS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-23:00 <br>EXP.PEGASUS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-23:00 <br>EXP.PEGASUS</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Mitilini</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-05:50 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-05:50 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Xios</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-09:15 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-09:15 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Vathi</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-12:00 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-12:00 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Euthidos</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-15:55 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Laurio</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-06:40 <br>EXP.PEGASUS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-06:40 <br>EXP.PEGASUS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">16:00-06:40 <br>EXP.PEGASUS</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Mykonos</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-18:10 <br>N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+                <p layout="row center-center" self="stretch size-x1">21:30-18:10</br> N.MYKONOS</p>
+                <p layout="row center-center" self="stretch size-x1">-</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bus-roots" layout="column center-center">
+        <div class="btn-bus" layout="row center-center">
+            <svg class="icon-bus">
+                <use xlink:href="{% static 'svg/icons.svg' %}#bus" />
+            </svg>
+        </div>
+
+        <div class="timetable bus" layout="column center-center">
+            <div class="lines title" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Kavala-Thessaloniki</p>
+                <p layout="row center-center" self="stretch size-x1">Thessaloniki-Kavala</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">Monday-Friday</p>
+                <p layout="row center-center" self="stretch size-x1">Saturday-Sunday</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">06:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">06:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">06:00 <br> - </p>
+                <p layout="row center-center" self="stretch size-x1">06:00 <br> - </p>
+            </div>
+
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">07:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">08:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">07:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">08:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">08:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">09:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">08:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">09:00 <br> ΕΞΠΡΕΣ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">09:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">10:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">09:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">09:30 <br> ΕΞΠΡΕΣ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">10:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">11:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">10:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">10:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">11:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">12:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">11:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">11:00 <br> ΠΕΡΑΜΟΣ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">12:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">13:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">12:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">12:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ-ΧΩΡΙΑ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">13:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">14:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">13:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">13:00 <br> ΕΞΠΡΕΣ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">14:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">15:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">14:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">14:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">15:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">16:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">15:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">15:00 <br> ΠΕΡΑΜΟΣ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">16:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">17:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">16:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">16:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">17:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">18:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">17:00 <br> ΕΞΠΡΕΣ</p>
+                <p layout="row center-center" self="stretch size-x1">17:00 <br> ΕΞΠΡΕΣ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">18:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">19:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">18:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">18:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">19:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">20:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">19:00 <br> ΠΕΡΑΜΟΣ</p>
+                <p layout="row center-center" self="stretch size-x1">19:00 <br> ΠΕΡΑΜΟΣ</p>
+            </div>
+
+            <div class="lines" layout="row center-center">
+                <p layout="row center-center" self="stretch size-x1">20:40 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">22:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">20:40 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+                <p layout="row center-center" self="stretch size-x1">22:00 <br> ΕΛΕΥΘΕΡΟΥΠΟΛΗ - ΧΩΡΙΑ</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

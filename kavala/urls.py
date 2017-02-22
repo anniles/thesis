@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^rentals/',include('rentals.urls')),
     url(r'^contact/',include('contact.urls')),
     url(r'^sights/',include('sights.urls')),
+    url(r'^transport/',include('transport.urls')),
     url(r'^search/',include('booking.urls')),
     url(r'^settings/',include('user_profile.urls')),
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),

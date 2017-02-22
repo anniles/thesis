@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'user_profile',
     'booking',
     'sights',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kavala.wsgi.application'
 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases

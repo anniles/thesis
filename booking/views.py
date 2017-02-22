@@ -195,6 +195,7 @@ def search_package(request):
     pass
 
 def book(request, what):
+
     checkin = request.session.get('checkin')
     checkout = request.session.get('checkout')
 
@@ -258,8 +259,7 @@ def add_rental(request):
     request.session['checkout'] = checkout
     # if we came from hotel pass the param
     if params.get('from'):
-        url = "%s?checkin=%s&checkout=%s&from=%s" % (reverse('booking:book', kwargs={'what': rentaltype}),
-                checkin, checkout, params.get('from') )
+        url = "%s?from=%s" % (reverse('booking:book', kwargs={'what': rentaltype}), params.get('from') )
     else:
         url = reverse('booking:book', kwargs={'what': rentaltype})
 
@@ -272,7 +272,7 @@ def add_room(request):
     checkin = params.get('checkin')
     checkout = params.get('checkout')
 
-    request.session['rooms'] = BookRoom.objects.filter(id__in=params.getlist('room')).all()
+    request.session['rooms'] = params.getlist('room')
     request.session['checkin'] = checkin
     request.session['checkout'] = checkout
 

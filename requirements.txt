@@ -3,3 +3,5 @@ psycopg2
 pillow>=2.0.0
 PyYAML
 django-registration-redux
+django-extensions
+django-bootstrap-toolkit

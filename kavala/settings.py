@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'user_profile',
     'booking',
     'sights',
-    'django_extensions',
 ]
 
 MIDDLEWARE = [

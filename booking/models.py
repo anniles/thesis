@@ -9,9 +9,30 @@ from django.contrib.auth.models import User
 from hotels.models import Room
 from rentals.models import Car, Bike
 
+from registration.signals import user_registered
+from django.dispatch import receiver
+
+
+class BookingContact(models.Model):
+
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.email
+
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(BookingContact, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
 
@@ -104,3 +125,10 @@ class BookBike(Bike):
 
     class Meta:
         proxy = True
+
+
+@receiver(user_registered)
+def create_client(sender, **kwargs):
+    pass
+
+
